@@ -11,7 +11,6 @@
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Page1());
         }
     }
 }
