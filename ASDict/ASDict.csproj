@@ -56,12 +56,7 @@
 	  <Folder Include="MVVM\Models\" />
 	  <Folder Include="MVVM\ViewModels\" />
 	  <Folder Include="Icons\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="MVVM\Views\NewPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	  <Folder Include="MVVM\Views\" />
 	</ItemGroup>
 
 </Project>
