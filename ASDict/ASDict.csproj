@@ -49,7 +49,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\backgr.jpg" />
+	  <None Remove="Resources\Images\backgr.png" />
+	  <None Remove="Resources\Images\backgr_splash.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
