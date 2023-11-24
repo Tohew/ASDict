@@ -4,9 +4,13 @@
              x:Class="ASDict.MVVM.Views.ContentScreenView"
              Title="ContentScreenView">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid>
+            <Image
+            Source="background.jpg"
+            Aspect="AspectFill" />
+
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            </StackLayout>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>
