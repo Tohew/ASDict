@@ -1,4 +1,5 @@
 ﻿using ASDict.MVVM.Views;
+using CommunityToolkit.Maui.Behaviors;
 
 namespace ASDict
 {
@@ -7,8 +8,7 @@ namespace ASDict
         public App()
         {
             InitializeComponent();
-
-            MainPage = new ContentScreenView();
+            MainPage = new AppShell();
         }
     }
 }

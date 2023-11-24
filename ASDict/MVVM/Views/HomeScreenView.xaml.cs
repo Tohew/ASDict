@@ -1,8 +1,8 @@
 namespace ASDict.MVVM.Views;
 
-public partial class HomeScreen : ContentPage
+public partial class HomeScreenView : ContentPage
 {
-	public HomeScreen()
+	public HomeScreenView()
 	{
 		InitializeComponent();
 	}
