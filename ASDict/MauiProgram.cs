@@ -15,6 +15,7 @@ namespace ASDict
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("PatrickHand-Regular.ttf", "PatrickHand");
                 });
 
 #if DEBUG
