@@ -1,4 +1,6 @@
-﻿namespace ASDict
+﻿using ASDict.MVVM.Views;
+
+namespace ASDict
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new ContentScreenView();
         }
     }
 }
