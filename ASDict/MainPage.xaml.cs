@@ -1,9 +1,9 @@
-﻿namespace ASDict
+﻿using Microsoft.Maui.Controls;
+
+namespace ASDict
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
@@ -13,5 +13,11 @@
         {
             Navigation.PushAsync(new MVVM.Views.HomeScreenView());
         }
+    }
+}
+            Navigation.PushAsync(new MVVM.Views.ContentScreenView());
+        }
+
+        
     }
 }
