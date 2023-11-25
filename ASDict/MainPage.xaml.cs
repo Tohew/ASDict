@@ -15,9 +15,3 @@ namespace ASDict
         }
     }
 }
-            Navigation.PushAsync(new MVVM.Views.ContentScreenView());
-        }
-
-        
-    }
-}
