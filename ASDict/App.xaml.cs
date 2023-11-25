@@ -8,7 +8,7 @@ namespace ASDict
         {
             InitializeComponent();
 
-            MainPage = new ContentScreenView();
+            MainPage = new AppShell();
         }
     }
 }
