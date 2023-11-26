@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASDict.MVVM.Views.HomeScreenView"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              Title="HomeScreen">
     <Shell.NavBarIsVisible>
         <OnIdiom x:TypeArguments="x:Boolean">
@@ -10,11 +12,208 @@
         </OnIdiom>
     </Shell.NavBarIsVisible>
 
+    <Page.Behaviors>
+        <mct:StatusBarBehavior x:Name="statusBar"/>
+    </Page.Behaviors>
+
     <Grid>
         <Image Source="Resources/Images/backgr.png" Aspect="AspectFill" />
 
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <VerticalStackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        </StackLayout>
+                <Image Source="menu_icon.svg"
+                            Grid.Column="0"
+                            HeightRequest="45"
+                            WidthRequest="45"
+                            Margin="10,5,0,0"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Start"/>
+
+                <Border 
+                    Grid.Column="2"
+                    Margin="0,5,8,0"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 36"
+                    Background="white"
+                    HorizontalOptions="End"
+                    Stroke="#333A57">
+                    
+                    <Border.Shadow>
+                        <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="0,10"
+                        Opacity="1"/>
+                    </Border.Shadow>
+                    
+                    <ImageButton
+                        Source="menu_icon_blue.svg"
+                        Aspect="Center" 
+                        BackgroundColor="White"
+                        HorizontalOptions="Center"
+                        HeightRequest="45"
+                        WidthRequest="45"/>
+                </Border>
+                
+            </Grid>
+
+            <Grid Padding="25">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".8*"/>
+                    <ColumnDefinition Width=".2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Column="0"
+                       CornerRadius="20"
+                       HasShadow="True"
+                       HeightRequest="50"
+                       WidthRequest="275"
+                       Margin="0,10,0,0"
+                       Padding="5"
+                       BorderColor="White">
+                    <Entry>
+
+                    </Entry>
+                </Frame>
+
+
+                <Frame Grid.Column="1"
+                       CornerRadius="20"
+                       HasShadow="True"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       Margin="20,10,0,0"
+                       BorderColor="#333A57"
+                       BackgroundColor="#333A57">
+                    <ImageButton Source="search_icon_white.svg"
+                                 HeightRequest="30"
+                                 WidthRequest="20">
+                        
+                    </ImageButton>
+                </Frame>
+            </Grid>
+
+            <Frame HeightRequest="600"
+                   CornerRadius="30"
+                   BackgroundColor="#FEF2F2"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".7*"/>
+                            <ColumnDefinition Width=".3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Search History"
+                               Grid.Column="0"
+                               HorizontalOptions="Start"
+                               FontFamily="Pattrick Hand"
+                               FontSize="20"/>
+
+                        <ImageButton Source="rubbish_icon.svg"
+                                     Grid.Column="1"
+                                     HorizontalOptions="End"
+                                     HeightRequest="20"/>
+                    </Grid>
+
+                    <StackLayout Spacing="30">
+                        <Line X1="0" Y1="50" X2="330" Y2="50"
+                          Stroke="Black" 
+                          StrokeThickness="1">
+                        </Line>
+
+                        <Frame BackgroundColor="#AEB1E4"
+                               CornerRadius="20"
+                               HeightRequest="287">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".7*"/>
+                                    <ColumnDefinition Width=".3*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Frame CornerRadius="20">
+                                    <Label Text="Do you know?"
+                                           Grid.Column="0"
+                                           FontFamily="Pattrick Hand"
+                                           FontSize="20"/>
+                                </Frame>
+                                <ImageButton Source="double_arrow.svg"
+                                             Grid.Column="1"
+                                             HorizontalOptions="End"
+                                             HeightRequest="20"/>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border 
+                    Grid.Column="0"
+                    Margin="0,5,0,0"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 36"
+                    Background="white"
+                    HorizontalOptions="Center"
+                    Stroke="#333A57">
+
+                    <Border.Shadow>
+                        <Shadow Brush="#333A57"
+                                Radius="0"
+                                Offset="0,10"
+                                Opacity="1"/>
+                    </Border.Shadow>
+
+                    <ImageButton
+                        Source="house_icon.svg"
+                        Aspect="Center" 
+                        BackgroundColor="White"
+                        HorizontalOptions="Center"
+                        HeightRequest="45"
+                        WidthRequest="45"/>
+                </Border>
+
+                <Border 
+                    Grid.Column="1"
+                    Margin="0,5,20,0"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 36"
+                    Background="white"
+                    HorizontalOptions="Center"
+                    Stroke="#333A57">
+
+                    <Border.Shadow>
+                        <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="0,10"
+                        Opacity="1"/>
+                    </Border.Shadow>
+
+                    <ImageButton
+                        Source="bookmark_icon.svg"
+                        Aspect="Center" 
+                        BackgroundColor="White"
+                        HorizontalOptions="Center"
+                        HeightRequest="45"
+                        WidthRequest="45"/>
+                </Border>
+
+            </Grid>
+
+
+        </VerticalStackLayout>
     </Grid>
+    
 </ContentPage>

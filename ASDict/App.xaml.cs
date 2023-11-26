@@ -8,7 +8,7 @@ namespace ASDict
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
+            MainPage = new HomeScreenView();
         }
     }
 }
