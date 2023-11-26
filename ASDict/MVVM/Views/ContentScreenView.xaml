@@ -10,7 +10,78 @@
     </Shell.NavBarIsVisible>
 
     <Grid>
-        <Image Source="Resources/Images/backgr.png" Aspect="AspectFill" />
+        <Image Source="Resources/Images/backgr.png" Aspect="AspectFill"/>
+
+        <Border
+            StrokeThickness="4" 
+            StrokeShape="RoundRectangle 90"
+            Background="white"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+            Stroke="#333A57">
+            <Border.Shadow>
+                <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="1.75,9"
+                        Opacity="1"/>
+            </Border.Shadow>
+            <Image
+                Source="Resources/AppIcon/AppIconSmall.svg" 
+                Aspect="Center" 
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                HeightRequest="45"
+                WidthRequest="45"/>
+        </Border>
+
+        <Border  Margin="0,0,100,0"
+            StrokeThickness="4" 
+            StrokeShape="RoundRectangle 90"
+            Background="white"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            Stroke="#333A57">
+            <Border.Shadow>
+                <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="1.75,9"
+                        Opacity="1"/>
+            </Border.Shadow>
+            <ImageButton x:Name="bookmark"
+                Source="Resources/Images/bookmark_icon.svg" 
+                Aspect="Center" 
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="bookmark_Clicked"
+                HeightRequest="45"
+                WidthRequest="45"/>
+        </Border>
+
+        <Border Margin="0,0,100,0"
+            StrokeThickness="4" 
+            StrokeShape="RoundRectangle 90"
+            Background="white"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            Stroke="#333A57">
+            <Border.Shadow>
+                <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="1.75,9"
+                        Opacity="1"/>
+            </Border.Shadow>
+            <ImageButton x:Name="menu"
+                Source="Resources/Images/menu_icon_blue.svg" 
+                Aspect="Center" 
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="menu_Clicked"
+                HeightRequest="45"
+                WidthRequest="45"/>
+        </Border>
 
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             

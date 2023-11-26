@@ -11,7 +11,7 @@ namespace ASDict
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MVVM.Views.HomeScreenView());
+            Navigation.PushAsync(new MVVM.Views.ContentScreenView());
         }
     }
 }
