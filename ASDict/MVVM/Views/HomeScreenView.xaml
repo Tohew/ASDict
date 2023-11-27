@@ -140,13 +140,7 @@
                        HorizontalOptions="FillAndExpand"
                        VerticalOptions="FillAndExpand">
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height=".9*"/>
-                            <RowDefinition Height=".1*"/>
-                        </Grid.RowDefinitions>
-
-                        <StackLayout Grid.Row="0"
-                                     Spacing="20">
+                        <StackLayout Spacing="30">
                             <!-- Search History + Rubbish -->
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -166,11 +160,11 @@
                                             HeightRequest="20"/>
                             </Grid>
 
-                            <!-- Line + Do you know? -->
+                            <!-- History + Line + Do you know? -->
                             <StackLayout Spacing="20">
                                 <BoxView BackgroundColor="Aquamarine"
                                          HeightRequest="50">
-                                    
+
                                 </BoxView>
                                 <!-- Line -->
                                 <Line X1="0" Y1="50" X2="330" Y2="50"
@@ -238,8 +232,6 @@
                                 </Grid>
 
                             </StackLayout>
-
-                            <!-- Tabbed View -->
                         </StackLayout>
                     </Grid>
                 </Frame>
