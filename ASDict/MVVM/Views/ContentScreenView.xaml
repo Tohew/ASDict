@@ -9,10 +9,22 @@
         </OnIdiom>
     </Shell.NavBarIsVisible>
 
-    <Grid>
-        <Image Source="Resources/Images/backgr.png" Aspect="AspectFill"/>
 
-        <Border
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".8*"/>
+            <RowDefinition Height=".1*"/>
+        </Grid.RowDefinitions>
+
+
+        <Image Source="Resources/Images/backgr.png" Aspect="AspectFill"
+               Grid.Column="0"
+               Grid.RowSpan="3"/>
+
+        <!--App icon-->
+        <Border Margin="8,0,0,0"
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
@@ -22,11 +34,11 @@
             <Border.Shadow>
                 <Shadow Brush="#333A57"
                         Radius="0"
-                        Offset="1.75,9"
+                        Offset="0,10"
                         Opacity="1"/>
             </Border.Shadow>
             <Image
-                Source="Resources/AppIcon/AppIconSmall.svg" 
+                Source="Resources/Images/appiconsmall.svg" 
                 Aspect="Center" 
                 BackgroundColor="White"
                 HorizontalOptions="Center"
@@ -35,31 +47,58 @@
                 WidthRequest="45"/>
         </Border>
 
-        <Border  Margin="0,0,100,0"
+        <!--search icon-->
+        <Border  Margin="180,0,125,0"
+            StrokeThickness="4" 
+            StrokeShape="RoundRectangle 18.5"
+            Background="white"
+            
+            VerticalOptions="Start"
+            Stroke="#333A57">
+            <Border.Shadow Margin="180,0,125,0">
+                <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="0,10"
+                        Opacity="0.5"/>
+            </Border.Shadow>
+            <ImageButton x:Name="search"
+                Source="Resources/Images/search_icon_white.svg" 
+                Aspect="Center" 
+                BackgroundColor="#333A57"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="search_Clicked"
+                HeightRequest="45"
+                WidthRequest="45"/>
+        </Border>
+
+        <!--star white icon-->
+        <Border  Margin="241,0,65,0"
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
-            HorizontalOptions="Center"
+            
             VerticalOptions="Start"
             Stroke="#333A57">
-            <Border.Shadow>
+            <Border.Shadow Margin="241,0,65,0">
                 <Shadow Brush="#333A57"
                         Radius="0"
-                        Offset="1.75,9"
+                        Offset="0,10"
                         Opacity="1"/>
             </Border.Shadow>
-            <ImageButton x:Name="bookmark"
-                Source="Resources/Images/bookmark_icon.svg" 
+            <ImageButton x:Name="star_white"
+                Source="Resources/Images/star_icon_white.svg" 
                 Aspect="Center" 
                 BackgroundColor="White"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Clicked="bookmark_Clicked"
+                Clicked="star_white_Clicked"
                 HeightRequest="45"
                 WidthRequest="45"/>
         </Border>
 
-        <Border Margin="0,0,100,0"
+        <!--Menu icon-->
+        <Border Margin="0,0,8,0"
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
@@ -69,7 +108,7 @@
             <Border.Shadow>
                 <Shadow Brush="#333A57"
                         Radius="0"
-                        Offset="1.75,9"
+                        Offset="0,10"
                         Opacity="1"/>
             </Border.Shadow>
             <ImageButton x:Name="menu"
@@ -83,8 +122,192 @@
                 WidthRequest="45"/>
         </Border>
 
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            
-        </StackLayout>
+        <!--Frame result-->
+        <Frame 
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            HeightRequest="700"
+            CornerRadius="20"
+            BackgroundColor="#FEF2F2"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            BorderColor="#FEF2F2">
+            <StackLayout>
+                <!--Label result-->
+                <Border HorizontalOptions="StartAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        StrokeThickness="4"
+                        StrokeShape="RoundRectangle 18.5"
+                        Stroke="#333A57">
+                    <Border.Shadow >
+                        <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="0,10"
+                        Opacity="1"/>
+                    </Border.Shadow>
+
+                    <Label x:Name="resultLabel"
+                        Padding="10"
+                        Text="Kết quả nè coi đi"
+                        FontSize="28"
+                        FontFamily="PatrickHand"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+                </Border>
+
+                <!--Table result-->
+                <Border StrokeThickness="7"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        HeightRequest="390"
+                        WidthRequest="310"
+                        Margin="0,30,0,500"
+                        Stroke="#333A57"
+                        StrokeShape="RoundRectangle 20"
+                        BackgroundColor="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height=".25*" />
+                            <RowDefinition Height=".75*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" Background="#AEB1E4">
+                            <!--Synonym-->
+                            <Border HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="StartAndExpand"
+                                    StrokeShape="RoundRectangle 20"
+                                    StrokeThickness="0"
+                                    Stroke="#333A57"
+                                    Margin="20">
+                                <Border.Shadow Margin="180,0,125,0">
+                                    <Shadow Brush="Black"
+                                            Radius="0"
+                                            Offset="0,10"
+                                            Opacity="1"/>
+                                </Border.Shadow>
+
+                                <Button x:Name="synonym"
+                                        BackgroundColor="#333A57"
+                                        Padding="10"
+                                        Text="Synonym"
+                                        FontSize="20"
+                                        TextColor="Gray"
+                                        FontFamily="PatrickHand"
+                                        Clicked="synonym_Clicked"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"/>
+                            </Border>
+
+                            <!--Antonym-->
+                            <Border HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="StartAndExpand"
+                                    StrokeShape="RoundRectangle 20"
+                                    StrokeThickness="0"
+                                    Stroke="#333A57"
+                                    Margin="130,20,0,0">
+                                <Border.Shadow Margin="180,0,125,0">
+                                    <Shadow Brush="Black"
+                                            Radius="0"
+                                            Offset="0,10"
+                                            Opacity="1"/>
+                                </Border.Shadow>
+
+                                <Button x:Name="antonym"
+                                        BackgroundColor="#333A57"
+                                        Padding="10"
+                                        Text="Antonym"
+                                        FontSize="20"
+                                        TextColor="Gray"
+                                        FontFamily="PatrickHand"
+                                        Clicked="antonym_Clicked"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Frame CornerRadius="0" BorderColor="#AEB1E4">
+
+                            </Frame>
+                        </Grid>
+
+                    </Grid>
+                </Border>
+
+            </StackLayout>
+        </Frame>
+
+        <!--Bottom menu-->
+        <Frame
+            HeightRequest="165"
+            WidthRequest="360"
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            CornerRadius="20"
+            VerticalOptions="End">
+            <Image Source="Resources/Images/backgr.png" 
+               Aspect="AspectFill"
+               HeightRequest="200" 
+               WidthRequest="840"/>
+        </Frame>
+
+        <Border  Margin="255,70,65,-20"
+            StrokeThickness="4" 
+            StrokeShape="RoundRectangle 90"
+            Background="white"
+            Grid.Row="3"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Stroke="#333A57">
+            <Border.Shadow Margin="255,70,65,-20">
+                <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="0,10"
+                        Opacity="1"/>
+            </Border.Shadow>
+            <ImageButton x:Name="bookmark1"
+                Source="Resources/Images/bookmark_icon.svg" 
+                Aspect="Center" 
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="bookmark1_Clicked"
+                HeightRequest="45"
+                WidthRequest="45"/>
+        </Border>
+
+        <Line X1="185" Y1="0" X2="185" Y2="100"
+              Grid.Row="2"
+              Margin="0,55,0,-37"
+              VerticalOptions="CenterAndExpand"
+              HorizontalOptions="CenterAndExpand"
+              Stroke="#333A57" 
+              StrokeThickness="2.5"/>
+
+        <Border  Margin="65,70,0,-20"
+            StrokeThickness="4" 
+            StrokeShape="RoundRectangle 90"
+            Background="white"
+            Grid.Row="3"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="StartAndExpand"
+            Stroke="#333A57">
+            <Border.Shadow Margin="255,70,65,-20">
+                <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="0,10"
+                        Opacity="1"/>
+            </Border.Shadow>
+            <ImageButton x:Name="house_icon"
+                Source="Resources/Images/house_icon.svg" 
+                Aspect="Center" 
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="house_icon_Clicked"
+                HeightRequest="45"
+                WidthRequest="45"/>
+        </Border>
+
     </Grid>
 </ContentPage>

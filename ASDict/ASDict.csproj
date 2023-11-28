@@ -55,6 +55,8 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\PatrickHand-Regular.ttf" />
+	  <None Remove="Resources\Images\star_icon_blue.svg" />
+	  <None Remove="Resources\Images\star_icon_white.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
