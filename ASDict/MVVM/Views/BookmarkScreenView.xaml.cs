@@ -6,4 +6,14 @@ public partial class BookmarkScreenView : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void AppIcon_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void MenuIcon_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -49,6 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\appicon_small.svg" />
 	  <None Remove="Resources\Images\backgr.png" />
 	  <None Remove="Resources\Images\backgr_splash.jpg" />
 	</ItemGroup>

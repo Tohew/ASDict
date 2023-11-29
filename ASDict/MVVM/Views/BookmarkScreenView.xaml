@@ -11,10 +11,123 @@
     </Shell.NavBarIsVisible>
 
     <Grid>
-        <Image Source="Resources/Images/backgr.png" Aspect="AspectFill" />
+        <Image Source="Resources/Images/backgr.png" Aspect="AspectFill" 
+               Grid.Column="0"
+               Grid.RowSpan="2"/>
+        <VerticalStackLayout Grid.Row="0" Grid.RowSpan="1" Background="red">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
 
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <!--Header-->
+                    <Grid Padding="8" RowSpacing="60" ColumnDefinitions="auto, *, auto">
+                        <!--AppIcon-->
+                        <Border 
+                        Grid.Column="0" 
+                        StrokeThickness="4" 
+                        StrokeShape="RoundRectangle 36"
+                        Background="white"
+                        Stroke="#333A57">
+                            <Border.Shadow>
+                                <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="0,10"
+                        Opacity="1"/>
+                            </Border.Shadow>
+                            <ImageButton
+                        x:Name="AppIcon"
+                        Source="appicon_small.svg" 
+                        Aspect="Center" 
+                        BackgroundColor="White"
+                        HeightRequest="50"
+                        WidthRequest="50"
+                        Clicked="AppIcon_Clicked"/>
+                        </Border>
+                        <Border 
+                    Grid.Column="2" 
+                    StrokeThickness="4" 
+                    StrokeShape="RoundRectangle 36"
+                    Background="white"
+                    HorizontalOptions="Center"
+                    Stroke="#333A57">
+                            <Border.Shadow>
+                                <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="0,10"
+                        Opacity="1"/>
+                            </Border.Shadow>
+                            <ImageButton
+                        x:Name="MenuIcon"
+                        Source="menu_icon_blue.svg" 
+                        Aspect="Center" 
+                        BackgroundColor="White"
+                        HorizontalOptions="Center"
+                        HeightRequest="50"
+                        WidthRequest="50"
+                        Clicked="MenuIcon_Clicked"/>
+                        </Border>
+                    </Grid>
 
-        </StackLayout>
+                    <!--Search bar-->
+                    <Grid Padding="8" ColumnDefinitions="5*, *" RowSpacing="60" ColumnSpacing="8">
+                        <Border 
+                            Grid.Column="0"
+                            HeightRequest="50"
+                            Stroke="white"
+                            StrokeShape="RoundRectangle 20">    
+                            <Border.Shadow>
+                                <Shadow 
+                                    Brush="#333A57"
+                                    Radius="0"
+                                    Offset="0,10"
+                                    Opacity="0.5"/>
+                            </Border.Shadow>
+                            <Frame Padding="16, 0, 16, 0" BorderColor="White" >
+                                <Entry 
+                                    ClearButtonVisibility="WhileEditing"
+                                    FontFamily="PatrickHand"
+                                    FontSize="24"/>
+                            </Frame>
+                        </Border>
+                        <Border 
+                    Grid.Column="1" 
+                    StrokeShape="RoundRectangle 20"
+                    Background="#333A57"
+                    HorizontalOptions="Center"
+                    Stroke="#333A57">
+                            <Border.Shadow>
+                                <Shadow Brush="#333A57"
+                        Radius="0"
+                        Offset="0,10"
+                        Opacity="0.5"/>
+                            </Border.Shadow>
+                            <ImageButton
+                        x:Name="SearchIcon"
+                        Source="search_icon_white.svg" 
+                        Aspect="Center" 
+                        BackgroundColor="#333A57"
+                        HorizontalOptions="Center"
+                        HeightRequest="50"
+                        WidthRequest="50"/>
+                        </Border>
+                    </Grid>
+                </StackLayout>
+                
+                <!--Content-->
+                <Frame 
+                    Grid.Row="1" 
+                    Grid.RowSpan="2"
+                    BackgroundColor="#FEF2F2"
+                    HeightRequest="1000">
+                    
+                    
+                </Frame>
+
+            </Grid>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>
