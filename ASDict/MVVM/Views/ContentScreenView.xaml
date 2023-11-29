@@ -10,26 +10,31 @@
     </Shell.NavBarIsVisible>
 
 
-    <Grid>
+    <Grid RowSpacing="24">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height=".1*"/>
-            <RowDefinition Height=".8*"/>
-            <RowDefinition Height=".1*"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
 
         <Image Source="Resources/Images/backgr.png" Aspect="AspectFill"
                Grid.Column="0"
                Grid.RowSpan="3"/>
-
-        <!--App icon-->
-        <Border Margin="8,0,0,0"
+        <!--Header-->
+        <VerticalStackLayout Padding="6">
+            <Grid ColumnDefinitions="auto, *, auto">
+                <!--App icon-->
+                <Border 
+            Padding="0"
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
             HorizontalOptions="Start"
             VerticalOptions="Start"
+            HeightRequest="60"
+            WidthRequest="60"
             Stroke="#333A57">
             <Border.Shadow>
                 <Shadow Brush="#333A57"
@@ -39,22 +44,23 @@
             </Border.Shadow>
             <Image
                 Source="Resources/Images/appiconsmall.svg" 
-                Aspect="Center" 
+                Aspect="AspectFit" 
                 BackgroundColor="White"
                 HorizontalOptions="Center"
-                VerticalOptions="Center"
-                HeightRequest="45"
-                WidthRequest="45"/>
+                VerticalOptions="Center"/>
         </Border>
 
-        <!--search icon-->
-        <Border  Margin="180,0,125,0"
+                <HorizontalStackLayout  Grid.Column="2">
+                    <!--search icon-->
+                    <Border  
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 18.5"
-            Background="white"
-            
+            BackgroundColor="#333A57"
+            HorizontalOptions="Center"
             VerticalOptions="Start"
-            Stroke="#333A57">
+            Stroke="#333A57"
+            HeightRequest="60"
+            WidthRequest="60">
             <Border.Shadow Margin="180,0,125,0">
                 <Shadow Brush="#333A57"
                         Radius="0"
@@ -68,43 +74,44 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Clicked="search_Clicked"
-                HeightRequest="45"
-                WidthRequest="45"/>
+/>
         </Border>
 
-        <!--star white icon-->
-        <Border  Margin="241,0,65,0"
+                    <!--star white icon-->
+                    <Border  
+                        StrokeThickness="4" 
+                        StrokeShape="RoundRectangle 90"
+                        BackgroundColor="white"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        Stroke="#333A57"
+                        HeightRequest="60"
+                        WidthRequest="60">
+                        <Border.Shadow Margin="241,0,65,0">
+                            <Shadow 
+                                Brush="#333A57"
+                                Radius="0"
+                                Offset="0,10"
+                                Opacity="1"/>
+                            </Border.Shadow>
+                        <ImageButton 
+                            x:Name="star_white"
+                            Source="Resources/Images/star_icon_white.svg" 
+                            Aspect="Center" 
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+                    </Border>
+
+                    <!--Menu icon-->
+                    <Border 
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
-            
+            HorizontalOptions="Start"
             VerticalOptions="Start"
-            Stroke="#333A57">
-            <Border.Shadow Margin="241,0,65,0">
-                <Shadow Brush="#333A57"
-                        Radius="0"
-                        Offset="0,10"
-                        Opacity="1"/>
-            </Border.Shadow>
-            <ImageButton x:Name="star_white"
-                Source="Resources/Images/star_icon_white.svg" 
-                Aspect="Center" 
-                BackgroundColor="White"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="star_white_Clicked"
-                HeightRequest="45"
-                WidthRequest="45"/>
-        </Border>
-
-        <!--Menu icon-->
-        <Border Margin="0,0,8,0"
-            StrokeThickness="4" 
-            StrokeShape="RoundRectangle 90"
-            Background="white"
-            HorizontalOptions="End"
-            VerticalOptions="Start"
-            Stroke="#333A57">
+            Stroke="#333A57"
+                        HeightRequest="60"
+            WidthRequest="60">
             <Border.Shadow>
                 <Shadow Brush="#333A57"
                         Radius="0"
@@ -114,30 +121,32 @@
             <ImageButton x:Name="menu"
                 Source="Resources/Images/menu_icon_blue.svg" 
                 Aspect="Center" 
-                BackgroundColor="White"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Clicked="menu_Clicked"
-                HeightRequest="45"
-                WidthRequest="45"/>
+                Clicked="menu_Clicked"/>
         </Border>
+                </HorizontalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
 
-        <!--Frame result-->
+        <!--Content-->
         <Frame 
+            Padding="12,45"
             Grid.Row="1"
             Grid.RowSpan="2"
-            HeightRequest="700"
             CornerRadius="20"
             BackgroundColor="#FEF2F2"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"
             BorderColor="#FEF2F2">
-            <StackLayout>
+            <VerticalStackLayout>
                 <!--Label result-->
-                <Border HorizontalOptions="StartAndExpand"
+                <Border 
+                        Padding="6,12"
+                        HorizontalOptions="StartAndExpand"
                         VerticalOptions="StartAndExpand"
                         StrokeThickness="4"
-                        StrokeShape="RoundRectangle 18.5"
+                        StrokeShape="RoundRectangle 20"
                         Stroke="#333A57">
                     <Border.Shadow >
                         <Shadow Brush="#333A57"
@@ -147,65 +156,65 @@
                     </Border.Shadow>
 
                     <Label x:Name="resultLabel"
-                        Padding="10"
-                        Text="Kết quả nè coi đi"
-                        FontSize="28"
+                        Padding="12"
+                        Text="Beautiful"
+                        FontSize="48"
                         FontFamily="PatrickHand"
                         VerticalOptions="Center"
                         HorizontalOptions="Center"/>
                 </Border>
 
                 <!--Table result-->
-                <Border StrokeThickness="7"
-                        HorizontalOptions="CenterAndExpand"
-                        VerticalOptions="StartAndExpand"
-                        HeightRequest="390"
-                        WidthRequest="310"
-                        Margin="0,30,0,500"
-                        Stroke="#333A57"
-                        StrokeShape="RoundRectangle 20"
-                        BackgroundColor="White">
-                    <Grid>
+                <Border
+                    Margin="0, 24"
+                    StrokeThickness="8"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="FillAndExpand"
+                    Stroke="#333A57"
+                    StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White">
+                    <Frame Padding="0">
+                        <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height=".25*" />
-                            <RowDefinition Height=".75*" />
+                            <RowDefinition Height="90" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <Grid Grid.Row="0" Background="#AEB1E4">
-                            <!--Synonym-->
-                            <Border HorizontalOptions="StartAndExpand"
-                                    VerticalOptions="StartAndExpand"
+                        <Grid Grid.Row="0" Background="#AEB1E4" ZIndex="1">
+                            <HorizontalStackLayout Padding="16">
+                                <!--Synonym-->
+                                <Border HorizontalOptions="Center"
+                                    VerticalOptions="Center"
                                     StrokeShape="RoundRectangle 20"
                                     StrokeThickness="0"
-                                    Stroke="#333A57"
-                                    Margin="20">
-                                <Border.Shadow Margin="180,0,125,0">
-                                    <Shadow Brush="Black"
+                                    Stroke="#333A57">
+                                    <Border.Shadow>
+                                        <Shadow Brush="Black"
                                             Radius="0"
                                             Offset="0,10"
                                             Opacity="1"/>
-                                </Border.Shadow>
+                                    </Border.Shadow>
 
-                                <Button x:Name="synonym"
-                                        BackgroundColor="#333A57"
-                                        Padding="10"
+                                    <Button x:Name="synonym"
+                                        BackgroundColor="#F74B54"
                                         Text="Synonym"
                                         FontSize="20"
-                                        TextColor="Gray"
+                                        TextColor="White"
                                         FontFamily="PatrickHand"
                                         Clicked="synonym_Clicked"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Center"/>
                             </Border>
 
-                            <!--Antonym-->
-                            <Border HorizontalOptions="StartAndExpand"
-                                    VerticalOptions="StartAndExpand"
+                                <!--Antonym-->
+                                <Border 
+                                Margin="16,0"
+                                HorizontalOptions="Center"
+                                    VerticalOptions="Center"
                                     StrokeShape="RoundRectangle 20"
                                     StrokeThickness="0"
-                                    Stroke="#333A57"
-                                    Margin="130,20,0,0">
-                                <Border.Shadow Margin="180,0,125,0">
+                                    Stroke="#333A57">
+                                <Border.Shadow>
                                     <Shadow Brush="Black"
                                             Radius="0"
                                             Offset="0,10"
@@ -214,7 +223,6 @@
 
                                 <Button x:Name="antonym"
                                         BackgroundColor="#333A57"
-                                        Padding="10"
                                         Text="Antonym"
                                         FontSize="20"
                                         TextColor="Gray"
@@ -223,39 +231,150 @@
                                         VerticalOptions="Center"
                                         HorizontalOptions="Center"/>
                             </Border>
+                            </HorizontalStackLayout>
                         </Grid>
 
-                        <Grid Grid.Row="1">
-                            <Frame CornerRadius="0" BorderColor="#AEB1E4">
 
-                            </Frame>
-                        </Grid>
+                            <Grid Grid.Row="1"   MaximumHeightRequest="700">
+                                <Grid  ColumnDefinitions="*, *" Padding="32,16">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <VerticalStackLayout>
+                                            <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="12,4"
+                                                Stroke="gray"
+                                                BackgroundColor="LightGray"
+                                                StrokeShape="RoundRectangle 20"
+                                                StrokeThickness="2">
+                                                <Label 
+                                                    Text="Long test"
+                                                    FontSize="20"
+                                                    FontFamily="PatrickHand"/>
+                                            </Border>
 
+                                            <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="12,4"
+                                                Stroke="gray"
+                                                BackgroundColor="LightGray"
+                                                StrokeShape="RoundRectangle 20"
+                                                StrokeThickness="2">
+                                                <Label 
+                                                    Text="Long test"
+                                                    FontSize="20"
+                                                    FontFamily="PatrickHand"/>
+                                            </Border>
+
+                                            <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="12,4"
+                                                Stroke="gray"
+                                                BackgroundColor="LightGray"
+                                                StrokeShape="RoundRectangle 20"
+                                                StrokeThickness="2">
+                                                <Label 
+                                                    Text="Test"
+                                                    FontSize="20"
+                                                    FontFamily="PatrickHand"/>
+                                            </Border>
+
+                                            <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="12,4"
+                                                Stroke="gray"
+                                                BackgroundColor="LightGray"
+                                                StrokeShape="RoundRectangle 20"
+                                                StrokeThickness="2">
+                                                <Label 
+                                                    Text="Long test"
+                                                    FontSize="20"
+                                                    FontFamily="PatrickHand"/>
+                                            </Border>
+
+                                            <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="12,4"
+                                                Stroke="gray"
+                                                BackgroundColor="LightGray"
+                                                StrokeShape="RoundRectangle 20"
+                                                StrokeThickness="2">
+                                                <Label 
+                                                    Text="Long test"
+                                                    FontSize="20"
+                                                    FontFamily="PatrickHand"/>
+                                            </Border>
+
+                                            <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="12,4"
+                                                Stroke="gray"
+                                                BackgroundColor="LightGray"
+                                                StrokeShape="RoundRectangle 20"
+                                                StrokeThickness="2">
+                                                <Label 
+                                                    Text="Long test"
+                                                    FontSize="20"
+                                                    FontFamily="PatrickHand"/>
+                                            </Border>
+                                        </VerticalStackLayout>
+
+
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1">
+                                    <HorizontalStackLayout>
+                                        <Label Text="Long test"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout>
+                                        <Label Text="Very long test"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout>
+                                        <Label Text="Test"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout>
+                                        <Label Text="Test"/>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Label Text="Test"/>
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout>
+                                        <Label Text="Test"/>
+                                    </HorizontalStackLayout>
+
+                                </VerticalStackLayout>
+                                </Grid>
+                            </Grid>
                     </Grid>
+                    </Frame>
                 </Border>
 
-            </StackLayout>
+            </VerticalStackLayout>
         </Frame>
 
-        <!--Bottom menu-->
+        <!--Footer-->
         <Frame
-            HeightRequest="165"
-            WidthRequest="360"
             Grid.Row="2"
-            Grid.RowSpan="2"
-            CornerRadius="20"
-            VerticalOptions="End">
+            CornerRadius="20">
             <Image Source="Resources/Images/backgr.png" 
                Aspect="AspectFill"
                HeightRequest="200" 
                WidthRequest="840"/>
         </Frame>
 
-        <Border  Margin="255,70,65,-20"
+        <Border  
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
-            Grid.Row="3"
+            Grid.Row="2"
             VerticalOptions="Center"
             HorizontalOptions="Center"
             Stroke="#333A57">
@@ -284,7 +403,7 @@
               Stroke="#333A57" 
               StrokeThickness="2.5"/>
 
-        <Border  Margin="65,70,0,-20"
+        <Border  
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
@@ -308,6 +427,5 @@
                 HeightRequest="45"
                 WidthRequest="45"/>
         </Border>
-
     </Grid>
 </ContentPage>
