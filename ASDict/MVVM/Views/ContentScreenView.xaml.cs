@@ -13,7 +13,7 @@ public partial class ContentScreenView : ContentPage
 
     private void menu_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new MVVM.Views.MenuPage());
+
     }
 
     private void search_Clicked(object sender, EventArgs e)
