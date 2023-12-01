@@ -19,7 +19,8 @@
         </Grid.RowDefinitions>
 
 
-        <Image Source="Resources/Images/backgr.png" Aspect="AspectFill"
+        <Image Source="Resources/Images/backgr.png" 
+               Aspect="AspectFill"
                Grid.Column="0"
                Grid.RowSpan="3"/>
         <!--Header-->
@@ -98,6 +99,7 @@
                             x:Name="star_white"
                             Source="Resources/Images/star_icon_white.svg" 
                             Aspect="Center" 
+                            Clicked="star_white_Clicked"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"/>
                     </Border>
@@ -242,115 +244,242 @@
                                             <Border
                                                 HorizontalOptions="Start"
                                                 Margin="0, 6"
-                                                Padding="12,4"
-                                                Stroke="gray"
-                                                BackgroundColor="LightGray"
-                                                StrokeShape="RoundRectangle 20"
-                                                StrokeThickness="2">
-                                                <Label 
-                                                    Text="Long test"
-                                                    FontSize="20"
-                                                    FontFamily="PatrickHand"/>
+                                                Padding="8,4"
+                                                Stroke="#333A57"
+                                                StrokeThickness="3">
+                                                <Grid ColumnSpacing="4">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Image
+                                                        Grid.Column="0"
+                                                        Source="Resources/Images/text_icon.svg"
+                                                        Aspect="AspectFit"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
+
+                                                    <Label
+                                                        Grid.Column="1"
+                                                        Text="Long test"
+                                                        FontSize="20"
+                                                        FontFamily="PatrickHand"
+                                                        HorizontalOptions="End"
+                                                        VerticalOptions="Center"/>
+                                                </Grid>
+
                                             </Border>
 
                                             <Border
                                                 HorizontalOptions="Start"
                                                 Margin="0, 6"
-                                                Padding="12,4"
-                                                Stroke="gray"
-                                                BackgroundColor="LightGray"
-                                                StrokeShape="RoundRectangle 20"
-                                                StrokeThickness="2">
-                                                <Label 
-                                                    Text="Long test"
-                                                    FontSize="20"
-                                                    FontFamily="PatrickHand"/>
-                                            </Border>
+                                                Padding="8,4"
+                                                Stroke="#333A57"
+                                                StrokeThickness="3">
+                                                <Grid ColumnSpacing="4">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
 
+                                                    <Image
+                                                        Grid.Column="0"
+                                                        Source="Resources/Images/text_icon.svg"
+                                                        Aspect="AspectFit"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
+
+                                                    <Label
+                                                        Grid.Column="1"
+                                                        Text="Long test"
+                                                        FontSize="20"
+                                                        FontFamily="PatrickHand"
+                                                        HorizontalOptions="End"
+                                                        VerticalOptions="Center"/>
+                                                </Grid>
+
+                                            </Border>
                                             <Border
                                                 HorizontalOptions="Start"
                                                 Margin="0, 6"
-                                                Padding="12,4"
-                                                Stroke="gray"
-                                                BackgroundColor="LightGray"
-                                                StrokeShape="RoundRectangle 20"
-                                                StrokeThickness="2">
-                                                <Label 
-                                                    Text="Test"
-                                                    FontSize="20"
-                                                    FontFamily="PatrickHand"/>
-                                            </Border>
+                                                Padding="8,4"
+                                                Stroke="#333A57"
+                                                StrokeThickness="3">
+                                                <Grid ColumnSpacing="4">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
 
+                                                    <Image
+                                                        Grid.Column="0"
+                                                        Source="Resources/Images/text_icon.svg"
+                                                        Aspect="AspectFit"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
+
+                                                    <Label
+                                                        Grid.Column="1"
+                                                        Text="Long test"
+                                                        FontSize="20"
+                                                        FontFamily="PatrickHand"
+                                                        HorizontalOptions="End"
+                                                        VerticalOptions="Center"/>
+                                                </Grid>
+
+                                            </Border>
                                             <Border
                                                 HorizontalOptions="Start"
                                                 Margin="0, 6"
-                                                Padding="12,4"
-                                                Stroke="gray"
-                                                BackgroundColor="LightGray"
-                                                StrokeShape="RoundRectangle 20"
-                                                StrokeThickness="2">
-                                                <Label 
-                                                    Text="Long test"
-                                                    FontSize="20"
-                                                    FontFamily="PatrickHand"/>
-                                            </Border>
+                                                Padding="8,4"
+                                                Stroke="#333A57"
+                                                StrokeThickness="3">
+                                                <Grid ColumnSpacing="4">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
 
-                                            <Border
-                                                HorizontalOptions="Start"
-                                                Margin="0, 6"
-                                                Padding="12,4"
-                                                Stroke="gray"
-                                                BackgroundColor="LightGray"
-                                                StrokeShape="RoundRectangle 20"
-                                                StrokeThickness="2">
-                                                <Label 
-                                                    Text="Long test"
-                                                    FontSize="20"
-                                                    FontFamily="PatrickHand"/>
-                                            </Border>
+                                                    <Image
+                                                        Grid.Column="0"
+                                                        Source="Resources/Images/text_icon.svg"
+                                                        Aspect="AspectFit"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
 
-                                            <Border
-                                                HorizontalOptions="Start"
-                                                Margin="0, 6"
-                                                Padding="12,4"
-                                                Stroke="gray"
-                                                BackgroundColor="LightGray"
-                                                StrokeShape="RoundRectangle 20"
-                                                StrokeThickness="2">
-                                                <Label 
-                                                    Text="Long test"
-                                                    FontSize="20"
-                                                    FontFamily="PatrickHand"/>
+                                                    <Label
+                                                        Grid.Column="1"
+                                                        Text="Long test"
+                                                        FontSize="20"
+                                                        FontFamily="PatrickHand"
+                                                        HorizontalOptions="End"
+                                                        VerticalOptions="Center"/>
+                                                </Grid>
+
                                             </Border>
                                         </VerticalStackLayout>
 
 
                                 </VerticalStackLayout>
-                                <VerticalStackLayout Grid.Column="1">
-                                    <HorizontalStackLayout>
-                                        <Label Text="Long test"/>
-                                    </HorizontalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                                        <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="8,4"
+                                                Stroke="#333A57"
+                                                StrokeThickness="3">
+                                            <Grid ColumnSpacing="4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
 
-                                    <HorizontalStackLayout>
-                                        <Label Text="Very long test"/>
-                                    </HorizontalStackLayout>
+                                                <Image
+                                                        Grid.Column="0"
+                                                        Source="Resources/Images/text_icon.svg"
+                                                        Aspect="AspectFit"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
 
-                                    <HorizontalStackLayout>
-                                        <Label Text="Test"/>
-                                    </HorizontalStackLayout>
+                                                <Label
+                                                        Grid.Column="1"
+                                                        Text="Long test"
+                                                        FontSize="20"
+                                                        FontFamily="PatrickHand"
+                                                        HorizontalOptions="End"
+                                                        VerticalOptions="Center"/>
+                                            </Grid>
 
-                                    <HorizontalStackLayout>
-                                        <Label Text="Test"/>
-                                    </HorizontalStackLayout>
-                                    <HorizontalStackLayout>
-                                        <Label Text="Test"/>
-                                    </HorizontalStackLayout>
+                                        </Border>
+                                        <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="8,4"
+                                                Stroke="#333A57"
+                                                StrokeThickness="3">
+                                            <Grid ColumnSpacing="4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
 
-                                    <HorizontalStackLayout>
-                                        <Label Text="Test"/>
-                                    </HorizontalStackLayout>
+                                                <Image
+                                                        Grid.Column="0"
+                                                        Source="Resources/Images/text_icon.svg"
+                                                        Aspect="AspectFit"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
 
-                                </VerticalStackLayout>
+                                                <Label
+                                                        Grid.Column="1"
+                                                        Text="Long test"
+                                                        FontSize="20"
+                                                        FontFamily="PatrickHand"
+                                                        HorizontalOptions="End"
+                                                        VerticalOptions="Center"/>
+                                            </Grid>
+
+                                        </Border>
+                                        <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="8,4"
+                                                Stroke="#333A57"
+                                                StrokeThickness="3">
+                                            <Grid ColumnSpacing="4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image
+                                                        Grid.Column="0"
+                                                        Source="Resources/Images/text_icon.svg"
+                                                        Aspect="AspectFit"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
+
+                                                <Label
+                                                        Grid.Column="1"
+                                                        Text="Long test"
+                                                        FontSize="20"
+                                                        FontFamily="PatrickHand"
+                                                        HorizontalOptions="End"
+                                                        VerticalOptions="Center"/>
+                                            </Grid>
+
+                                        </Border>
+                                        <Border
+                                                HorizontalOptions="Start"
+                                                Margin="0, 6"
+                                                Padding="8,4"
+                                                Stroke="#333A57"
+                                                StrokeThickness="3">
+                                            <Grid ColumnSpacing="4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image
+                                                        Grid.Column="0"
+                                                        Source="Resources/Images/text_icon.svg"
+                                                        Aspect="AspectFit"
+                                                        HorizontalOptions="Start"
+                                                        VerticalOptions="Center"/>
+
+                                                <Label
+                                                        Grid.Column="1"
+                                                        Text="Long test"
+                                                        FontSize="20"
+                                                        FontFamily="PatrickHand"
+                                                        HorizontalOptions="End"
+                                                        VerticalOptions="Center"/>
+                                            </Grid>
+
+                                        </Border>
+                                    </VerticalStackLayout>
                                 </Grid>
                             </Grid>
                     </Grid>
@@ -361,49 +490,48 @@
         </Frame>
 
         <!--Footer-->
-        <Frame
-            Grid.Row="2"
-            CornerRadius="20">
-            <Image Source="Resources/Images/backgr.png" 
-               Aspect="AspectFill"
-               HeightRequest="200" 
-               WidthRequest="840"/>
-        </Frame>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border  Grid.Column="0" Grid.ColumnSpan="3"          
+            StrokeShape="RoundRectangle 20, 20, 0, 0"
+            StrokeThickness="0">
 
-        <Border  
+                <Image  Source="Resources/Images/backgr.png" 
+                       Aspect="AspectFill"
+                        Scale="2"
+               />
+            </Border>
+            <Border  Grid.Column="0"
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
-            Grid.Row="2"
             VerticalOptions="Center"
-            HorizontalOptions="Center"
+            HorizontalOptions="EndAndExpand"
             Stroke="#333A57">
-            <Border.Shadow Margin="255,70,65,-20">
+            <Border.Shadow>
                 <Shadow Brush="#333A57"
                         Radius="0"
                         Offset="0,10"
                         Opacity="1"/>
             </Border.Shadow>
-            <ImageButton x:Name="bookmark1"
-                Source="Resources/Images/bookmark_icon.svg" 
+                <ImageButton x:Name="house_icon"
+                Source="Resources/Images/house_icon.svg" 
                 Aspect="Center" 
                 BackgroundColor="White"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Clicked="bookmark1_Clicked"
+                Clicked="house_icon_Clicked"
                 HeightRequest="45"
                 WidthRequest="45"/>
-        </Border>
+            </Border>
+            <Border Grid.Column="1" WidthRequest="4" BackgroundColor="#333A57" StrokeThickness="0" Margin="8" />
 
-        <Line X1="185" Y1="0" X2="185" Y2="100"
-              Grid.Row="2"
-              Margin="0,55,0,-37"
-              VerticalOptions="CenterAndExpand"
-              HorizontalOptions="CenterAndExpand"
-              Stroke="#333A57" 
-              StrokeThickness="2.5"/>
-
-        <Border  
+            <Border  
+            Grid.Column="2"
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
@@ -417,15 +545,16 @@
                         Offset="0,10"
                         Opacity="1"/>
             </Border.Shadow>
-            <ImageButton x:Name="house_icon"
-                Source="Resources/Images/house_icon.svg" 
+                <ImageButton x:Name="bookmark1"
+                Source="Resources/Images/bookmark_icon.svg" 
                 Aspect="Center" 
                 BackgroundColor="White"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Clicked="house_icon_Clicked"
+                Clicked="bookmark1_Clicked"
                 HeightRequest="45"
                 WidthRequest="45"/>
-        </Border>
+            </Border>
+        </Grid>
     </Grid>
 </ContentPage>
