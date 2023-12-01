@@ -79,7 +79,7 @@
                 Grid.Column="0"
                 VerticalOptions="Start"
                 Stroke="white"
-                StrokeShape="RoundRectangle 20">
+                StrokeShape="RoundRectangle 20" Visual="Default">
                 <Border.Shadow>
                     <Shadow 
                         Brush="#333A57"
