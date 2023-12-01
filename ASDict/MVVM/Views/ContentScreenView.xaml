@@ -9,7 +9,6 @@
         </OnIdiom>
     </Shell.NavBarIsVisible>
 
-
     <Grid RowSpacing="24">
 
         <Grid.RowDefinitions>
