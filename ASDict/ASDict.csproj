@@ -49,14 +49,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\app_icon_small.svg" />
 	  <None Remove="Resources\Images\backgr.png" />
 	  <None Remove="Resources\Images\backgr_splash.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\PatrickHand-Regular.ttf" />
-	  <None Remove="Resources\Images\star_icon_blue.svg" />
-	  <None Remove="Resources\Images\star_icon_white.svg" />
+	  <None Remove="Resources\Images\double_arrow.svg" />
+	  <None Remove="Resources\Images\menu_icon.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

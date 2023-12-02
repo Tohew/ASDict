@@ -9,4 +9,4 @@
             statusBar.StatusBarStyle = CommunityToolkit.Maui.Core.StatusBarStyle.DarkContent;
         }
     }
-}
+}   
