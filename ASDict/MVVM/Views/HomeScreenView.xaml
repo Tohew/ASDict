@@ -79,7 +79,7 @@
         <!--Search Bar-->
         <Grid VerticalOptions="Start"
               Grid.Row="1"
-              ColumnDefinitions="4*"
+              ColumnDefinitions="4*, *"
               Padding="20, 0">
             <Border
                 Grid.Column="0"
@@ -104,7 +104,8 @@
             <Border Grid.Column="1"
                     StrokeShape="RoundRectangle 20"
                     BackgroundColor="#333A57"
-                    VerticalOptions="Center"
+                    VerticalOptions="End"
+                    HorizontalOptions="End"
                     Stroke="#333A57"
                     HeightRequest="55"
                     WidthRequest="55">
