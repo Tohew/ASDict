@@ -24,6 +24,6 @@ public partial class BookmarkScreenView : ContentPage
 
     private void bookmark_Clicked(object sender, EventArgs e)
     {
-        DisplayAlert("ASDict", "You are in Bookmark", "Back");
+        DisplayAlert("ASDict", "You are in Bookmark", "OK");
     }
 }

@@ -244,68 +244,75 @@
         </Border>
         
         <!--Footer-->
-        <Grid Grid.Row="3" 
-              BackgroundColor="#FEF2F2" 
-              ColumnDefinitions="2*, *, 2*">
-            <Border 
-                Grid.ColumnSpan="3"
-                StrokeThickness="0"
-                StrokeShape="RoundRectangle 20, 20, 0, 0">
-                <Image Source="Resources/Images/backgr.png" Aspect="AspectFill" Scale="2"/>
-            </Border>
-            <!--Home icon-->
-            <Border 
-                StrokeThickness="3" 
-                StrokeShape="RoundRectangle 90"
-                Background="white"
-                HorizontalOptions="End"
-                VerticalOptions="Center"
-                Stroke="#333A57"
-                HeightRequest="60"
-                WidthRequest="60">
-                <Border.Shadow>
-                    <Shadow Brush="#333A57"
-                    Radius="0"
-                    Offset="0,10"
-                    Opacity="1"/>
-                </Border.Shadow>
-                <ImageButton
-                    x:Name="home"
-                        Source="Resources/Images/house_icon.svg" 
-                        Aspect="Center" 
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
+        <Grid Grid.Row="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border  Grid.Column="0" Grid.ColumnSpan="3"          
+                    StrokeShape="RoundRectangle 20, 20, 0, 0"
+                    StrokeThickness="0">
+
+                <Image  Source="Resources/Images/backgr.png" 
+                Aspect="AspectFill"
+                Scale="2"/>
             </Border>
 
-            <!--Line-->
-            <Border Grid.Column="1" WidthRequest="4" BackgroundColor="#333A57" StrokeThickness="0" Margin="8"></Border>
-
-            <!--Bookmark icon-->
-            <Border 
-                Grid.Column="2"
-                StrokeThickness="3" 
-                StrokeShape="RoundRectangle 90"
-                Background="white"
-                HorizontalOptions="Start"
-                VerticalOptions="Center"
-                Stroke="#333A57"
-                HeightRequest="60"
-                WidthRequest="60">
+            <Border  Grid.Column="0"
+                    StrokeThickness="3" 
+                    StrokeShape="RoundRectangle 90"
+                    Background="white"
+                    VerticalOptions="Center"
+                    HorizontalOptions="EndAndExpand"
+                    Stroke="#333A57"
+                    HeightRequest="60"
+                    WidthRequest="60">
                 <Border.Shadow>
                     <Shadow Brush="#333A57"
-                Radius="0"
-                Offset="0,10"
-                Opacity="1"/>
+            Radius="0"
+            Offset="0,10"
+            Opacity="1"/>
                 </Border.Shadow>
-                <ImageButton 
-                        x:Name="bookmark"
-                        Source="Resources/Images/bookmark_icon.svg" 
-                        Aspect="Center" 
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
+
+                <!--House icon-->
+                <ImageButton x:Name="homeScreen"
+                            Source="Resources/Images/house_icon.svg" 
+                            Aspect="Center" 
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Clicked="homeScreen_Clicked"/>
+            </Border>
+            <Border Grid.Column="1" WidthRequest="4" BackgroundColor="#333A57" StrokeThickness="0" Margin="8" />
+
+            <Border  
+                    Grid.Column="2"
+                    StrokeThickness="3" 
+                    StrokeShape="RoundRectangle 90"
+                    Background="white"
+                    Grid.Row="3"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand"
+                    Stroke="#333A57"
+                    HeightRequest="60"
+                    WidthRequest="60">
+                <Border.Shadow Margin="255,70,65,-20">
+                    <Shadow Brush="#333A57"
+                            Radius="0"
+                            Offset="0,10"
+                            Opacity="1"/>
+                </Border.Shadow>
+
+                <!--Bookmark button-->
+                <ImageButton x:Name="bookmark"
+                            Source="Resources/Images/bookmark_icon.svg" 
+                            Aspect="Center" 
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Clicked="bookmark1_Clicked"/>
             </Border>
         </Grid>
-        
     </Grid>
     
 </ContentPage>

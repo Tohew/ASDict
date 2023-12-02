@@ -8,4 +8,14 @@ public partial class HomeScreenView : ContentPage
 	{
         InitializeComponent();
     }
+
+    private void bookmark1_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushModalAsync(new BookmarkScreenView());
+    }
+
+    private void homeScreen_Clicked(object sender, EventArgs e)
+    {
+        DisplayAlert("ASDict", "You are in Home", "OK");
+    }
 }
