@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Runtime;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 
 namespace ASDict
 {
@@ -10,7 +11,6 @@ namespace ASDict
             : base(handle, ownership)
         {
         }
-
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
     }
 }

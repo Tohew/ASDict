@@ -38,6 +38,11 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+            <Button
+                x:Name="BookmarkBtn"
+                Text="Click"
+                Clicked="GiangBtn_Clicked"
+                HorizontalOptions="Center"/>
 
         </VerticalStackLayout>
     </ScrollView>

@@ -14,5 +14,9 @@ namespace ASDict
            Navigation.PushAsync(new MVVM.Views.ContentScreenView());
 
         }
+        private void GiangBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MVVM.Views.BookmarkScreenView());
+        }
     }
 }
