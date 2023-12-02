@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASDict.MVVM.Views.HomeScreenView"
-             Title="HomeScreen">
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             Title="HomeScreenView">
     <Shell.NavBarIsVisible>
         <OnIdiom x:TypeArguments="x:Boolean">
             <OnIdiom.Phone>false</OnIdiom.Phone>
