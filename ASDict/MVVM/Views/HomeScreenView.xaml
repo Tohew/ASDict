@@ -137,8 +137,9 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="7*"/>
                 </Grid.RowDefinitions>
 
                 <!--Search History-->
@@ -158,7 +159,7 @@
 
                         <ImageButton Source="rubbish_icon.svg"
                             Grid.Column="2"
-                            Padding="15"
+                            Padding="0"
                             VerticalOptions="Center"
                             HorizontalOptions="End"/>
                     </Grid>
@@ -166,15 +167,18 @@
 
                 <!--History Label-->
                 <Border Grid.Row="1">
-
-                    <Line X1="25" Y1="50" X2="355" Y2="50"
-                          Stroke="Black" StrokeThickness="2"
-                          VerticalOptions="Center">
-                    </Line>
+                    
                 </Border>
 
+                <!--Line-->
+                <Line X1="25" Y1="50" X2="355" Y2="50"
+                          Stroke="Black" StrokeThickness="2"
+                          VerticalOptions="Center"
+                      Grid.Row="2">
+                </Line>
+                
                 <!--Do you know?-->
-                <Grid Grid.Row="2"
+                <Grid Grid.Row="3"
                     RowDefinitions="*, 11*, *"
                     ColumnDefinitions="*, 15*, *">
                     
