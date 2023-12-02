@@ -159,7 +159,7 @@
 
                         <ImageButton Source="rubbish_icon.svg"
                             Grid.Column="2"
-                            Padding="0"
+                            Padding="15"
                             VerticalOptions="Center"
                             HorizontalOptions="End"/>
                     </Grid>
