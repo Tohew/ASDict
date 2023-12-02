@@ -51,6 +51,7 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
             </Border>
+            
             <!--Menu icon-->
             <Border 
                 Grid.Column="2"
@@ -135,24 +136,48 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height=".75*"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="3*"/>
-                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="8*"/>
                 </Grid.RowDefinitions>
 
-                <Frame Grid.Row="0"
-                    BackgroundColor="AliceBlue">
-                    
-                </Frame>
+                <!--Search History-->
+                <Border Grid.Row="0"
+                        StrokeThickness="0"
+                        BackgroundColor="#FEF2F2">
+                    <Grid ColumnDefinitions="auto,*,auto">
+                        <Label
+                            Grid.Column="0"
+                            Padding="10"
+                            Text="Search history"
+                            FontSize="20"
+                            TextColor="Black"
+                            FontFamily="PatrickHand"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"/>
 
-                <Frame Grid.Row="1"
-                       BackgroundColor="Black">
-                    
-                </Frame>
+                        <ImageButton Source="rubbish_icon.svg"
+                            Grid.Column="2"
+                            Padding="15"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End"/>
+                    </Grid>
+                </Border>
 
+                <!--History Label-->
+                <Border Grid.Row="1">
+
+                    <Line X1="25" Y1="50" X2="355" Y2="50"
+                          Stroke="Black" StrokeThickness="2"
+                          VerticalOptions="Center">
+                    </Line>
+                </Border>
+
+                <!--Do you know?-->
                 <Grid Grid.Row="2"
                     RowDefinitions="*, 11*, *"
                     ColumnDefinitions="*, 15*, *">
+                    
                     <Border Grid.Row="1"
                           Grid.Column="1"
                           StrokeThickness="8"
@@ -170,39 +195,39 @@
                                 BackgroundColor="#AEB1E4"
                                 ZIndex="1">
                                 <Grid Padding="16"
-                ColumnDefinitions="auto, *, auto">
+                                      ColumnDefinitions="auto, *, auto">
 
                                     <!--Do you know lable-->
                                     <Border Grid.Column="0"
-                      HorizontalOptions="Center"
-                      Padding="12, 0"
-                      VerticalOptions="Center"
-                      StrokeShape="RoundRectangle 20"
-                      StrokeThickness="0"
-                      BackgroundColor="#333A57">
+                                            HorizontalOptions="Center"
+                                            Padding="12, 0"
+                                            VerticalOptions="Center"
+                                            StrokeShape="RoundRectangle 20"
+                                            StrokeThickness="0"
+                                            BackgroundColor="#333A57">
                                         <Border.Shadow>
                                             <Shadow Brush="Black"
-                              Radius="0"
-                              Offset="0, 10"
-                              Opacity="1"/>
+                                                    Radius="0"
+                                                    Offset="0, 10"
+                                                    Opacity="1"/>
                                         </Border.Shadow>
 
                                         <Label x:Name="bookmarkLable"
-                         BackgroundColor="#333A57"
-                         Text="Do you know ?"
-                         FontSize="20"
-                         Padding="10"
-                         TextColor="White"
-                         FontFamily="PatrickHand"
-                         VerticalOptions="Center"
-                         HorizontalOptions="Center"/>
+                                                BackgroundColor="#333A57"
+                                                Text="Do you know ?"
+                                                FontSize="20"
+                                                Padding="10"
+                                                TextColor="White"
+                                                FontFamily="PatrickHand"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"/>
                                     </Border>
 
                                     <!--Double arrow icon-->
                                     <ImageButton Grid.Column="2"
-                           HeightRequest="130"
-                           WidthRequest="20"
-                           Source="double_arrow.svg"/>
+                                                HeightRequest="130"
+                                                WidthRequest="20"
+                                                Source="double_arrow.svg"/>
                                 </Grid>
                             </Grid>
                         </Grid>
