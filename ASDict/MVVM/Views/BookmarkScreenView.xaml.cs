@@ -16,4 +16,14 @@ public partial class BookmarkScreenView : ContentPage
     {
 
     }
+
+    private void home_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushModalAsync(new HomeScreenView());
+    }
+
+    private void bookmark_Clicked(object sender, EventArgs e)
+    {
+        DisplayAlert("ASDict", "You are in Bookmark", "Back");
+    }
 }

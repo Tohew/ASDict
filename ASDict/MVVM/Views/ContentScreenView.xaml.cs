@@ -23,12 +23,12 @@ public partial class ContentScreenView : ContentPage
 
     private void bookmark1_Clicked(object sender, EventArgs e)
     {
-        DisplayAlert("Thông báo", "Bạn đã nhấn bookmark!", "OK");
+        Navigation.PushModalAsync(new BookmarkScreenView());
     }
 
     private void house_icon_Clicked(object sender, EventArgs e)
     {
-        DisplayAlert("Thông báo", "Bạn đã nhấn house!", "OK");
+        Navigation.PushModalAsync(new HomeScreenView());
     }
 
     private bool isStarWhite = true;

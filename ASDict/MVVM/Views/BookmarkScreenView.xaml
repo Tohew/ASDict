@@ -447,7 +447,8 @@
                         Source="Resources/Images/house_icon.svg" 
                         Aspect="Center" 
                         HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
+                        VerticalOptions="Center"
+                    Clicked="home_Clicked"/>
             </Border>
             
             <!--Line-->
@@ -475,7 +476,8 @@
                         Source="Resources/Images/bookmark_icon.svg" 
                         Aspect="Center" 
                         HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
+                        VerticalOptions="Center"
+                    Clicked="bookmark_Clicked"/>
             </Border>
         </Grid>
 

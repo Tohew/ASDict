@@ -12,9 +12,7 @@
     </Page.Behaviors>
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:HomeScreenView}"
+        ContentTemplate="{DataTemplate local:ContentScreenView}"
         Route="HomeScreenView" />
 
-</Shell>
-    
 </Shell>
