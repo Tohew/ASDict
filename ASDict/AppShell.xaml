@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-    xmlns:local="clr-namespace:ASDict"
+    xmlns:local="clr-namespace:ASDict.MVVM.Views"
     Shell.FlyoutBehavior="Disabled">
 
     <Page.Behaviors>
@@ -12,7 +12,7 @@
     </Page.Behaviors>
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:HomeScreenView}"
+        Route="HomeScreenView" />
 
 </Shell>

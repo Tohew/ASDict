@@ -15,10 +15,13 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Image Source="Resources/Images/backgr.png" Aspect="AspectFill"
+               Grid.RowSpan="3"/>
         
         <!--Header-->
         <Grid ColumnDefinitions="auto, * , auto"
@@ -196,9 +199,7 @@
                 Grid.ColumnSpan="3"
                 StrokeThickness="0"
                 StrokeShape="RoundRectangle 20, 20, 0, 0">
-                <Image Source="Resources/Images/backgr.png" 
-                       Aspect="AspectFill" 
-                       Scale="2"/>
+                <Image Source="Resources/Images/backgr.png" Aspect="AspectFill" Scale="2"/>
             </Border>
             <!--Home icon-->
             <Border 
@@ -212,12 +213,12 @@
                 WidthRequest="60">
                 <Border.Shadow>
                     <Shadow Brush="#333A57"
-                            Radius="0"
-                            Offset="0,10"
-                            Opacity="1"/>
+                    Radius="0"
+                    Offset="0,10"
+                    Opacity="1"/>
                 </Border.Shadow>
                 <ImageButton
-                        x:Name="home"
+                    x:Name="home"
                         Source="Resources/Images/house_icon.svg" 
                         Aspect="Center" 
                         HorizontalOptions="Center"
@@ -225,11 +226,7 @@
             </Border>
 
             <!--Line-->
-            <Border Grid.Column="1" 
-                    WidthRequest="4" 
-                    BackgroundColor="#333A57" 
-                    StrokeThickness="0" 
-                    Margin="8"></Border>
+            <Border Grid.Column="1" WidthRequest="4" BackgroundColor="#333A57" StrokeThickness="0" Margin="8"></Border>
 
             <!--Bookmark icon-->
             <Border 
@@ -244,18 +241,19 @@
                 WidthRequest="60">
                 <Border.Shadow>
                     <Shadow Brush="#333A57"
-                            Radius="0"
-                            Offset="0,10"
-                            Opacity="1"/>
+                Radius="0"
+                Offset="0,10"
+                Opacity="1"/>
                 </Border.Shadow>
                 <ImageButton 
-                            x:Name="bookmark"
-                            Source="Resources/Images/bookmark_icon.svg" 
-                            Aspect="Center" 
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"/>
+                        x:Name="bookmark"
+                        Source="Resources/Images/bookmark_icon.svg" 
+                        Aspect="Center" 
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
             </Border>
         </Grid>
+        
     </Grid>
     
 </ContentPage>
