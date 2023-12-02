@@ -13,7 +13,7 @@ public partial class ContentScreenView : ContentPage
 
     private void menu_Clicked(object sender, EventArgs e)
     {
-        DisplayAlert("Thông báo", "Bạn đã nhấn menu!", "OK");
+
     }
 
     private void search_Clicked(object sender, EventArgs e)
