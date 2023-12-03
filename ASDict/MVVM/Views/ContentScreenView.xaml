@@ -240,246 +240,82 @@
 
                             <Grid Grid.Row="1"   MaximumHeightRequest="700">
                                 <Grid  ColumnDefinitions="*, *" Padding="32,16">
+                                    
                                 <VerticalStackLayout Grid.Column="0">
-                                    <VerticalStackLayout>
-                                            <Border
+                                    <CollectionView ItemsSource="{Binding SynonymsCol1}">
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border
                                                 HorizontalOptions="Start"
                                                 Margin="0, 6"
                                                 Padding="8,4"
                                                 Stroke="#333A57"
                                                 StrokeThickness="3">
-                                                <Grid ColumnSpacing="4">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                    </Grid.ColumnDefinitions>
+                                                        <Grid ColumnSpacing="4">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                            </Grid.ColumnDefinitions>
 
-                                                    <Image
+                                                            <Image
                                                         Grid.Column="0"
                                                         Source="Resources/Images/text_icon.svg"
                                                         Aspect="AspectFit"
                                                         HorizontalOptions="Start"
                                                         VerticalOptions="Center"/>
 
-                                                    <Label
+                                                            <Label
                                                         Grid.Column="1"
-                                                        Text="Long test"
+                                                        Text="{Binding .}"
                                                         FontSize="20"
                                                         FontFamily="PatrickHand"
                                                         HorizontalOptions="End"
                                                         VerticalOptions="Center"/>
-                                                </Grid>
-
-                                            </Border>
-
-                                            <Border
-                                                HorizontalOptions="Start"
-                                                Margin="0, 6"
-                                                Padding="8,4"
-                                                Stroke="#333A57"
-                                                StrokeThickness="3">
-                                                <Grid ColumnSpacing="4">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                    </Grid.ColumnDefinitions>
-
-                                                    <Image
-                                                        Grid.Column="0"
-                                                        Source="Resources/Images/text_icon.svg"
-                                                        Aspect="AspectFit"
-                                                        HorizontalOptions="Start"
-                                                        VerticalOptions="Center"/>
-
-                                                    <Label
-                                                        Grid.Column="1"
-                                                        Text="Long test"
-                                                        FontSize="20"
-                                                        FontFamily="PatrickHand"
-                                                        HorizontalOptions="End"
-                                                        VerticalOptions="Center"/>
-                                                </Grid>
-
-                                            </Border>
-                                            <Border
-                                                HorizontalOptions="Start"
-                                                Margin="0, 6"
-                                                Padding="8,4"
-                                                Stroke="#333A57"
-                                                StrokeThickness="3">
-                                                <Grid ColumnSpacing="4">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                    </Grid.ColumnDefinitions>
-
-                                                    <Image
-                                                        Grid.Column="0"
-                                                        Source="Resources/Images/text_icon.svg"
-                                                        Aspect="AspectFit"
-                                                        HorizontalOptions="Start"
-                                                        VerticalOptions="Center"/>
-
-                                                    <Label
-                                                        Grid.Column="1"
-                                                        Text="Long test"
-                                                        FontSize="20"
-                                                        FontFamily="PatrickHand"
-                                                        HorizontalOptions="End"
-                                                        VerticalOptions="Center"/>
-                                                </Grid>
-
-                                            </Border>
-                                            <Border
-                                                HorizontalOptions="Start"
-                                                Margin="0, 6"
-                                                Padding="8,4"
-                                                Stroke="#333A57"
-                                                StrokeThickness="3">
-                                                <Grid ColumnSpacing="4">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                    </Grid.ColumnDefinitions>
-
-                                                    <Image
-                                                        Grid.Column="0"
-                                                        Source="Resources/Images/text_icon.svg"
-                                                        Aspect="AspectFit"
-                                                        HorizontalOptions="Start"
-                                                        VerticalOptions="Center"/>
-
-                                                    <Label
-                                                        Grid.Column="1"
-                                                        Text="Long test"
-                                                        FontSize="20"
-                                                        FontFamily="PatrickHand"
-                                                        HorizontalOptions="End"
-                                                        VerticalOptions="Center"/>
-                                                </Grid>
-
-                                            </Border>
-                                        </VerticalStackLayout>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
 
 
                                 </VerticalStackLayout>
                                 <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
-                                        <Border
+                                        <CollectionView ItemsSource="{Binding SynonymsCol2}">
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border
                                                 HorizontalOptions="Start"
                                                 Margin="0, 6"
                                                 Padding="8,4"
                                                 Stroke="#333A57"
                                                 StrokeThickness="3">
-                                            <Grid ColumnSpacing="4">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                </Grid.ColumnDefinitions>
+                                                        <Grid ColumnSpacing="4">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                            </Grid.ColumnDefinitions>
 
-                                                <Image
+                                                            <Image
                                                         Grid.Column="0"
                                                         Source="Resources/Images/text_icon.svg"
                                                         Aspect="AspectFit"
                                                         HorizontalOptions="Start"
                                                         VerticalOptions="Center"/>
 
-                                                <Label
+                                                            <Label
                                                         Grid.Column="1"
-                                                        Text="Long test"
+                                                        Text="{Binding .}"
                                                         FontSize="20"
                                                         FontFamily="PatrickHand"
                                                         HorizontalOptions="End"
                                                         VerticalOptions="Center"/>
-                                            </Grid>
+                                                        </Grid>
 
-                                        </Border>
-                                        <Border
-                                                HorizontalOptions="Start"
-                                                Margin="0, 6"
-                                                Padding="8,4"
-                                                Stroke="#333A57"
-                                                StrokeThickness="3">
-                                            <Grid ColumnSpacing="4">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                </Grid.ColumnDefinitions>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>    
 
-                                                <Image
-                                                        Grid.Column="0"
-                                                        Source="Resources/Images/text_icon.svg"
-                                                        Aspect="AspectFit"
-                                                        HorizontalOptions="Start"
-                                                        VerticalOptions="Center"/>
-
-                                                <Label
-                                                        Grid.Column="1"
-                                                        Text="Long test"
-                                                        FontSize="20"
-                                                        FontFamily="PatrickHand"
-                                                        HorizontalOptions="End"
-                                                        VerticalOptions="Center"/>
-                                            </Grid>
-
-                                        </Border>
-                                        <Border
-                                                HorizontalOptions="Start"
-                                                Margin="0, 6"
-                                                Padding="8,4"
-                                                Stroke="#333A57"
-                                                StrokeThickness="3">
-                                            <Grid ColumnSpacing="4">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                </Grid.ColumnDefinitions>
-
-                                                <Image
-                                                        Grid.Column="0"
-                                                        Source="Resources/Images/text_icon.svg"
-                                                        Aspect="AspectFit"
-                                                        HorizontalOptions="Start"
-                                                        VerticalOptions="Center"/>
-
-                                                <Label
-                                                        Grid.Column="1"
-                                                        Text="Long test"
-                                                        FontSize="20"
-                                                        FontFamily="PatrickHand"
-                                                        HorizontalOptions="End"
-                                                        VerticalOptions="Center"/>
-                                            </Grid>
-
-                                        </Border>
-                                        <Border
-                                                HorizontalOptions="Start"
-                                                Margin="0, 6"
-                                                Padding="8,4"
-                                                Stroke="#333A57"
-                                                StrokeThickness="3">
-                                            <Grid ColumnSpacing="4">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                </Grid.ColumnDefinitions>
-
-                                                <Image
-                                                        Grid.Column="0"
-                                                        Source="Resources/Images/text_icon.svg"
-                                                        Aspect="AspectFit"
-                                                        HorizontalOptions="Start"
-                                                        VerticalOptions="Center"/>
-
-                                                <Label
-                                                        Grid.Column="1"
-                                                        Text="Long test"
-                                                        FontSize="20"
-                                                        FontFamily="PatrickHand"
-                                                        HorizontalOptions="End"
-                                                        VerticalOptions="Center"/>
-                                            </Grid>
-
-                                        </Border>
                                     </VerticalStackLayout>
                                 </Grid>
                             </Grid>

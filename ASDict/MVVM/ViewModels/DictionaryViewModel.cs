@@ -16,9 +16,13 @@ namespace ASDict.MVVM.ViewModels
         [ObservableProperty]
         public string word;
         [ObservableProperty]
-        public ObservableCollection<string> synonyms = new ObservableCollection<string>();
+        public ObservableCollection<string> synonymsCol1 = new ObservableCollection<string>();
         [ObservableProperty]
-        public ObservableCollection<string> antonyms = new ObservableCollection<string>();
+        public ObservableCollection<string> synonymsCol2 = new ObservableCollection<string>();
+        [ObservableProperty]
+        public ObservableCollection<string> antonymsCol1 = new ObservableCollection<string>();
+        [ObservableProperty]
+        public ObservableCollection<string> antonymsCol2 = new ObservableCollection<string>();
         [ObservableProperty]
         public bool isProcessing;
 
@@ -37,16 +41,42 @@ namespace ASDict.MVVM.ViewModels
                 Word = dictModel.word;
                 Console.WriteLine(Word);
 
-                for(int i = 0; i < dictModel.synonyms.Count;i++)
+                //Kiểm tra điều kiện hiển thị của Synonyms
+                if (dictModel.synonyms.Count >= 8)
                 {
-                    Console.WriteLine(dictModel.synonyms[i]);
-                    Synonyms.Add(dictModel.synonyms[i]);
+                    // Nếu có 8 phần tử hoặc nhiều hơn, thêm 4 phần tử vào SynonymsCol1
+                    for (int i = 0; i < 4; i++)
+                    {
+                        SynonymsCol1.Add(dictModel.synonyms[i]);
+                    }
+                    // Thêm phần tử còn lại vào SynonymsCol2
+                    for (int i = 4; i < 8; i++)
+                    {
+                        SynonymsCol2.Add(dictModel.synonyms[i]);
+                    }
                 }
+                else
+                {
+                    int totalWords = dictModel.synonyms.Count;
+                    int wordsSynCol1 = Math.Min(4, totalWords);
+                    int wordsSynCol2 = Math.Max(0, totalWords - 4);
+
+                    for (int i = 0; i < wordsSynCol1; i++)
+                    {
+                        SynonymsCol1.Add(dictModel.synonyms[i]);
+                    }
+
+                    for (int i = 0; i < wordsSynCol2; i++)
+                    {
+                        SynonymsCol2.Add(dictModel.synonyms[i + wordsSynCol1]);
+                    }
+                }
+
 
                 for (int i = 0; i < dictModel.antonyms.Count; i++)
                 {
                     Console.WriteLine(dictModel.antonyms[i]);
-                    Antonyms.Add(dictModel.antonyms[i]);
+                    AntonymsCol1.Add(dictModel.antonyms[i]);
                 }
                 IsProcessing = false;
             }
