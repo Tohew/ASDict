@@ -1,3 +1,4 @@
+using ASDict.MVVM.ViewModels;
 using CommunityToolkit.Maui.Core.Platform;
 
 namespace ASDict.MVVM.Views;
@@ -17,5 +18,14 @@ public partial class HomeScreenView : ContentPage
     private void homeScreen_Clicked(object sender, EventArgs e)
     {
         DisplayAlert("ASDict", "You are in Home", "OK");
+    }
+
+    private async void search_Clicked(object sender, EventArgs e)
+    {
+        var result = new ContentScreenView();
+        var resultViewModel = new DictionaryViewModel(InputWord.Text);
+        result.BindingContext = resultViewModel;
+        await Navigation.PushModalAsync(result);
+        InputWord.Unfocus();
     }
 }

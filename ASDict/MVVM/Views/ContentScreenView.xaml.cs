@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui.Core.Views;
+﻿using ASDict.MVVM.ViewModels;
+using CommunityToolkit.Maui.Core.Views;
 using Microsoft.Maui.Controls;
 
 namespace ASDict.MVVM.Views;
@@ -9,6 +10,7 @@ public partial class ContentScreenView : ContentPage
     {
 
         InitializeComponent();
+        BindingContext = new DictionaryViewModel();
     }
 
     private void menu_Clicked(object sender, EventArgs e)
@@ -18,7 +20,7 @@ public partial class ContentScreenView : ContentPage
 
     private void search_Clicked(object sender, EventArgs e)
     {
-        DisplayAlert("Thông báo", "Bạn đã nhấn search!", "OK");
+        Navigation.PopModalAsync();
     }
 
     private void bookmark1_Clicked(object sender, EventArgs e)

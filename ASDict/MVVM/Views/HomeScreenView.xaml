@@ -96,7 +96,8 @@
                 </Border.Shadow>
                 <Frame Padding="16,0"
                        BorderColor="White">
-                    <Entry ClearButtonVisibility="WhileEditing"
+                    <Entry x:Name="InputWord"
+                        ClearButtonVisibility="WhileEditing"
                            FontFamily="PatrickHand"
                            FontSize="24"/>
                 </Frame>
@@ -121,7 +122,8 @@
                              Aspect="Center"
                              BackgroundColor="#333A57"
                              HorizontalOptions="Center"
-                             VerticalOptions="Center"/>
+                             VerticalOptions="Center"
+                             Clicked="search_Clicked"/>
             </Border>
         </Grid>
         
