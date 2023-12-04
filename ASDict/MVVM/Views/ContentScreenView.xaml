@@ -279,6 +279,7 @@
 
 
                                 </VerticalStackLayout>
+                                    
                                 <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
                                         <CollectionView ItemsSource="{Binding SynonymsCol2}">
                                             <CollectionView.ItemTemplate>
