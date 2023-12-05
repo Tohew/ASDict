@@ -246,7 +246,7 @@
                                             <CollectionView.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border
-                                                HorizontalOptions="Start"
+                                                HorizontalOptions="Start" 
                                                 Margin="0, 6"
                                                 Padding="8,4"
                                                 Stroke="#333A57"
