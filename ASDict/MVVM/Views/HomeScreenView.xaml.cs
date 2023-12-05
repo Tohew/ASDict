@@ -1,5 +1,6 @@
 using ASDict.MVVM.ViewModels;
 using CommunityToolkit.Maui.Core.Platform;
+using Microsoft.Maui.Platform;
 
 namespace ASDict.MVVM.Views;
 
@@ -22,10 +23,15 @@ public partial class HomeScreenView : ContentPage
 
     private async void search_Clicked(object sender, EventArgs e)
     {
-        var result = new ContentScreenView();
-        var resultViewModel = new DictionaryViewModel(InputWord.Text);
-        result.BindingContext = resultViewModel;
-        await Navigation.PushModalAsync(result);
-        InputWord.Unfocus();
+        if (InputWord != null)
+        {
+            if (Platform.CurrentActivity.CurrentFocus != null)
+                Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
+
+            var result = new ContentScreenView();
+            var resultViewModel = new DictionaryViewModel(InputWord.Text);
+            result.BindingContext = resultViewModel;
+            await Navigation.PushModalAsync(result);
+        }            
     }
 }

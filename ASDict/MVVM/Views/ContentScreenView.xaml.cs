@@ -50,6 +50,11 @@ public partial class ContentScreenView : ContentPage
 
         antonym.BackgroundColor = Color.FromRgb(51, 58, 87);
         antonym.TextColor = Color.FromRgb(128, 128, 128);
+
+        if (BindingContext is DictionaryViewModel viewModel)
+        {
+            viewModel.ConvertToSyn();
+        }
     }
 
     private void antonym_Clicked(object sender, EventArgs e)
@@ -59,5 +64,10 @@ public partial class ContentScreenView : ContentPage
 
         synonym.BackgroundColor = Color.FromRgb(51, 58, 87);
         synonym.TextColor = Color.FromRgb(128, 128, 128);
+
+        if (BindingContext is DictionaryViewModel viewModel)
+        {
+            viewModel.ConvertToAnt();
+        }
     }
 }
