@@ -242,7 +242,7 @@
                                 <Grid  ColumnDefinitions="*, *" Padding="32,16">
                                     
                                 <VerticalStackLayout Grid.Column="0">
-                                    <CollectionView ItemsSource="{Binding SynonymsCol1}">
+                                    <CollectionView ItemsSource="{Binding TempSynonymsCol1}">
                                             <CollectionView.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border
@@ -281,7 +281,7 @@
                                 </VerticalStackLayout>
                                     
                                 <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
-                                        <CollectionView ItemsSource="{Binding SynonymsCol2}">
+                                        <CollectionView ItemsSource="{Binding TempSynonymsCol2}">
                                             <CollectionView.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border

@@ -23,9 +23,10 @@ public partial class HomeScreenView : ContentPage
     private async void search_Clicked(object sender, EventArgs e)
     {
         var result = new ContentScreenView();
+        InputWord.Unfocus();
         var resultViewModel = new DictionaryViewModel(InputWord.Text);
         result.BindingContext = resultViewModel;
         await Navigation.PushModalAsync(result);
-        InputWord.Unfocus();
+
     }
 }
