@@ -2,9 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASDict.MVVM.Views.HomeScreenView"
+             xmlns:viewModels="clr-namespace:ASDict.MVVM.ViewModels"
+             x:DataType="viewModels:SuggestionViewModel"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              Title="HomeScreenView">
+    <ContentPage.BindingContext>
+        <viewModels:SuggestionViewModel/>
+    </ContentPage.BindingContext>
+
     <Shell.NavBarIsVisible>
         <OnIdiom x:TypeArguments="x:Boolean">
             <OnIdiom.Phone>false</OnIdiom.Phone>
@@ -27,6 +34,8 @@
         <Grid ColumnDefinitions="auto, * , auto"
               Padding="8,0,8,12"
               VerticalOptions="Start">
+
+
             <!--App icon-->
             <Border
                 Padding="0"
@@ -51,7 +60,7 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
             </Border>
-            
+
             <!--Menu icon-->
             <Border 
                 Grid.Column="2"
@@ -87,6 +96,7 @@
                 VerticalOptions="Start"
                 Stroke="White"
                 StrokeShape="RoundRectangle 20"
+                HeightRequest="55"
                 Visual="Default">
                 <Border.Shadow>
                     <Shadow Brush="#333A57"
@@ -94,13 +104,17 @@
                             Offset="0,10"
                             Opacity="0.5"/>
                 </Border.Shadow>
-                <Frame Padding="16,0"
-                       BorderColor="White">
-                    <Entry x:Name="InputWord"
-                        ClearButtonVisibility="WhileEditing"
-                           FontFamily="PatrickHand"
-                           FontSize="24"/>
-                </Frame>
+                <editors:SfAutocomplete
+                    Margin="10, 0 , 10, -8"
+                        IsClearButtonVisible="True"
+                        x:Name="InputWord"
+                        ItemsSource="{Binding Suggestions}"
+                        Placeholder="Text here"
+                        DisplayMemberPath = "Name"
+                        TextMemberPath = "Name"
+                        TextSearchMode="Contains"
+                        FontFamily="PatrickHand"
+                        FontSize="24"/>
             </Border>
 
             <Border Grid.Column="1"
