@@ -141,7 +141,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7.5*"/>
                 </Grid.RowDefinitions>
 
                 <!--Search History-->
@@ -161,21 +161,85 @@
 
                         <ImageButton Source="rubbish_icon.svg"
                             Grid.Column="2"
-                            Padding="15"
+                            Padding="0"
                             VerticalOptions="Center"
                             HorizontalOptions="End"/>
                     </Grid>
                 </Border>
 
                 <!--History Label-->
-                <Border Grid.Row="1">
+                <Border Grid.Row="1"
+                        StrokeThickness="0"
+                        BackgroundColor="#FEF2F2">
+                    <HorizontalStackLayout VerticalOptions="Center"
+                                           HorizontalOptions="Center">
+                        <Border
+                            Padding="5, 0"
+                            HeightRequest="50"
+                            Stroke="#333A57"
+                            StrokeThickness="4"
+                            StrokeShape="RoundRectangle 20">
+                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
+                                <Label 
+                                    Grid.Column="0"
+                                    Text="Tessting"
+                                    FontSize="20"
+                                    FontFamily="PatrickHand"
+                                    VerticalOptions="Center"/>
+                                <ImageButton
+                                            Grid.Column="2"
+                                            BackgroundColor="#00FFFFFF"
+                                            Source="delete_icon_default.svg"
+                                            Scale="0.25"/>
+                            </Grid>
+                        </Border>
+                        <Border
+                            Padding="5, 0"
+                            HeightRequest="50"
+                            Stroke="#333A57"
+                            StrokeThickness="4"
+                            StrokeShape="RoundRectangle 20">
+                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
+                                <Label 
+                                    Grid.Column="0"
+                                    Text="Tessting"
+                                    FontSize="20"
+                                    FontFamily="PatrickHand"
+                                    VerticalOptions="Center"/>
+                                <ImageButton
+                                    Grid.Column="2"
+                                    BackgroundColor="#00FFFFFF"
+                                    Source="delete_icon_default.svg"
+                                    Scale="0.25"/>
+                            </Grid>
+                        </Border>
+                        <Border
+                                Padding="5, 0"
+                                HeightRequest="50"
+                                Stroke="#333A57"
+                                StrokeThickness="4"
+                                StrokeShape="RoundRectangle 20">
+                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
+                                <Label 
+                                    Grid.Column="0"
+                                    Text="Tessting"
+                                    FontSize="20"
+                                    FontFamily="PatrickHand"
+                                    VerticalOptions="Center"/>
+                                <ImageButton
+                                    Grid.Column="2"
+                                    BackgroundColor="#00FFFFFF"
+                                    Source="delete_icon_default.svg"
+                                    Scale="0.25"/>
+                            </Grid>
+                        </Border>
+                    </HorizontalStackLayout>
                     
                 </Border>
 
                 <!--Line-->
                 <Line X1="25" Y1="50" X2="355" Y2="50"
                           Stroke="Black" StrokeThickness="2"
-                          VerticalOptions="Center"
                       Grid.Row="2">
                 </Line>
                 
