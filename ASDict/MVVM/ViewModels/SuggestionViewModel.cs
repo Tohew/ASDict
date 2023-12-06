@@ -9,27 +9,52 @@ using System.Threading.Tasks;
 
 namespace ASDict.MVVM.ViewModels
 {
-    public partial class SuggestionViewModel : ObservableObject
+    public class SuggestionViewModel
     {
-        [ObservableProperty]
-        ObservableCollection<SuggestionModel> _suggestions;
+        private List<SuggestionModel> _list;
+        public List<SuggestionModel> TheList
+        {
+            get { return _list; }
+            set { _list = value; }
+        }
+
+        private int _count;
+
+        public int Count
+        {
+            get { return _count; }
+            set { _count = value; }
+        }
+
+        public async void FillList()
+        {
+            String line;
+            SuggestionModel aSuggest = new SuggestionModel();
+            try
+            {
+                using Stream fileStream = await FileSystem.Current.OpenAppPackageFileAsync("smallwords.txt");
+                using StreamReader reader = new StreamReader(fileStream);
+                while ((line = reader.ReadLine()) != null)
+                {
+                    aSuggest = new SuggestionModel();
+                    aSuggest.TheSuggest = line;
+                    _list.Add(aSuggest);
+                }
+            }
+            catch (Exception ex) 
+            {
+                _count = -1; 
+                SuggestionModel error = new SuggestionModel();
+                error.TheSuggest = ex.ToString();
+                _list.Add(error);
+            }
+        }
+
         public SuggestionViewModel()
         {
-            Suggestions = new ObservableCollection<SuggestionModel>();
-            this.Suggestions.Add(new SuggestionModel() { Name = "Facebook", ID = 0 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Google Plus", ID = 1 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Instagram", ID = 2 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "LinkedIn", ID = 3 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Skype", ID = 4 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Telegram", ID = 5 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Televzr", ID = 6 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Tik Tok", ID = 7 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Tout", ID = 8 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Tumblr", ID = 9 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Twitter", ID = 10 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "Vimeo", ID = 11 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "WhatsApp", ID = 12 });
-            this.Suggestions.Add(new SuggestionModel() { Name = "YouTube", ID = 13 });
+            _list = new List<SuggestionModel>();
+            FillList();
+            _count = _list.Count;
         }
     }
 }
