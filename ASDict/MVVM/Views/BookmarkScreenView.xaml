@@ -88,7 +88,7 @@
                         Opacity="0.5"/>
                 </Border.Shadow>
                 <Frame Padding="16, 0" BorderColor="White" >
-                    <Entry 
+                    <Entry x:Name="InputWord"
                                     ClearButtonVisibility="WhileEditing"
                                     FontFamily="PatrickHand"
                                     FontSize="24"/>
@@ -115,6 +115,7 @@
                 BackgroundColor="#333A57"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
+                Clicked="search_Clicked"
 />
             </Border>
         </Grid>

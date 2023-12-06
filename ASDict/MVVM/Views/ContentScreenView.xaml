@@ -11,7 +11,57 @@
         </OnIdiom>
     </Shell.NavBarIsVisible>
 
-    <Grid RowSpacing="24">
+    <Grid>
+    <Grid x:Name="MenuContainer">
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#666666" Offset="0.0" />
+                <GradientStop Color="#000000" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="GridArea_Tapped" />
+        </Grid.GestureRecognizers>
+
+        <VerticalStackLayout
+                Margin="0,52,24,0"
+                HorizontalOptions="End"
+                Spacing="20">
+
+            <Label                
+                    Text="MENU"
+                    HorizontalOptions="End"/>
+
+            <Label                
+                    Text="Option 1 (with icon)"
+                    HorizontalOptions="End" />
+
+            <Label                
+                    Text="Option 2 (with icon)"
+                    HorizontalOptions="End" />
+
+            <Label                
+                    Text="Option 3 (with icon)"
+                    HorizontalOptions="End" />
+
+            <Label                
+                    Text="Option 4 (with icon)"
+                    HorizontalOptions="End" />
+
+            <Label                
+                    Text="Option 5 (with icon)"
+                    HorizontalOptions="End" />
+
+            <Label                
+                    Text="Option 6 (with icon)"
+                    HorizontalOptions="End" />
+
+        </VerticalStackLayout>
+    </Grid>
+
+    <Grid x:Name="ContentGrid" RowSpacing="24">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -394,5 +444,6 @@
                 WidthRequest="45"/>
             </Border>
         </Grid>
+    </Grid>
     </Grid>
 </ContentPage>

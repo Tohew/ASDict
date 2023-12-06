@@ -6,6 +6,8 @@ namespace ASDict.MVVM.Views;
 
 public partial class ContentScreenView : ContentPage
 {
+    private const uint AnimationDuration = 800u;
+
     public ContentScreenView()
     {
 
@@ -13,14 +15,16 @@ public partial class ContentScreenView : ContentPage
         BindingContext = new DictionaryViewModel();
     }
 
-    private void menu_Clicked(object sender, EventArgs e)
+    async void menu_Clicked(object sender, EventArgs e)
     {
-
+        _ = ContentGrid.TranslateTo(-this.Width * 0.5, this.Height * 0.1, AnimationDuration, Easing.CubicIn);
+        await ContentGrid.ScaleTo(0.8, AnimationDuration);
+        _ = ContentGrid.FadeTo(0.8, AnimationDuration);
     }
 
     private void search_Clicked(object sender, EventArgs e)
     {
-        Navigation.PopModalAsync();
+        Navigation.PushModalAsync(new HomeScreenView());
     }
 
     private void bookmark1_Clicked(object sender, EventArgs e)
@@ -69,5 +73,18 @@ public partial class ContentScreenView : ContentPage
         {
             viewModel.ConvertToAnt();
         }
+    }
+
+    async void GridArea_Tapped(System.Object sender, System.EventArgs e)
+    {
+        await CloseMenu();
+    }
+
+    private async Task CloseMenu()
+    {
+        //Close the menu and bring back back the main content
+        _ = ContentGrid.FadeTo(1, AnimationDuration);
+        _ = ContentGrid.ScaleTo(1, AnimationDuration);
+        await ContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
     }
 }
