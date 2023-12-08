@@ -10,7 +10,6 @@ public partial class ContentScreenView : ContentPage
 
     public ContentScreenView()
     {
-
         InitializeComponent();
         BindingContext = new DictionaryViewModel();
     }
