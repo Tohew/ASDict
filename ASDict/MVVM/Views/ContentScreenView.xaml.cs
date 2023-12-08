@@ -14,11 +14,14 @@ public partial class ContentScreenView : ContentPage
         BindingContext = new DictionaryViewModel();
     }
 
+    private bool isMenuOpen = false;
     async void menu_Clicked(object sender, EventArgs e)
     {
-        _ = ContentGrid.TranslateTo(-this.Width * 0.5, this.Height * 0, AnimationDuration, Easing.CubicIn);
-        //await ContentGrid.ScaleTo(0.8, AnimationDuration);
-        //_ = ContentGrid.FadeTo(0.8, AnimationDuration);
+        if (!isMenuOpen)
+            _ = ContentGrid.TranslateTo(-this.Width * 0.5, this.Height * 0, AnimationDuration, Easing.CubicIn);
+        else
+            await CloseMenu();
+        isMenuOpen = !isMenuOpen;
     }
 
     private void search_Clicked(object sender, EventArgs e)
@@ -74,16 +77,30 @@ public partial class ContentScreenView : ContentPage
         }
     }
 
-    async void GridArea_Tapped(System.Object sender, System.EventArgs e)
-    {
-        await CloseMenu();
-    }
-
     private async Task CloseMenu()
     {
         //Close the menu and bring back back the main content
         _ = ContentGrid.FadeTo(1, AnimationDuration);
         _ = ContentGrid.ScaleTo(1, AnimationDuration);
         await ContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
+    }
+
+    private void MenuBm_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void bookmark_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushModalAsync(new BookmarkScreenView());
+    }
+
+    private async void help_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("help", "cc, cl", "OK");
+    }
+    private async void infor_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("info", "cc, cl", "OK");
     }
 }

@@ -12,74 +12,150 @@
     </Shell.NavBarIsVisible>
 
     <Grid>
-    <Grid x:Name="MenuContainer">
+        <!--Menu Page-->
+        <Grid x:Name="MenuContainer" BackgroundColor="#333A57" RowSpacing="2">
 
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#333A57" Offset="0.0" />
-                <GradientStop Color="#333A57" Offset="1.0"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!--Bookmark-->
+            <Border StrokeThickness="0" BackgroundColor="#333A57" Grid.Row="0">
+                <Border.Shadow>
+                    <Shadow Brush="#FAC4C7"
+                            Offset="0, 8"
+                            Radius="0"/>
+                </Border.Shadow>
+                <VerticalStackLayout >
+                    <Grid ColumnDefinitions="*, *">
+                        <VerticalStackLayout  Grid.Column="1" Padding="16,12, 0, 0">
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="bookmark_Clicked" />
+                            </VerticalStackLayout.GestureRecognizers>
+                            <Grid ColumnDefinitions="auto, *, auto">
+                                <Label 
+                            Grid.Column="0"
+                            Text="Bookmark"
+                           FontSize="22"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           FontFamily="PatrickHand"/>
+                                <Border 
+                            Grid.Column="2"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                        Background="#FAC4C7" 
+                        Stroke="#333A57" 
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 60"
+                        HeightRequest="50"
+                        WidthRequest="50">
+                                    <Image Source="Resources/Images/bookmark_icon.svg" Scale="0.5"/>
+                                </Border>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
 
-        <!--<Grid.GestureRecognizers>
-            <TapGestureRecognizer Tapped="GridArea_Tapped" />
-        </Grid.GestureRecognizers>-->
+                </VerticalStackLayout>
+            </Border>
+            
+            <!--Help-->
+            <Border StrokeThickness="0" BackgroundColor="#333A57" Grid.Row="1">
+                <Border.Shadow>
+                    <Shadow Brush="#FAC4C7"
+                            Offset="0,8"
+                            Radius="0"/>
+                </Border.Shadow>
+                <VerticalStackLayout>
+                    <Grid ColumnDefinitions="*, *">
+                        <VerticalStackLayout Padding="16,12, 0, 0" Grid.Column="1">
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="help_Clicked" />
+                            </VerticalStackLayout.GestureRecognizers>
+                            <Grid ColumnDefinitions="auto, *, auto">
+                                <Label 
+                            Grid.Column="0"
+                            Text="Help"
+                           FontSize="22"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                           TextColor="White"
+                           FontFamily="PatrickHand"/>
+                                <Border 
+                            Grid.Column="2"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                        Background="#FAC4C7" 
+                        Stroke="#333A57" 
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 60"
+                        HeightRequest="50"
+                        WidthRequest="50">
+                                    <Image Source="Resources/Images/help_icon.svg" Scale="0.5"/>
+                                </Border>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
 
-        <VerticalStackLayout
-                Margin="0,52,24,0"
-                HorizontalOptions="End"
-                Spacing="20">
+                </VerticalStackLayout>
+            </Border>
 
-            <Label                
-                    Text="MENU"
-                    HorizontalOptions="End"/>
+            <!--Infor-->
+            <Border StrokeThickness="0" BackgroundColor="#333A57" Grid.Row="2">
+                <Border.Shadow>
+                    <Shadow Brush="#FAC4C7"
+                            Offset="0,8"
+                            Radius="0"/>
+                </Border.Shadow>
+                <VerticalStackLayout>
+                    <Grid ColumnDefinitions="*, *">
+                        <VerticalStackLayout Padding="16,12, 0, 0" Grid.Column="1">
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="infor_Clicked" />
+                            </VerticalStackLayout.GestureRecognizers>
+                            <Grid ColumnDefinitions="auto, *, auto">
+                                <Label 
+                            Grid.Column="0"
+                            Text="Infor"
+                           FontSize="22"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                           TextColor="White"
+                           FontFamily="PatrickHand"/>
+                                <Border 
+                            Grid.Column="2"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                        Background="#FAC4C7" 
+                        Stroke="#333A57" 
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 60"
+                        HeightRequest="50"
+                        WidthRequest="50">
+                                    <Image Source="Resources/Images/information_icon.svg" Scale="0.5"/>
+                                </Border>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
 
-            <Label                
-                    Text="Option 1 (with icon)"
-                    TextColor="White"
-                    HorizontalOptions="End" />
+                </VerticalStackLayout>
+            </Border>
 
-            <Label                
-                    Text="Option 2 (with icon)"
-                    TextColor="White"
-                    HorizontalOptions="End" />
+        </Grid>
 
-            <Label                
-                    Text="Option 3 (with icon)"
-                    TextColor="White"
-                    HorizontalOptions="End" />
+    <Grid x:Name="ContentGrid" RowSpacing="24" >
 
-            <Label                
-                    Text="Option 4 (with icon)"
-                    TextColor="White"
-                    HorizontalOptions="End" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
 
-            <Label                
-                    Text="Option 5 (with icon)"
-                    TextColor="White"
-                    HorizontalOptions="End" />
-
-            <Label                
-                    Text="Option 6 (with icon)"
-                    TextColor="White"
-                    HorizontalOptions="End" />
-
-        </VerticalStackLayout>
-    </Grid>
-
-    <Grid x:Name="ContentGrid" RowSpacing="24">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="75"/>
-        </Grid.RowDefinitions>
-
-        <Grid.GestureRecognizers>
-            <TapGestureRecognizer Tapped="GridArea_Tapped" />
-        </Grid.GestureRecognizers>
-
-        <Image Source="Resources/Images/backgr.png" 
+            <Image Source="Resources/Images/backgr.png" 
                Aspect="AspectFill"
                Grid.Column="0"
                Grid.RowSpan="3"/>
@@ -109,6 +185,7 @@
                 BackgroundColor="White"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"/>
+                    
         </Border>
 
                 <HorizontalStackLayout  Grid.Column="2">
@@ -165,7 +242,8 @@
                     </Border>
 
                     <!--Menu icon-->
-                    <Border 
+                        <Grid>
+                            <Border 
             StrokeThickness="4" 
             StrokeShape="RoundRectangle 90"
             Background="white"
@@ -180,19 +258,22 @@
                         Offset="0,10"
                         Opacity="1"/>
             </Border.Shadow>
+
             <ImageButton x:Name="menu"
                 Source="Resources/Images/menu_icon_blue.svg" 
                 Aspect="Center" 
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Clicked="menu_Clicked"/>
+
         </Border>
-                </HorizontalStackLayout>
+                        </Grid>
+                    </HorizontalStackLayout>
             </Grid>
         </VerticalStackLayout>
 
         <!--Content-->
-        <Frame 
+            <Frame 
             Padding="12,45"
             Grid.Row="1"
             Grid.RowSpan="2"
@@ -201,10 +282,8 @@
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"
             BorderColor="#FEF2F2">
+
                 <Grid>
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="GridArea_Tapped" />
-                    </Grid.GestureRecognizers>
                     <VerticalStackLayout>
                 <!--Label result-->
                 <Border 
@@ -404,8 +483,7 @@
 
                 <Image  Source="Resources/Images/backgr.png" 
                        Aspect="AspectFill"
-                        Scale="2"
-               />
+                        Scale="2"/>
             </Border>
             <Border  Grid.Column="0"
             StrokeThickness="4" 
@@ -430,7 +508,9 @@
                 HeightRequest="45"
                 WidthRequest="45"/>
             </Border>
-            <Border Grid.Column="1" WidthRequest="4" BackgroundColor="#333A57" StrokeThickness="0" Margin="8" />
+            
+            <Border Grid.Column="1" WidthRequest="4"
+                    BackgroundColor="#333A57" StrokeThickness="0" Margin="8" />
 
             <Border  
             Grid.Column="2"
