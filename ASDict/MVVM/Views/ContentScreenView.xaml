@@ -16,14 +16,14 @@
 
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#666666" Offset="0.0" />
-                <GradientStop Color="#000000" Offset="1.0"/>
+                <GradientStop Color="#333A57" Offset="0.0" />
+                <GradientStop Color="#333A57" Offset="1.0"/>
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Grid.GestureRecognizers>
+        <!--<Grid.GestureRecognizers>
             <TapGestureRecognizer Tapped="GridArea_Tapped" />
-        </Grid.GestureRecognizers>
+        </Grid.GestureRecognizers>-->
 
         <VerticalStackLayout
                 Margin="0,52,24,0"
@@ -36,26 +36,32 @@
 
             <Label                
                     Text="Option 1 (with icon)"
+                    TextColor="White"
                     HorizontalOptions="End" />
 
             <Label                
                     Text="Option 2 (with icon)"
+                    TextColor="White"
                     HorizontalOptions="End" />
 
             <Label                
                     Text="Option 3 (with icon)"
+                    TextColor="White"
                     HorizontalOptions="End" />
 
             <Label                
                     Text="Option 4 (with icon)"
+                    TextColor="White"
                     HorizontalOptions="End" />
 
             <Label                
                     Text="Option 5 (with icon)"
+                    TextColor="White"
                     HorizontalOptions="End" />
 
             <Label                
                     Text="Option 6 (with icon)"
+                    TextColor="White"
                     HorizontalOptions="End" />
 
         </VerticalStackLayout>
@@ -69,6 +75,9 @@
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="GridArea_Tapped" />
+        </Grid.GestureRecognizers>
 
         <Image Source="Resources/Images/backgr.png" 
                Aspect="AspectFill"
@@ -192,7 +201,11 @@
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"
             BorderColor="#FEF2F2">
-            <VerticalStackLayout>
+                <Grid>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GridArea_Tapped" />
+                    </Grid.GestureRecognizers>
+                    <VerticalStackLayout>
                 <!--Label result-->
                 <Border 
                         Padding="6,12"
@@ -375,7 +388,8 @@
                 </Border>
 
             </VerticalStackLayout>
-        </Frame>
+                </Grid>
+            </Frame>
 
         <!--Footer-->
         <Grid Grid.Row="2" >

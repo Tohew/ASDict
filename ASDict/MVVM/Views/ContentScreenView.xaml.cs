@@ -6,7 +6,7 @@ namespace ASDict.MVVM.Views;
 
 public partial class ContentScreenView : ContentPage
 {
-    private const uint AnimationDuration = 800u;
+    private const uint AnimationDuration = 100u;
 
     public ContentScreenView()
     {
@@ -17,9 +17,9 @@ public partial class ContentScreenView : ContentPage
 
     async void menu_Clicked(object sender, EventArgs e)
     {
-        _ = ContentGrid.TranslateTo(-this.Width * 0.5, this.Height * 0.1, AnimationDuration, Easing.CubicIn);
-        await ContentGrid.ScaleTo(0.8, AnimationDuration);
-        _ = ContentGrid.FadeTo(0.8, AnimationDuration);
+        _ = ContentGrid.TranslateTo(-this.Width * 0.5, this.Height * 0, AnimationDuration, Easing.CubicIn);
+        //await ContentGrid.ScaleTo(0.8, AnimationDuration);
+        //_ = ContentGrid.FadeTo(0.8, AnimationDuration);
     }
 
     private void search_Clicked(object sender, EventArgs e)
