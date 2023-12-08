@@ -17,6 +17,7 @@ public partial class ContentScreenView : ContentPage
     private bool isMenuOpen = false;
     async void menu_Clicked(object sender, EventArgs e)
     {
+        
         if (!isMenuOpen)
             _ = ContentGrid.TranslateTo(-this.Width * 0.5, this.Height * 0, AnimationDuration, Easing.CubicIn);
         else
@@ -92,15 +93,18 @@ public partial class ContentScreenView : ContentPage
 
     private void bookmark_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushModalAsync(new BookmarkScreenView());
+        if (isMenuOpen)
+            Navigation.PushModalAsync(new BookmarkScreenView());
     }
 
     private async void help_Clicked(object sender, EventArgs e)
     {
-        await DisplayAlert("help", "cc, cl", "OK");
+        if (isMenuOpen)
+            await DisplayAlert("help", "cc, cl", "OK");
     }
     private async void infor_Clicked(object sender, EventArgs e)
     {
-        await DisplayAlert("info", "cc, cl", "OK");
+        if (isMenuOpen)
+            await DisplayAlert("info", "cc, cl", "OK");
     }
 }
