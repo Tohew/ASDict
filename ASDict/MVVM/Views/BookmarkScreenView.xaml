@@ -207,204 +207,32 @@
                                 VerticalOptions="FillAndExpand"
                                 BackgroundColor="White">
                                 <VerticalStackLayout Padding="12" Spacing="6">
-                                    <Border
-                                            Padding="18, 0"
-                                            HeightRequest="60"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                            <Label 
-                                                Grid.Column="0"
-                                                Text="Tessting"
-                                                FontSize="20"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                />
-                                            <ImageButton
-                                                Grid.Column="2"
-                                                BackgroundColor="#00FFFFFF"
-                                                Source="delete_icon_default.svg"
-                                                Scale="0.5"
-                                                />
-                                        </Grid>
-                                    </Border>
-                                    <Border
-                                            Padding="18, 0"
-                                            HeightRequest="60"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                            <Label 
-                                                Grid.Column="0"
-                                                Text="Tessting"
-                                                FontSize="20"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                />
-                                            <ImageButton
-                                                Grid.Column="2"
-                                                BackgroundColor="#00FFFFFF"
-                                                Source="delete_icon_default.svg"
-                                                Scale="0.5"
-                                                />
-                                        </Grid>
-                                    </Border>
-                                    <Border
-                                            Padding="18, 0"
-                                            HeightRequest="60"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                            <Label 
-                                                Grid.Column="0"
-                                                Text="Tessting"
-                                                FontSize="20"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                />
-                                            <ImageButton
-                                                Grid.Column="2"
-                                                BackgroundColor="#00FFFFFF"
-                                                Source="delete_icon_default.svg"
-                                                Scale="0.5"
-                                                />
-                                        </Grid>
-                                    </Border>
-                                    <Border
-                                            Padding="18, 0"
-                                            HeightRequest="60"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                            <Label 
-                                                Grid.Column="0"
-                                                Text="Tessting"
-                                                FontSize="20"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                />
-                                            <ImageButton
-                                                Grid.Column="2"
-                                                BackgroundColor="#00FFFFFF"
-                                                Source="delete_icon_default.svg"
-                                                Scale="0.5"
-                                                />
-                                        </Grid>
-                                    </Border>
-                                    <Border
-                                            Padding="18, 0"
-                                            HeightRequest="60"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                            <Label 
-                                                Grid.Column="0"
-                                                Text="Tessting"
-                                                FontSize="20"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                />
-                                            <ImageButton
-                                                Grid.Column="2"
-                                                BackgroundColor="#00FFFFFF"
-                                                Source="delete_icon_default.svg"
-                                                Scale="0.5"
-                                                />
-                                        </Grid>
-                                    </Border>
-                                    <Border
-                                            Padding="18, 0"
-                                            HeightRequest="60"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                            <Label 
-                                                Grid.Column="0"
-                                                Text="Tessting"
-                                                FontSize="20"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                />
-                                            <ImageButton
-                                                Grid.Column="2"
-                                                BackgroundColor="#00FFFFFF"
-                                                Source="delete_icon_default.svg"
-                                                Scale="0.5"
-                                                />
-                                        </Grid>
-                                    </Border>
-                                    <Border
-                                            Padding="18, 0"
-                                            HeightRequest="60"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                            <Label 
-                                                Grid.Column="0"
-                                                Text="Tessting"
-                                                FontSize="20"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                />
-                                            <ImageButton
-                                                Grid.Column="2"
-                                                BackgroundColor="#00FFFFFF"
-                                                Source="delete_icon_default.svg"
-                                                Scale="0.5"
-                                                />
-                                        </Grid>
-                                    </Border>
-                                    <Border
-                                            Padding="18, 0"
-                                            HeightRequest="60"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                            <Label 
-                                                Grid.Column="0"
-                                                Text="Tessting"
-                                                FontSize="20"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                />
-                                            <ImageButton
-                                                Grid.Column="2"
-                                                BackgroundColor="#00FFFFFF"
-                                                Source="delete_icon_default.svg"
-                                                Scale="0.5"
-                                                />
-                                        </Grid>
-                                    </Border>
-                                    <Border
-                                            Padding="18, 0"
-                                            HeightRequest="60"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                            <Label 
-                                                Grid.Column="0"
-                                                Text="Tessting"
-                                                FontSize="20"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                />
-                                            <ImageButton
-                                                Grid.Column="2"
-                                                BackgroundColor="#00FFFFFF"
-                                                Source="delete_icon_default.svg"
-                                                Scale="0.5"
-                                                />
-                                        </Grid>
-                                    </Border>
+                                    <CollectionView ItemsSource="{Binding FavoriteWords}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border
+                                                    Padding="18, 0"
+                                                    HeightRequest="60"
+                                                    Stroke="#333A57"
+                                                    StrokeThickness="4"
+                                                    StrokeShape="RoundRectangle 20">
+                                                    <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
+                                                        <Label 
+                                                            Grid.Column="0"
+                                                            Text="{Binding FavoriteWords.bookmarkWord}"
+                                                            FontSize="20"
+                                                            FontFamily="PatrickHand"
+                                                            VerticalOptions="Center"/>
+                                                        <ImageButton
+                                                            Grid.Column="2"
+                                                            BackgroundColor="#00FFFFFF"
+                                                            Source="delete_icon_default.svg"
+                                                            Scale="0.5"/>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
                                 </VerticalStackLayout>
                             </ScrollView>
                         </Grid>
