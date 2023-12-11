@@ -219,7 +219,7 @@
                                                     <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
                                                         <Label 
                                                             Grid.Column="0"
-                                                            Text="{Binding FavoriteWords.bookmarkWord}"
+                                                            Text="{Binding bookmarkWord}"
                                                             FontSize="20"
                                                             FontFamily="PatrickHand"
                                                             VerticalOptions="Center"/>

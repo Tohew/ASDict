@@ -100,7 +100,7 @@
                             x:Name="star_white"
                             Source="Resources/Images/star_icon_white.svg" 
                             Aspect="Center" 
-                            Clicked="star_white_Clicked"
+                            Command="{Binding starClicked}"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"/>
                     </Border>

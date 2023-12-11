@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ASDict.MVVM.ViewModels
 {
@@ -126,6 +127,11 @@ namespace ASDict.MVVM.ViewModels
             _httpClient.DefaultRequestHeaders.Add("X-Api-Key", apiKey);
             IsProcessing = true;
             _ = FetchApi(input);
+
+            _ = CheckIfFavoriteAsync();
+
+            starClicked = new Command(favoriteCommand);
+
         }
 
         public void ConvertToAnt()
@@ -164,8 +170,50 @@ namespace ASDict.MVVM.ViewModels
             }
         }
 
+        public ICommand starClicked { get; }
         public DictionaryViewModel()
         {
+
+        }
+        public string inputWord;
+
+        [ObservableProperty]
+        public Bookmark selectedFavorWord;
+
+        [ObservableProperty]
+        public Bookmark favoriteWord;
+
+        [ObservableProperty]
+        public bool isFavorite;
+
+        [ObservableProperty]
+        public string sourceFavorite;
+
+        private readonly BookmarkService _bookmarkService;
+        private async Task CheckIfFavoriteAsync()
+        {
+            FavoriteWord = await _bookmarkService.GetByWord(inputWord);
+            IsFavorite = FavoriteWord != null;
+            SourceFavorite = IsFavorite ? "star_icon_blue.svg" : "star_icon_white.svg";
+        }
+
+        public async void favoriteCommand()
+        {
+            if (IsFavorite)
+            {
+                SourceFavorite = "star_icon_white.svg";
+                IsFavorite = false;
+                await _bookmarkService.GetByWord(inputWord);
+            }
+            else
+            {
+                SourceFavorite = "star_icon_blue.svg";
+                IsFavorite = true;
+                await _bookmarkService.Create(new Bookmark
+                {
+                    bookmarkWord = inputWord
+                });
+            }
         }
     }
 }

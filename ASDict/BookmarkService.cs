@@ -24,6 +24,11 @@ namespace ASDict
         {
             return await _connection.Table<Bookmark>().OrderByDescending(x => x.wordId).ToListAsync();
         }
+        public async Task<Bookmark> GetByWord(string word)
+        {
+            return await _connection.Table<Bookmark>().
+                Where(x => x.bookmarkWord == word).FirstOrDefaultAsync();
+        }
         public async Task<Bookmark> GetById(int wordId)
         {
             return await _connection.Table<Bookmark>().
@@ -31,22 +36,16 @@ namespace ASDict
         }
         public async Task Create(Bookmark bookmark)
         {
+            await _connection.InsertAsync(bookmark);
+        }
+        public async Task DeleteByWordAsync(string word)
+        {
             var existWord = await _connection.Table<Bookmark>().
-                Where(x => x.bookmarkWord == bookmark.bookmarkWord).FirstOrDefaultAsync();
-            if(existWord != null)
+                        Where(x => x.bookmarkWord == word).FirstOrDefaultAsync();
+            if (existWord != null)
             {
                 await _connection.DeleteAsync(existWord);
-            }       
-            var currWordCount = await _connection.Table<Bookmark>().CountAsync();
-            if(currWordCount >= MaxStorageLimit)
-            {
-                var oldestWord = await _connection.Table<Bookmark>().OrderBy(x => x.wordId).FirstOrDefaultAsync();
-                if(oldestWord != null)
-                {
-                    await _connection.DeleteAsync(oldestWord);
-                }
             }
-            await _connection.InsertAsync(bookmark);
         }
         public async Task Update(Bookmark bookmark)
         {
