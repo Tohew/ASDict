@@ -5,5 +5,5 @@ public partial class BookmarkScreenView : ContentPage
 	public BookmarkScreenView()
 	{
 		InitializeComponent();
-	}
+    }
 }
