@@ -9,6 +9,7 @@ public partial class HomeScreenView : ContentPage
 	public HomeScreenView()
 	{
         InitializeComponent();
+        BindingContext = new HomeScreenViewModel();
     }
 
     private void bookmark1_Clicked(object sender, EventArgs e)
@@ -21,17 +22,17 @@ public partial class HomeScreenView : ContentPage
         DisplayAlert("ASDict", "You are in Home", "OK");
     }
 
-    private async void search_Clicked(object sender, EventArgs e)
-    {
-        if (InputWord != null)
-        {
-            if (Platform.CurrentActivity.CurrentFocus != null)
-                Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
+    //private async void search_Clicked(object sender, EventArgs e)
+    //{
+    //    if (InputWord != null)
+    //    {
+    //        if (Platform.CurrentActivity.CurrentFocus != null)
+    //            Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
 
-            var result = new ContentScreenView();
-            var resultViewModel = new DictionaryViewModel(InputWord.Text);
-            result.BindingContext = resultViewModel;
-            await Navigation.PushModalAsync(result);
-        }            
-    }
+    //        var result = new ContentScreenView();
+    //        var resultViewModel = new DictionaryViewModel(InputWord.Text);
+    //        result.BindingContext = resultViewModel;
+    //        await Navigation.PushModalAsync(result);
+    //    }            
+    //}
 }

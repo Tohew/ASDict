@@ -97,9 +97,10 @@
                 <Frame Padding="16,0"
                        BorderColor="White">
                     <Entry x:Name="InputWord"
-                        ClearButtonVisibility="WhileEditing"
+                           ClearButtonVisibility="WhileEditing"
                            FontFamily="PatrickHand"
-                           FontSize="24"/>
+                           FontSize="24"
+                           Text="{Binding InputWord.word, Mode=TwoWay}"/>
                 </Frame>
             </Border>
 
@@ -123,7 +124,7 @@
                              BackgroundColor="#333A57"
                              HorizontalOptions="Center"
                              VerticalOptions="Center"
-                             Clicked="search_Clicked"/>
+                             Command="{Binding searchCommand}"/>
             </Border>
         </Grid>
         
@@ -173,66 +174,32 @@
                         BackgroundColor="#FEF2F2">
                     <HorizontalStackLayout VerticalOptions="Center"
                                            HorizontalOptions="Center">
-                        <Border
-                            Padding="5, 0"
-                            HeightRequest="50"
-                            Stroke="#333A57"
-                            StrokeThickness="4"
-                            StrokeShape="RoundRectangle 20">
-                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                <Label 
-                                    Grid.Column="0"
-                                    Text="Tessting"
-                                    FontSize="20"
-                                    FontFamily="PatrickHand"
-                                    VerticalOptions="Center"/>
-                                <ImageButton
-                                            Grid.Column="2"
-                                            BackgroundColor="#00FFFFFF"
-                                            Source="delete_icon_default.svg"
-                                            Scale="0.25"/>
-                            </Grid>
-                        </Border>
-                        <Border
-                            Padding="5, 0"
-                            HeightRequest="50"
-                            Stroke="#333A57"
-                            StrokeThickness="4"
-                            StrokeShape="RoundRectangle 20">
-                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                <Label 
-                                    Grid.Column="0"
-                                    Text="Tessting"
-                                    FontSize="20"
-                                    FontFamily="PatrickHand"
-                                    VerticalOptions="Center"/>
-                                <ImageButton
-                                    Grid.Column="2"
-                                    BackgroundColor="#00FFFFFF"
-                                    Source="delete_icon_default.svg"
-                                    Scale="0.25"/>
-                            </Grid>
-                        </Border>
-                        <Border
-                                Padding="5, 0"
-                                HeightRequest="50"
-                                Stroke="#333A57"
-                                StrokeThickness="4"
-                                StrokeShape="RoundRectangle 20">
-                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                <Label 
-                                    Grid.Column="0"
-                                    Text="Tessting"
-                                    FontSize="20"
-                                    FontFamily="PatrickHand"
-                                    VerticalOptions="Center"/>
-                                <ImageButton
-                                    Grid.Column="2"
-                                    BackgroundColor="#00FFFFFF"
-                                    Source="delete_icon_default.svg"
-                                    Scale="0.25"/>
-                            </Grid>
-                        </Border>
+                        <CollectionView ItemsSource="{Binding RecentWords}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Padding="5, 0"
+                                        HeightRequest="50"
+                                        Stroke="#333A57"
+                                        StrokeThickness="4"
+                                        StrokeShape="RoundRectangle 20">
+                                        <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
+                                            <Label 
+                                                Grid.Column="0"
+                                                Text="{Binding word}"
+                                                FontSize="20"
+                                                FontFamily="PatrickHand"
+                                                VerticalOptions="Center"/>
+                                            <ImageButton
+                                                Grid.Column="2"
+                                                BackgroundColor="#00FFFFFF"
+                                                Source="delete_icon_default.svg"
+                                                Scale="0.25"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </HorizontalStackLayout>
                     
                 </Border>
