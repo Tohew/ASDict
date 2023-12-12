@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASDict.MainPage">
 
+    <ContentPage.Resources>
+        <x:String x:Key="menu">&#xf0c9;</x:String>
+    </ContentPage.Resources>
+
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
@@ -12,6 +16,15 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
+
+            <ImageButton 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                <ImageButton.Source>
+                    <FontImageSource FontFamily="FAS" Glyph="{StaticResource menu}" Color="#333A57"/>
+                </ImageButton.Source>
+            </ImageButton>
+
 
             <Image
                 Source="dotnet_bot.png"
