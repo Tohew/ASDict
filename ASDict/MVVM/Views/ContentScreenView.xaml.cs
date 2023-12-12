@@ -1,6 +1,8 @@
-﻿using ASDict.MVVM.ViewModels;
+﻿using ASDict.MVVM.Models;
+using ASDict.MVVM.ViewModels;
 using CommunityToolkit.Maui.Core.Views;
 using Microsoft.Maui.Controls;
+using System.Collections.ObjectModel;
 
 namespace ASDict.MVVM.Views;
 
@@ -40,15 +42,15 @@ public partial class ContentScreenView : ContentPage
         Navigation.PushModalAsync(new HomeScreenView());
     }
 
-    private bool isStarWhite = true;
-    private void star_white_Clicked(object sender, EventArgs e)
-    {
-        if (isStarWhite)
-            star_white.Source = "Resources/Images/star_icon_blue.svg";
-        else
-            star_white.Source = "Resources/Images/star_icon_white.svg";
-        isStarWhite = !isStarWhite;
-    }
+    // private bool isStarWhite = true;
+    //private void star_white_Clicked(object sender, EventArgs e)
+    //{
+    //    if (isStarWhite)
+    //        star_white.Source = "Resources/Images/star_icon_blue.svg";
+    //    else
+    //        star_white.Source = "Resources/Images/star_icon_white.svg";
+    //    isStarWhite = !isStarWhite;
+    //}
 
     private void synonym_Clicked(object sender, EventArgs e)
     {
