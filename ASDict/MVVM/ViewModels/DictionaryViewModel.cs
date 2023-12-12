@@ -1,13 +1,7 @@
 ﻿using ASDict.MVVM.Models;
-using CommunityToolkit.Maui.Core.Extensions;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ASDict.MVVM.ViewModels
@@ -30,6 +24,19 @@ namespace ASDict.MVVM.ViewModels
         public ObservableCollection<string> tempSynonymsCol2 = new ObservableCollection<string>();
         [ObservableProperty]
         public bool isProcessing;
+
+
+
+        [ObservableProperty]
+        public Bookmark selectedFavorWord;
+        [ObservableProperty]
+        public Bookmark favoriteWord;
+        [ObservableProperty]
+        public bool isFavorite;
+        [ObservableProperty]
+        public string sourceFavorite;
+        public ICommand starClicked { get; }
+        private readonly BookmarkService _bookmarkService;
 
 
         //Call API
@@ -128,10 +135,13 @@ namespace ASDict.MVVM.ViewModels
             IsProcessing = true;
             _ = FetchApi(input);
 
+            Word = input;
+            _bookmarkService = new BookmarkService();
+
             _ = CheckIfFavoriteAsync();
 
             starClicked = new Command(favoriteCommand);
-
+            
         }
 
         public void ConvertToAnt()
@@ -169,30 +179,14 @@ namespace ASDict.MVVM.ViewModels
                 tempSynonymsCol2.Add(synonym);
             }
         }
-
-        public ICommand starClicked { get; }
+        
         public DictionaryViewModel()
         {
-
         }
-        public string inputWord;
-
-        [ObservableProperty]
-        public Bookmark selectedFavorWord;
-
-        [ObservableProperty]
-        public Bookmark favoriteWord;
-
-        [ObservableProperty]
-        public bool isFavorite;
-
-        [ObservableProperty]
-        public string sourceFavorite;
-
-        private readonly BookmarkService _bookmarkService;
+        
         private async Task CheckIfFavoriteAsync()
         {
-            FavoriteWord = await _bookmarkService.GetByWord(inputWord);
+            FavoriteWord = await _bookmarkService.GetByWord(Word);
             IsFavorite = FavoriteWord != null;
             SourceFavorite = IsFavorite ? "star_icon_blue.svg" : "star_icon_white.svg";
         }
@@ -203,7 +197,7 @@ namespace ASDict.MVVM.ViewModels
             {
                 SourceFavorite = "star_icon_white.svg";
                 IsFavorite = false;
-                await _bookmarkService.GetByWord(inputWord);
+                await _bookmarkService.DeleteByWordAsync(Word);
             }
             else
             {
@@ -211,7 +205,7 @@ namespace ASDict.MVVM.ViewModels
                 IsFavorite = true;
                 await _bookmarkService.Create(new Bookmark
                 {
-                    bookmarkWord = inputWord
+                    bookmarkWord = Word
                 });
             }
         }

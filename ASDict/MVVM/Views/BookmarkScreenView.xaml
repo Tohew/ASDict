@@ -224,6 +224,7 @@
                                                             FontFamily="PatrickHand"
                                                             VerticalOptions="Center"/>
                                                         <ImageButton
+                                                            Command="{Binding deleteClicked}"
                                                             Grid.Column="2"
                                                             BackgroundColor="#00FFFFFF"
                                                             Source="delete_icon_default.svg"

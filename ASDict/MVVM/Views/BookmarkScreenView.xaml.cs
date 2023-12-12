@@ -1,3 +1,5 @@
+using ASDict.MVVM.ViewModels;
+
 namespace ASDict.MVVM.Views;
 
 public partial class BookmarkScreenView : ContentPage
@@ -5,6 +7,7 @@ public partial class BookmarkScreenView : ContentPage
 	public BookmarkScreenView()
 	{
 		InitializeComponent();
+        BindingContext = new BookmarkScreenViewModel();
 	}
 
     private void AppIcon_Clicked(object sender, EventArgs e)

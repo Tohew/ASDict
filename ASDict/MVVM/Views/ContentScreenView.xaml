@@ -98,7 +98,7 @@
                             </Border.Shadow>
                         <ImageButton 
                             x:Name="star_white"
-                            Source="Resources/Images/star_icon_white.svg" 
+                            Source="{Binding SourceFavorite}" 
                             Aspect="Center" 
                             Command="{Binding starClicked}"
                             HorizontalOptions="Center"

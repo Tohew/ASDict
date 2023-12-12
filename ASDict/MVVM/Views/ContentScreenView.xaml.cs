@@ -35,7 +35,7 @@ public partial class ContentScreenView : ContentPage
         Navigation.PushModalAsync(new HomeScreenView());
     }
 
-    private bool isStarWhite = true;
+    // private bool isStarWhite = true;
     //private void star_white_Clicked(object sender, EventArgs e)
     //{
     //    if (isStarWhite)
