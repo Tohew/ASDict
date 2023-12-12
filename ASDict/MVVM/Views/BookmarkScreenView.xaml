@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASDict.MVVM.Views.BookmarkScreenView"
-             xmlns:viewModels="clr-namespace:ASDict.MVVM.ViewModels"
-             x:DataType="viewModels:SuggestionViewModel"
+             xmlns:viewmodel="clr-namespace:ASDict.MVVM.ViewModels"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              Title="BookmarkScreenView">
     <Shell.NavBarIsVisible>
@@ -339,9 +338,9 @@
                                         Source="sort_desc.svg" 
                                         Aspect="AspectFill"
                                         Padding="2"
-                                    BackgroundColor="#333A57"
-                                    VerticalOptions="Center"
-                                    HorizontalOptions="Center"
+                                        BackgroundColor="#333A57"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
                                         Command="{Binding SortBookmarksCommand}"/>
                                 </Border>
                             </Grid>
@@ -356,9 +355,8 @@
                                 <VerticalStackLayout Padding="12" Spacing="6">
                                     <CollectionView ItemsSource="{Binding FavoriteWords}">
                                         <CollectionView.ItemTemplate>
-                                            <DataTemplate>
-
-                                                <Border
+                                                <DataTemplate>
+                                                    <Border
                                                     Padding="18, 0"
                                                     HeightRequest="60"
                                                     Stroke="#333A57"

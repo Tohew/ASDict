@@ -10,7 +10,6 @@ public partial class BookmarkScreenView : ContentPage
 	{
 		InitializeComponent();
         BindingContext = new BookmarkScreenViewModel();
-    }
         Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF1cWWhIYVdpR2Nbe05xdl9DZ1ZRRmYuP1ZhSXxQd0djXH9fcXJWRWNYVUE=");
         InitializeComponent();
         BindingContext = new SuggestionViewModel();
