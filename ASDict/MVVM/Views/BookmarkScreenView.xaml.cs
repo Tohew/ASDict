@@ -8,7 +8,7 @@ public partial class BookmarkScreenView : ContentPage
 	{
 		InitializeComponent();
         BindingContext = new BookmarkScreenViewModel();
-	}
+    }
 
     private void AppIcon_Clicked(object sender, EventArgs e)
     {

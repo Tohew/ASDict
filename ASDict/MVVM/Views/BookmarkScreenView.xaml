@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASDict.MVVM.Views.BookmarkScreenView"
+             xmlns:viewmodel="clr-namespace:ASDict.MVVM.ViewModels"
              Title="BookmarkScreenView">
     <Shell.NavBarIsVisible>
         <OnIdiom x:TypeArguments="x:Boolean">
@@ -195,7 +196,8 @@
                                         Padding="2"
                                     BackgroundColor="#333A57"
                                     VerticalOptions="Center"
-                                    HorizontalOptions="Center"/>
+                                    HorizontalOptions="Center"
+                                        Command="{Binding SortBookmarksCommand}"/>
                                 </Border>
                             </Grid>
                         </Grid>
@@ -210,6 +212,7 @@
                                     <CollectionView ItemsSource="{Binding FavoriteWords}">
                                         <CollectionView.ItemTemplate>
                                             <DataTemplate>
+
                                                 <Border
                                                     Padding="18, 0"
                                                     HeightRequest="60"
@@ -229,6 +232,11 @@
                                                             BackgroundColor="#00FFFFFF"
                                                             Source="delete_icon_default.svg"
                                                             Scale="0.5"/>
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=SearchCommand}"
+                                                                                  CommandParameter="{Binding .}"/>
+                                                        </Grid.GestureRecognizers>
+
                                                     </Grid>
                                                 </Border>
                                             </DataTemplate>
