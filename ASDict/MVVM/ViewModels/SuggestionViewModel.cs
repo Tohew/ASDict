@@ -1,8 +1,6 @@
 ﻿using ASDict.MVVM.Models;
-using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,9 +39,9 @@ namespace ASDict.MVVM.ViewModels
                     _list.Add(aSuggest);
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                _count = -1; 
+                _count = -1;
                 SuggestionModel error = new SuggestionModel();
                 error.TheSuggest = ex.ToString();
                 _list.Add(error);
