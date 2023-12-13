@@ -21,7 +21,6 @@ namespace ASDict
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("PatrickHand-Regular.ttf", "PatrickHand");
                 });
-            builder.Services.AddSingleton<SuggestionViewModel>();
             builder.Services.AddSingleton<HomeScreenView>();
 
 #if DEBUG

@@ -2,16 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASDict.MVVM.Views.HomeScreenView"
-             xmlns:viewModels="clr-namespace:ASDict.MVVM.ViewModels"
-             x:DataType="viewModels:SuggestionViewModel"
+             xmlns:viewmodel="clr-namespace:ASDict.MVVM.ViewModels"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              Title="HomeScreenView">
-    
-    <ContentPage.BindingContext>
-        <viewModels:SuggestionViewModel/>
-    </ContentPage.BindingContext>
 
     <Shell.NavBarIsVisible>
         <OnIdiom x:TypeArguments="x:Boolean">
@@ -246,6 +241,7 @@
                     Margin="10, 0 , 10, -8"
                         IsClearButtonVisible="True"
                         x:Name="InputWord"
+                        Text="{Binding InputWord.word, Mode=TwoWay}"
                         ItemsSource="{Binding TheList}"
                         Placeholder="{Binding Count}"
                         DisplayMemberPath = "TheSuggest"
@@ -275,7 +271,7 @@
                              BackgroundColor="#333A57"
                              HorizontalOptions="Center"
                              VerticalOptions="Center"
-                             Clicked="search_Clicked"/>
+                             Command="{Binding searchCommand}"/>
                 </Border>
             </Grid>
 
@@ -323,69 +319,44 @@
                 <Border Grid.Row="1"
                         StrokeThickness="0"
                         BackgroundColor="#FEF2F2">
-                    <HorizontalStackLayout VerticalOptions="Center"
-                                           HorizontalOptions="Center">
-                        <Border
-                            Padding="5, 0"
-                            HeightRequest="50"
-                            Stroke="#333A57"
-                            StrokeThickness="4"
-                            StrokeShape="RoundRectangle 20">
-                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                <Label 
-                                    Grid.Column="0"
-                                    Text="Tessting"
-                                    FontSize="20"
-                                    FontFamily="PatrickHand"
-                                    VerticalOptions="Center"/>
-                                <ImageButton
-                                            Grid.Column="2"
-                                            BackgroundColor="#00FFFFFF"
-                                            Source="delete_icon_default.svg"
-                                            Scale="0.25"/>
-                            </Grid>
-                        </Border>
-                        <Border
-                            Padding="5, 0"
-                            HeightRequest="50"
-                            Stroke="#333A57"
-                            StrokeThickness="4"
-                            StrokeShape="RoundRectangle 20">
-                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                <Label 
-                                    Grid.Column="0"
-                                    Text="Tessting"
-                                    FontSize="20"
-                                    FontFamily="PatrickHand"
-                                    VerticalOptions="Center"/>
-                                <ImageButton
-                                    Grid.Column="2"
-                                    BackgroundColor="#00FFFFFF"
-                                    Source="delete_icon_default.svg"
-                                    Scale="0.25"/>
-                            </Grid>
-                        </Border>
-                        <Border
-                                Padding="5, 0"
-                                HeightRequest="50"
-                                Stroke="#333A57"
-                                StrokeThickness="4"
-                                StrokeShape="RoundRectangle 20">
-                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                <Label 
-                                    Grid.Column="0"
-                                    Text="Tessting"
-                                    FontSize="20"
-                                    FontFamily="PatrickHand"
-                                    VerticalOptions="Center"/>
-                                <ImageButton
-                                    Grid.Column="2"
-                                    BackgroundColor="#00FFFFFF"
-                                    Source="delete_icon_default.svg"
-                                    Scale="0.25"/>
-                            </Grid>
-                        </Border>
-                    </HorizontalStackLayout>
+                    <StackLayout VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+                            <CollectionView ItemsSource="{Binding RecentWords}">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Horizontal"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border
+                                            Padding="5, 0"
+                                            HeightRequest="50"
+                                            Stroke="#333A57"
+                                            StrokeThickness="4"
+                                            StrokeShape="RoundRectangle 20">
+                                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
+                                                <Label 
+                                                    Grid.Column="0"
+                                                    Text="{Binding word}"
+                                                    FontSize="20"
+                                                    FontFamily="PatrickHand"
+                                                    VerticalOptions="Center"/>
+                                                <ImageButton
+                                                    Grid.Column="2"
+                                                    BackgroundColor="#00FFFFFF"
+                                                    Source="delete_icon_default.svg"
+                                                    Scale="0.25"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=DeleteCommand}"
+                                                    CommandParameter="{Binding .}"/>
+                                                <Grid.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=SelectionChangedCommand}"
+                                                                                  CommandParameter="{Binding .}"/>
+                                                </Grid.GestureRecognizers>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
                     
                 </Border>
 

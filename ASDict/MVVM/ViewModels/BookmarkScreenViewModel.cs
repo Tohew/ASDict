@@ -25,7 +25,6 @@ namespace ASDict.MVVM.ViewModels
 
         public ICommand selectedCommand {  get; }
         public ICommand setSelectedFavoriteWord {  get; }
-        public ICommand deleteClicked { get; }
         private readonly BookmarkService _bookmarkService;
         private bool _isSortedAlphabetically = false;
 

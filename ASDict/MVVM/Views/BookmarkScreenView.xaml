@@ -370,11 +370,12 @@
                                                             FontFamily="PatrickHand"
                                                             VerticalOptions="Center"/>
                                                         <ImageButton
-                                                            Command="{Binding deleteClicked}"
                                                             Grid.Column="2"
                                                             BackgroundColor="#00FFFFFF"
                                                             Source="delete_icon_default.svg"
-                                                            Scale="0.5"/>
+                                                            Scale="0.5"
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=DeleteCommand}"
+                                                            CommandParameter="{Binding .}"/>
                                                         <Grid.GestureRecognizers>
                                                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=SearchCommand}"
                                                                                   CommandParameter="{Binding .}"/>

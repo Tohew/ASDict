@@ -11,7 +11,7 @@ public partial class HomeScreenView : ContentPage
 	{
         Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF1cWWhIYVdpR2Nbe05xdl9DZ1ZRRmYuP1ZhSXxQd0djXH9fcXJWRWNYVUE=");
         InitializeComponent();
-        BindingContext = new SuggestionViewModel();
+        BindingContext = new HomeScreenViewModel();
     }
 
     private bool isMenuOpen = false;
@@ -58,19 +58,5 @@ public partial class HomeScreenView : ContentPage
     private void house_icon_Clicked(object sender, EventArgs e)
     {
         DisplayAlert("ASDict", "You are in Home", "OK");
-    }
-
-    private async void search_Clicked(object sender, EventArgs e)
-    {
-        if (InputWord != null)
-        {
-            if (Platform.CurrentActivity.CurrentFocus != null)
-                Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-
-            var result = new ContentScreenView();
-            var resultViewModel = new DictionaryViewModel(InputWord.Text);
-            result.BindingContext = resultViewModel;
-            await Navigation.PushModalAsync(result);
-        }            
     }
 }
