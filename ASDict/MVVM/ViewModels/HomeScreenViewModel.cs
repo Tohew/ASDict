@@ -1,6 +1,7 @@
 ﻿using ASDict.MVVM.Models;
 using ASDict.MVVM.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Platform;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,6 @@ namespace ASDict.MVVM.ViewModels
         private int _editWordId;
 
         public ICommand searchCommand { get; }
-        public ICommand selectionChangedCommand { get; }
         public HomeScreenViewModel()
         {
             _historyWordService = new HistoryWordService();
@@ -37,7 +37,7 @@ namespace ASDict.MVVM.ViewModels
             RecentWords = new ObservableCollection<HistoryWord>();
             Task.Run(async () => await LoadRecentWords());
             searchCommand = new Command(search_Clicked);
-            selectionChangedCommand = new Command(selectionChanged);
+            //selectionChangedCommand = new Command(selectionChanged);
         }
         private async Task LoadRecentWords()
         {
@@ -83,16 +83,43 @@ namespace ASDict.MVVM.ViewModels
             InputWord = new HistoryWord();
             await LoadRecentWords();
         }
-        private void selectionChanged()
+        [RelayCommand]
+        async Task DeleteAllWords()
         {
-            HistoryWord word = SelectedWord;
-            if (word != null)
+            if (RecentWords.Count > 0)
             {
-                InputWord = word;
-                _editWordId = 0;
-                SelectedWord = null;
+                await _historyWordService.DeleteAllAsync();
+                await LoadRecentWords();
+            }
+            else
+                App.Current.MainPage.DisplayAlert("Error", "There is no word in history to delete", "OK");
+        }
+        [RelayCommand]
+        async Task SelectionChanged(HistoryWord s)
+        {
+            if (RecentWords.Contains(s))
+            {
+                var resultView = new ContentScreenView();
+                resultView.BindingContext = new DictionaryViewModel(s.word);
+                App.Current.MainPage.Navigation.PushModalAsync(resultView);
+            }
+            else
+            {
+                App.Current.MainPage.DisplayAlert("Error", "Unable to show result", "OK");
             }
         }
-
+        [RelayCommand]
+        async Task Delete(HistoryWord s)
+        {
+            if (RecentWords.Contains(s))
+            {
+                await _historyWordService.Delete(s);
+                await LoadRecentWords();
+            }
+            else
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "Unable to delete", "OK");
+            }
+        }
     }
 }

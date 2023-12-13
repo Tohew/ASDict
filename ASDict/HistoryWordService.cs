@@ -53,5 +53,9 @@ namespace ASDict
         {
             await _connection.DeleteAsync(historyWord);
         }
+        public async Task DeleteAllAsync()
+        {
+            await _connection.DeleteAllAsync<HistoryWord>();
+        }
     }
 }

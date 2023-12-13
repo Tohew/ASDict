@@ -241,7 +241,7 @@
                             <Grid Grid.Row="1"   MaximumHeightRequest="700">
                                 <Grid  ColumnDefinitions="*, *" Padding="32,16">
                                     
-                                <VerticalStackLayout Grid.Column="0">
+                                    <VerticalStackLayout Grid.Column="0">
                                     <CollectionView ItemsSource="{Binding TempSynonymsCol1}">
                                             <CollectionView.ItemTemplate>
                                                 <DataTemplate>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASDict.MVVM.Views.HomeScreenView"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:ASDict.MVVM.ViewModels"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              Title="HomeScreenView">
     <Shell.NavBarIsVisible>
@@ -164,7 +165,8 @@
                             Grid.Column="2"
                             Padding="0"
                             VerticalOptions="Center"
-                            HorizontalOptions="End"/>
+                            HorizontalOptions="End"
+                            Command="{Binding DeleteAllWordsCommand}"/>
                     </Grid>
                 </Border>
 
@@ -172,35 +174,53 @@
                 <Border Grid.Row="1"
                         StrokeThickness="0"
                         BackgroundColor="#FEF2F2">
-                    <HorizontalStackLayout VerticalOptions="Center"
-                                           HorizontalOptions="Center">
+                    <StackLayout VerticalOptions="StartAndExpand"
+                                 HorizontalOptions="StartAndExpand"
+                                 Orientation="Horizontal"
+                                 BackgroundColor="AliceBlue"
+                                 WidthRequest="390">
                         <CollectionView ItemsSource="{Binding RecentWords}">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Horizontal" />
+                            </CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <Border
-                                        Padding="5, 0"
+                                        Padding="5,0"
                                         HeightRequest="50"
                                         Stroke="#333A57"
                                         StrokeThickness="4"
-                                        StrokeShape="RoundRectangle 20">
+                                        StrokeShape="RoundRectangle 20"
+                                        HorizontalOptions="StartAndExpand"
+                                        VerticalOptions="StartAndExpand">
                                         <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
                                             <Label 
                                                 Grid.Column="0"
                                                 Text="{Binding word}"
                                                 FontSize="20"
                                                 FontFamily="PatrickHand"
-                                                VerticalOptions="Center"/>
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"/>
                                             <ImageButton
                                                 Grid.Column="2"
                                                 BackgroundColor="#00FFFFFF"
                                                 Source="delete_icon_default.svg"
-                                                Scale="0.25"/>
+                                                Scale="0.25"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=DeleteCommand}"
+                                                CommandParameter="{Binding .}"/>
+
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=SelectionChangedCommand}"
+                                                                                  CommandParameter="{Binding .}"/>
+                                            </Grid.GestureRecognizers>
+                                            
                                         </Grid>
                                     </Border>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
+ 
                         </CollectionView>
-                    </HorizontalStackLayout>
+                    </StackLayout>
                     
                 </Border>
 
