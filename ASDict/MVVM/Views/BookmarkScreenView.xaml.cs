@@ -59,14 +59,14 @@ public partial class BookmarkScreenView : ContentPage
         DisplayAlert("ASDict", "You are in Bookmark", "OK");
     }
 
-    private async void search_Clicked(object sender, EventArgs e)
-    {
-        if (Platform.CurrentActivity.CurrentFocus != null)
-            Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
+    //private async void search_Clicked(object sender, EventArgs e)
+    //{
+    //    if (Platform.CurrentActivity.CurrentFocus != null)
+    //        Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
 
-        var result = new ContentScreenView();
-        var resultViewModel = new DictionaryViewModel(InputWord.Text);
-        result.BindingContext = resultViewModel;
-        await Navigation.PushModalAsync(result);
-    }
+    //    var result = new ContentScreenView();
+    //    var resultViewModel = new DictionaryViewModel(InputWord.Text);
+    //    result.BindingContext = resultViewModel;
+    //    await Navigation.PushModalAsync(result);
+    //}
 }
