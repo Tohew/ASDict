@@ -311,7 +311,8 @@
                             Grid.Column="2"
                             Padding="0"
                             VerticalOptions="Center"
-                            HorizontalOptions="End"/>
+                            HorizontalOptions="End"
+                                         Command="{Binding DeleteAllWordsCommand}"/>
                         </Grid>
                     </Border>
 
