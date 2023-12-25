@@ -157,7 +157,7 @@ namespace ASDict.MVVM.ViewModels
         }
         [RelayCommand]
         async void searchBookmark()
-        {
+        {   
             if (string.IsNullOrEmpty(InputWord.word))
             {
                 await App.Current.MainPage.DisplayAlert("Error", "Please input a word", "OK");

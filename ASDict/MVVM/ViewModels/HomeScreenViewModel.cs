@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Platform;
 using System.Collections.ObjectModel;
+using System.Text.Json;
 using System.Windows.Input;
 
 namespace ASDict.MVVM.ViewModels
@@ -24,7 +25,7 @@ namespace ASDict.MVVM.ViewModels
         private int _editWordId;
 
         public ICommand searchCommand { get; }
-        public HomeScreenViewModel() 
+        public HomeScreenViewModel()
         {
 
             _historyWordService = new HistoryWordService();
@@ -33,6 +34,15 @@ namespace ASDict.MVVM.ViewModels
             Task.Run(async () => await LoadRecentWords());
             searchCommand = new Command(search_Clicked);
 
+            LoadRandomWords();
+            //while (RandomWords == null);
+            RandomWord = "Hello";
+
+
+            _httpClient = new HttpClient();
+            string apiKey = "PBZJ12Y7HpKiyW70qMjqml51y4JM6kbq8QjBt0GQ";
+            _httpClient.DefaultRequestHeaders.Add("X-Api-Key", apiKey);
+            _ = FetchApiRandom(RandomWord);
 
             _list = new List<SuggestionModel>();
             FillList();
@@ -123,6 +133,7 @@ namespace ASDict.MVVM.ViewModels
         }
 
 
+
         private List<SuggestionModel> _list;
         public List<SuggestionModel> TheList
         {
@@ -160,5 +171,66 @@ namespace ASDict.MVVM.ViewModels
                 _list.Add(error);
             }
         }
+
+        [ObservableProperty]
+        public string randomWord;
+
+        public List<string> RandomWords;
+        public async void LoadRandomWords()
+        {
+            string line;
+            try
+            {
+                using Stream fileStream1 = await FileSystem.Current.OpenAppPackageFileAsync("smallwords.txt");
+                using StreamReader reader1 = new StreamReader(fileStream1);
+                while ((line = reader1.ReadLine()) != null)
+                {
+                    RandomWords.Add(line);
+                }
+            }
+            catch
+            {
+                Console.WriteLine($"Request failed. Error");
+            }
+        }
+        static string GetRandomWord(ObservableCollection<string> collection)
+        {
+            if (collection.Count == 0)
+            {
+                return null;
+            }
+
+            Random random = new Random();
+            int index = random.Next(collection.Count);
+            return collection[index];
+        }
+        [ObservableProperty]
+        public List<string> resultRandomList = new List<string>();
+
+        private readonly HttpClient _httpClient = new HttpClient();
+        public async Task FetchApiRandom(string query)
+        {
+            string api_url = $"https://api.api-ninjas.com/v1/thesaurus?word={query}";
+
+            try
+            {
+                var response = await _httpClient.GetStringAsync(api_url);
+                DictionaryModel dictModel = JsonSerializer.Deserialize<DictionaryModel>(response);
+
+                if (dictModel.synonyms.Count >= 0)
+                {
+                    int count = 0;
+                    while (count < 3)
+                    {
+                        ResultRandomList.Add(dictModel.synonyms[count]);
+                        count++;
+                    }   
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Request failed. Error: {ex.Message}");
+            }
+        } 
     }
 }

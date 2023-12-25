@@ -40,7 +40,7 @@ accounts
 accreditation 
 accurate 
 accurately 
-ace 
+ace
 achieve 
 achievement 
 achieving 
