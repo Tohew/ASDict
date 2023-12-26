@@ -1,5 +1,7 @@
 ﻿using ASDict.MVVM.Models;
+using ASDict.MVVM.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Windows.Input;
@@ -209,5 +211,68 @@ namespace ASDict.MVVM.ViewModels
                 });
             }
         }
+        [RelayCommand]
+        void HomeClick()
+        {
+            var homeView = new HomeScreenView();
+            homeView.BindingContext = new HomeScreenViewModel();
+            App.Current.MainPage.Navigation.PushModalAsync(homeView);
+        }
+
+        [RelayCommand]
+        void Bookmark1Click()
+        {
+            var bookmarkView = new BookmarkScreenView();
+            bookmarkView.BindingContext = new BookmarkScreenViewModel();
+            App.Current.MainPage.Navigation.PushModalAsync(bookmarkView);
+        }
+
+        [RelayCommand]
+        void BookmarkClick()
+        {
+            var bookmarkView = new BookmarkScreenView();
+            bookmarkView.BindingContext = new BookmarkScreenViewModel();
+            App.Current.MainPage.Navigation.PushModalAsync(bookmarkView);
+        }
+        [RelayCommand]
+        void HelpClick()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You press help", "OK");
+        }
+        [RelayCommand]
+        void InfoClick()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You press info", "OK");
+        }
+        [RelayCommand]
+        void SearchClick()
+        {
+            App.Current.MainPage.Navigation.PopModalAsync();
+        }
+
+        //private const uint AnimationDuration = 100u;
+        //private bool isMenuOpen = false;
+        //public static Task<bool> TranslateTo(this VisualElement view,
+        //                                     double x,
+        //                                     double y,
+        //                                     uint length = 250,
+        //                                     Microsoft.Maui.Easing? easing = default);
+        //async void MenuClicked()
+        //{
+
+        //    if (!isMenuOpen)
+        //        _ = ContentGrid.TranslateTo(-this.Width * 0.5, this.Height * 0, AnimationDuration, Easing.CubicIn);
+
+        //    else
+        //        await CloseMenu();
+        //    isMenuOpen = !isMenuOpen;
+        //}
+        //private async Task CloseMenu()
+        //{
+        //    //Close the menu and bring back back the main content
+        //    _ = ContentGrid.FadeTo(1, AnimationDuration);
+        //    _ = ContentGrid.ScaleTo(1, AnimationDuration);
+        //    await ContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
+        //}
     }
 }

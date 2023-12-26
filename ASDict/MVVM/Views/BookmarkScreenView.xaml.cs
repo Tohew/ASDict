@@ -29,44 +29,4 @@ public partial class BookmarkScreenView : ContentPage
         _ = ContentGrid.ScaleTo(1, AnimationDuration);
         await ContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
     }
-    private void bookmark_Clicked(object sender, EventArgs e)
-    {
-        if (isMenuOpen)
-            DisplayAlert("ASDict", "You are in Bookmark", "OK");
-    }
-
-    private async void help_Clicked(object sender, EventArgs e)
-    {
-        if (isMenuOpen)
-            await DisplayAlert("help", "cc, cl", "OK");
-    }
-    private async void infor_Clicked(object sender, EventArgs e)
-    {
-        if (isMenuOpen)
-            await DisplayAlert("info", "cc, cl", "OK");
-    }
-    private void AppIcon_Clicked(object sender, EventArgs e)
-    {
-
-    }
-    private void house_icon_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushModalAsync(new HomeScreenView());
-    }
-
-    private void bookmark1_Clicked(object sender, EventArgs e)
-    {
-        DisplayAlert("ASDict", "You are in Bookmark", "OK");
-    }
-
-    //private async void search_Clicked(object sender, EventArgs e)
-    //{
-    //    if (Platform.CurrentActivity.CurrentFocus != null)
-    //        Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-
-    //    var result = new ContentScreenView();
-    //    var resultViewModel = new DictionaryViewModel(InputWord.Text);
-    //    result.BindingContext = resultViewModel;
-    //    await Navigation.PushModalAsync(result);
-    //}
 }

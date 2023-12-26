@@ -27,31 +27,6 @@ public partial class ContentScreenView : ContentPage
         isMenuOpen = !isMenuOpen;
     }
 
-    private void search_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushModalAsync(new HomeScreenView());
-    }
-
-    private void bookmark1_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushModalAsync(new BookmarkScreenView());
-    }
-
-    private void house_icon_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushModalAsync(new HomeScreenView());
-    }
-
-    // private bool isStarWhite = true;
-    //private void star_white_Clicked(object sender, EventArgs e)
-    //{
-    //    if (isStarWhite)
-    //        star_white.Source = "Resources/Images/star_icon_blue.svg";
-    //    else
-    //        star_white.Source = "Resources/Images/star_icon_white.svg";
-    //    isStarWhite = !isStarWhite;
-    //}
-
     private void synonym_Clicked(object sender, EventArgs e)
     {
         synonym.BackgroundColor = Color.FromRgb(248, 76, 84);
@@ -82,31 +57,10 @@ public partial class ContentScreenView : ContentPage
 
     private async Task CloseMenu()
     {
+
         //Close the menu and bring back back the main content
         _ = ContentGrid.FadeTo(1, AnimationDuration);
         _ = ContentGrid.ScaleTo(1, AnimationDuration);
         await ContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
-    }
-
-    private void MenuBm_Clicked(object sender, EventArgs e)
-    {
-
-    }
-
-    private void bookmark_Clicked(object sender, EventArgs e)
-    {
-        if (isMenuOpen)
-            Navigation.PushModalAsync(new BookmarkScreenView());
-    }
-
-    private async void help_Clicked(object sender, EventArgs e)
-    {
-        if (isMenuOpen)
-            await DisplayAlert("help", "cc, cl", "OK");
-    }
-    private async void infor_Clicked(object sender, EventArgs e)
-    {
-        if (isMenuOpen)
-            await DisplayAlert("info", "cc, cl", "OK");
     }
 }

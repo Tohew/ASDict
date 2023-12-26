@@ -47,9 +47,10 @@ namespace ASDict.MVVM.ViewModels
         {
             if (InputWord != null)
             {
+#if ANDROID
                 if (Platform.CurrentActivity.CurrentFocus != null)
                     Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-
+#endif
                 var result = new ContentScreenView();
                 var resultViewModel = new DictionaryViewModel(inputWord);
                 result.BindingContext = resultViewModel;
@@ -159,6 +160,36 @@ namespace ASDict.MVVM.ViewModels
                 error.TheSuggest = ex.ToString();
                 _list.Add(error);
             }
+        }
+
+        [RelayCommand]
+        void Bookmark1Click()
+        {
+            var bookmarkView = new BookmarkScreenView();
+            bookmarkView.BindingContext = new BookmarkScreenViewModel();
+            App.Current.MainPage.Navigation.PushModalAsync(bookmarkView);
+        }
+        [RelayCommand]
+        void HomeClick()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You are in home", "OK");
+        }
+        [RelayCommand]
+        void BookmarkClick()
+        {
+            var bookmarkView = new BookmarkScreenView();
+            bookmarkView.BindingContext = new BookmarkScreenViewModel();
+            App.Current.MainPage.Navigation.PushModalAsync(bookmarkView);
+        }
+        [RelayCommand]
+        void HelpClick()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You press help", "OK");
+        }
+        [RelayCommand]
+        void InfoClick()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You press info", "OK");
         }
     }
 }

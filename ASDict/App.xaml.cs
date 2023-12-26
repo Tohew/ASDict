@@ -8,7 +8,10 @@ namespace ASDict
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
+            if (DeviceInfo.Platform == DevicePlatform.Android)
+                MainPage = new AppShell();
+            if (DeviceInfo.Platform == DevicePlatform.WinUI)
+                MainPage = new AppShell();
         }
     }
 }

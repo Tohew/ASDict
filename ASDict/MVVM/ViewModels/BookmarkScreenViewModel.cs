@@ -146,9 +146,10 @@ namespace ASDict.MVVM.ViewModels
         {
             if (InputWord != null)
             {
+#if ANDROID
                 if (Platform.CurrentActivity.CurrentFocus != null)
                     Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-
+#endif
                 var result = new ContentScreenView();
                 var resultViewModel = new DictionaryViewModel(inputWord);
                 result.BindingContext = resultViewModel;
@@ -182,6 +183,35 @@ namespace ASDict.MVVM.ViewModels
             await NavigateToContentScreen(InputWord.word);
             InputWord = new HistoryWord();
             await LoadRecentWords();
+        }
+
+        [RelayCommand]
+        void HomeClick()
+        {
+            var homeView = new HomeScreenView();
+            homeView.BindingContext = new HomeScreenViewModel();
+            App.Current.MainPage.Navigation.PushModalAsync(homeView);
+        }
+        [RelayCommand]
+        void Bookmark1Click()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You are in Bookmark", "OK");
+        }
+
+        [RelayCommand]
+        void BookmarkClick()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You are in Bookmark", "OK");
+        }
+        [RelayCommand]
+        void HelpClick()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You press help", "OK");
+        }
+        [RelayCommand]
+        void InfoClick()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You press info", "OK");
         }
     }
 }
