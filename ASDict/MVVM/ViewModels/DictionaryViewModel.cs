@@ -28,7 +28,6 @@ namespace ASDict.MVVM.ViewModels
         public bool isProcessing;
 
 
-
         [ObservableProperty]
         public Bookmark selectedFavorWord;
         [ObservableProperty]
@@ -55,6 +54,8 @@ namespace ASDict.MVVM.ViewModels
 
                 Word = dictModel.word;
                 Console.WriteLine(Word);
+                if (dictModel.synonyms.Count == 0 && dictModel.antonyms.Count == 0)
+                    App.Current.MainPage.DisplayAlert("ASDict", "No result", "OK");
 
                 //Kiểm tra điều kiện hiển thị của Synonyms
                 if (dictModel.synonyms.Count >= 8)
