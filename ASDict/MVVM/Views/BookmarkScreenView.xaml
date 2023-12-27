@@ -48,7 +48,7 @@
                         <VerticalStackLayout Grid.Column="1"
                                              Padding="16,12, 0, 0">
                             <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding BookmarkClickCommand}" />
+                                <TapGestureRecognizer Tapped="bookmark_Clicked" />
                             </VerticalStackLayout.GestureRecognizers>
                             <Grid ColumnDefinitions="auto, *, auto">
                                 <Label Grid.Column="0"
@@ -91,7 +91,7 @@
                         <VerticalStackLayout Padding="16,12, 0, 0"
                                              Grid.Column="1">
                             <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding HelpClickCommand}" />
+                                <TapGestureRecognizer Tapped="help_Clicked" />
                             </VerticalStackLayout.GestureRecognizers>
                             <Grid ColumnDefinitions="auto, *, auto">
                                 <Label Grid.Column="0"
@@ -134,7 +134,7 @@
                         <VerticalStackLayout Padding="16,12, 0, 0"
                                              Grid.Column="1">
                             <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding InfoClickCommand}" />
+                                <TapGestureRecognizer Tapped="infor_Clicked" />
                             </VerticalStackLayout.GestureRecognizers>
                             <Grid ColumnDefinitions="auto, *, auto">
                                 <Label Grid.Column="0"
@@ -397,7 +397,7 @@
                 </Grid>
             </Border>
             <!-- Footer -->
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="3" BackgroundColor="#FEF2F2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />

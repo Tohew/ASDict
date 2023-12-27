@@ -198,20 +198,20 @@ namespace ASDict.MVVM.ViewModels
             App.Current.MainPage.DisplayAlert("ASDict", "You are in Bookmark", "OK");
         }
 
-        [RelayCommand]
-        void BookmarkClick()
-        {
-            App.Current.MainPage.DisplayAlert("ASDict", "You are in Bookmark", "OK");
-        }
-        [RelayCommand]
-        void HelpClick()
-        {
-            App.Current.MainPage.DisplayAlert("ASDict", "You press help", "OK");
-        }
-        [RelayCommand]
-        void InfoClick()
-        {
-            App.Current.MainPage.DisplayAlert("ASDict", "You press info", "OK");
-        }
+        //[RelayCommand]
+        //void BookmarkClick()
+        //{
+        //    App.Current.MainPage.DisplayAlert("ASDict", "You are in Bookmark", "OK");
+        //}
+        //[RelayCommand]
+        //void HelpClick()
+        //{
+        //    App.Current.MainPage.DisplayAlert("ASDict", "You press help", "OK");
+        //}
+        //[RelayCommand]
+        //void InfoClick()
+        //{
+        //    App.Current.MainPage.DisplayAlert("ASDict", "You press info", "OK");
+        //}
     }
 }
