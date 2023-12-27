@@ -59,16 +59,18 @@
                                        TextColor="White"
                                        FontFamily="PatrickHand" />
                                 <Border Grid.Column="2"
-                                        HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand"
                                         Background="#FAC4C7"
                                         Stroke="#333A57"
                                         StrokeThickness="2"
                                         StrokeShape="RoundRectangle 60"
                                         HeightRequest="50"
                                         WidthRequest="50">
-                                    <Image Source="Resources/Images/bookmark_icon.svg"
-                                           Scale="0.5" />
+                                    <ImageButton
+                                        Aspect="Center">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FAR" Glyph="{StaticResource bookmark}" Color="#333A57" Size="20"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
                                 </Border>
                             </Grid>
                         </VerticalStackLayout>
@@ -100,16 +102,18 @@
                                        TextColor="White"
                                        FontFamily="PatrickHand" />
                                 <Border Grid.Column="2"
-                                        HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand"
                                         Background="#FAC4C7"
                                         Stroke="#333A57"
                                         StrokeThickness="2"
                                         StrokeShape="RoundRectangle 60"
                                         HeightRequest="50"
                                         WidthRequest="50">
-                                    <Image Source="Resources/Images/help_icon.svg"
-                                           Scale="0.5" />
+                                    <ImageButton
+                                        Aspect="Center">
+                                        <ImageButton.Source> 
+                                            <FontImageSource FontFamily="FAS" Glyph="{StaticResource question}" Color="#333A57" Size="22"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
                                 </Border>
                             </Grid>
                         </VerticalStackLayout>
@@ -141,16 +145,18 @@
                                        TextColor="White"
                                        FontFamily="PatrickHand" />
                                 <Border Grid.Column="2"
-                                        HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand"
                                         Background="#FAC4C7"
                                         Stroke="#333A57"
                                         StrokeThickness="2"
                                         StrokeShape="RoundRectangle 60"
                                         HeightRequest="50"
                                         WidthRequest="50">
-                                    <Image Source="Resources/Images/information_icon.svg"
-                                           Scale="0.5" />
+                                    <ImageButton
+                                        Aspect="Center">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FAS" Glyph="{StaticResource info}" Color="#333A57" Size="20"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
                                 </Border>
                             </Grid>
                         </VerticalStackLayout>

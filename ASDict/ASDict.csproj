@@ -49,9 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Fonts\Brands-Regular-400.otf" />
-	  <None Remove="Resources\Fonts\Free-Regular-400.otf" />
-	  <None Remove="Resources\Fonts\Free-Solid-900.otf" />
+	  <None Remove="Resources\Fonts\FABrands.otf" />
+	  <None Remove="Resources\Fonts\FARegular.otf" />
+	  <None Remove="Resources\Fonts\FARegular5.otf" />
+	  <None Remove="Resources\Fonts\FASolid.otf" />
 	  <None Remove="Resources\Images\appicon_small.svg" />
 	  <None Remove="Resources\Images\app_icon_small.svg" />
 	  <None Remove="Resources\Images\backgr.png" />
