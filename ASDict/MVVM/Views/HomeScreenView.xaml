@@ -176,6 +176,8 @@
                         </VerticalStackLayout>
                     </Border>
                 </Grid>
+                
+                <!-- Content -->
                 <Grid x:Name="ContentGrid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -239,13 +241,15 @@
                             </ImageButton>
                         </Border>
                     </Grid>
+                    
                     <!-- Search Bar -->
                     <Grid VerticalOptions="Start"
                           Grid.Row="1"
                           ColumnDefinitions="4*, *"
+                          ColumnSpacing="18"
                           Padding="20, 0">
                         <Border Grid.Column="0"
-                                VerticalOptions="Start"
+                                VerticalOptions="Center"
                                 BackgroundColor="White"
                                 Stroke="White"
                                 StrokeShape="RoundRectangle 20"
@@ -272,10 +276,10 @@
                                                     MaxDropDownHeight="300"
                                                     ClearButtonIconColor="#333A57" />
                         </Border>
-                        <Border Grid.Column="1"
+                        <Border Grid.Column="2"
                                 StrokeShape="RoundRectangle 20"
                                 BackgroundColor="#333A57"
-                                VerticalOptions="End"
+                                VerticalOptions="Center"
                                 HorizontalOptions="End"
                                 Stroke="#333A57"
                                 HeightRequest="55"
@@ -301,28 +305,29 @@
                     <!-- Content -->
                     <Border Grid.Row="2"
                             StrokeThickness="0"
-                            Margin="-1, 8, -1, -1"
+                            Margin="-1, 20, -1, -1"
                             StrokeShape="RoundRectangle 20, 20, 0, 0"
                             BackgroundColor="#FEF2F2">
                         <Grid ColumnDefinitions="*, 15*, *">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="50" />
                                 <RowDefinition Height="2*" />
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="7*" />
                             </Grid.RowDefinitions>
                             <!-- Search History -->
                             <Border Grid.Row="0"
-                                    Grid.Column="1"
+                                    Grid.ColumnSpan="3"
                                     StrokeThickness="0"
-                                    BackgroundColor="Red">
+                                    BackgroundColor="#FEF2F2"
+                                    Padding="18, 12">
                                 <Grid 
                                     ColumnDefinitions="auto,*,auto"
                                     Margin="0"
                                         >
                                     <Label Grid.Column="0"
                                            Text="Search history"
-                                           FontSize="20"
+                                           FontSize="22"
                                            TextColor="Black"
                                            FontFamily="PatrickHand"
                                            VerticalOptions="Center"
@@ -330,6 +335,7 @@
                                     <ImageButton 
                                         Grid.Column="2"
                                         Padding="0"
+                                        Margin="0"
                                         Aspect="Center"    
                                         VerticalOptions="Center"
                                         HorizontalOptions="End"
@@ -342,7 +348,7 @@
                             </Border>
                             <!-- History Label -->
                             <Border Grid.Row="1"
-                                    Grid.Column="1"
+                                    Grid.Column="2"
                                     StrokeThickness="0"
                                     BackgroundColor="#FEF2F2">
                                 <StackLayout VerticalOptions="Center"
