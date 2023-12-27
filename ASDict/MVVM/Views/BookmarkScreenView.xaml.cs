@@ -30,10 +30,10 @@ public partial class BookmarkScreenView : ContentPage
         await ContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
     }
 
-    private void bookmark_Clicked(object sender, EventArgs e)
+    private async void bookmark_Clicked(object sender, EventArgs e)
     {
         if (isMenuOpen)
-            Navigation.PushModalAsync(new BookmarkScreenView());
+            await DisplayAlert("ASDict", "You are in Bookmark", "OK");
     }
 
     private async void help_Clicked(object sender, EventArgs e)

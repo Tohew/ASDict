@@ -226,24 +226,6 @@ namespace ASDict.MVVM.ViewModels
             bookmarkView.BindingContext = new BookmarkScreenViewModel();
             App.Current.MainPage.Navigation.PushModalAsync(bookmarkView);
         }
-
-        //[RelayCommand]
-        //void BookmarkClick()
-        //{
-        //    var bookmarkView = new BookmarkScreenView();
-        //    bookmarkView.BindingContext = new BookmarkScreenViewModel();
-        //    App.Current.MainPage.Navigation.PushModalAsync(bookmarkView);
-        //}
-        //[RelayCommand]
-        //void HelpClick()
-        //{
-        //    App.Current.MainPage.DisplayAlert("ASDict", "You press help", "OK");
-        //}
-        //[RelayCommand]
-        //void InfoClick()
-        //{
-        //    App.Current.MainPage.DisplayAlert("ASDict", "You press info", "OK");
-        //}
         [RelayCommand]
         void SearchClick()
         {
