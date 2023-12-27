@@ -63,4 +63,21 @@ public partial class ContentScreenView : ContentPage
         _ = ContentGrid.ScaleTo(1, AnimationDuration);
         await ContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
     }
+
+    private void bookmark_Clicked(object sender, EventArgs e)
+    {
+        if (isMenuOpen)
+            Navigation.PushModalAsync(new BookmarkScreenView());
+    }
+
+    private async void help_Clicked(object sender, EventArgs e)
+    {
+        if (isMenuOpen)
+            await DisplayAlert("help", "cc, cl", "OK");
+    }
+    private async void infor_Clicked(object sender, EventArgs e)
+    {
+        if (isMenuOpen)
+            await DisplayAlert("info", "cc, cl", "OK");
+    }
 }
