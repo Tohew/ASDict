@@ -64,6 +64,7 @@
 	  <None Remove="Resources\Images\bookmarklor.png" />
 	  <None Remove="Resources\Images\double_arrow.svg" />
 	  <None Remove="Resources\Images\menu_icon.svg" />
+	  <None Remove="Resources\Raw\randomwords.txt" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -7,6 +7,7 @@
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              Title="HomeScreenView">
+
     <Shell.NavBarIsVisible>
         <OnIdiom x:TypeArguments="x:Boolean">
             <OnIdiom.Phone>false</OnIdiom.Phone>
