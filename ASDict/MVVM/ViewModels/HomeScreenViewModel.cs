@@ -35,8 +35,6 @@ namespace ASDict.MVVM.ViewModels
             searchCommand = new Command(search_Clicked);
 
             LoadRandomWords();
-            //while (RandomWords == null);
-            //RandomWord = "Hello";
             RandomWord = GetRandomWord(RandomWords);
 
 
