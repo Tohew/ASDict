@@ -363,10 +363,9 @@
                             </Border>
 
                             <!--Line-->
-                            <Line X1="25" Y1="50" X2="355" Y2="50"
-                          Stroke="Black" StrokeThickness="2"
-                      Grid.Row="2">
-                            </Line>
+                            <Line X1="25" Y1="25" X2="340" Y2="25"
+                                  Grid.Row="2"
+                          Stroke="Black" StrokeThickness="2"/>
 
                             <!--Do you know?-->
                             <Grid Grid.Row="3"
@@ -394,9 +393,9 @@
 
                                                 <!--Do you know lable-->
                                                 <Border Grid.Column="0"
-                                            HorizontalOptions="Center"
+                                            HorizontalOptions="StartAndExpand"
                                             Padding="12, 0"
-                                            VerticalOptions="Center"
+                                            VerticalOptions="StartAndExpand"
                                             StrokeShape="RoundRectangle 20"
                                             StrokeThickness="0"
                                             BackgroundColor="#333A57">
@@ -420,7 +419,7 @@
 
                                                 <!--Double arrow icon-->
                                                 <ImageButton Grid.Column="2"
-                                                HeightRequest="130"
+                                                HeightRequest="40"
                                                 WidthRequest="20"
                                                 Source="double_arrow.svg"/>
                                             </Grid>
