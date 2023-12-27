@@ -391,7 +391,7 @@
                 </Grid>
             </Border>
             <!-- Footer -->
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="3" BackgroundColor="#FEF2F2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
