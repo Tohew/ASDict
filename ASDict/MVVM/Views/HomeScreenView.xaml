@@ -7,6 +7,7 @@
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              Title="HomeScreenView">
+
     <Shell.NavBarIsVisible>
         <OnIdiom x:TypeArguments="x:Boolean">
             <OnIdiom.Phone>false</OnIdiom.Phone>
@@ -447,6 +448,71 @@
                                                              HeightRequest="40"
                                                              WidthRequest="20"
                                                              Source="double_arrow.svg" />
+                                            </Grid>
+                                        </Grid>
+
+                                        <Grid Grid.Row="1">
+                                            <Grid RowDefinitions="3*,*,4*">
+                                                <!--Label word random-->
+                                                <Border Grid.Row="0"
+                                                    HorizontalOptions="Center"
+                                                    Padding="12, 0"
+                                                    VerticalOptions="Center"
+                                                    StrokeShape="RoundRectangle 20"
+                                                    StrokeThickness="0"
+                                                    BackgroundColor="#333A57">
+                                                    <Border.Shadow>
+                                                        <Shadow Brush="Black"
+                                                        Radius="0"
+                                                        Offset="0, 10"
+                                                        Opacity="1"/>
+                                                    </Border.Shadow>
+
+                                                <Label x:Name="randomWord"
+                                                    Text="{Binding RandomWord}"
+                                                    BackgroundColor="#333A57"
+                                                    FontSize="20"
+                                                    Padding="10"
+                                                    TextColor="White"
+                                                    FontFamily="PatrickHand"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"/>
+                                                </Border>
+
+                                                <Label Grid.Row="1"
+                                               Text="is another word for"/>
+                                                <!--3 results-->
+                                                <CollectionView ItemsSource="{Binding ResultRandomList}"
+                                                        Grid.Row="2">
+                                                    <CollectionView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Grid.Column="0"
+                                                            HorizontalOptions="Center"
+                                                            Padding="12, 0"
+                                                            VerticalOptions="Center"
+                                                            StrokeShape="RoundRectangle 20"
+                                                            StrokeThickness="0"
+                                                            BackgroundColor="#333A57">
+                                                                <Border.Shadow>
+                                                                    <Shadow Brush="Black"
+                                                                    Radius="0"
+                                                                    Offset="0, 10"
+                                                                    Opacity="1"/>
+                                                                </Border.Shadow>
+
+                                                                <Label x:Name="randomWordLabel"
+                                                                BackgroundColor="#333A57"
+                                                                Text="{Binding .}"
+                                                                FontSize="20"
+                                                                Padding="10"
+                                                                TextColor="White"
+                                                                FontFamily="PatrickHand"
+                                                                VerticalOptions="Center"
+                                                                HorizontalOptions="Center"/>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </CollectionView.ItemTemplate>
+                                                </CollectionView>
                                             </Grid>
                                         </Grid>
                                     </Grid>
