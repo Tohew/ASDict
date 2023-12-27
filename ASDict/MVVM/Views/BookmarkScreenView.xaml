@@ -12,7 +12,7 @@
         </OnIdiom>
     </Shell.NavBarIsVisible>
     
-        <ContentPage.Resources>
+    <ContentPage.Resources>
         <x:String x:Key="menu">&#xf0c9;</x:String> <!--FAS-->
         <x:String x:Key="bookmark">&#xf02e;</x:String> <!--FAR-->
         <x:String x:Key="question">&#x3f;</x:String> <!--FAS-->
@@ -167,8 +167,8 @@
         <Grid x:Name="ContentGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="8*" />
                 <RowDefinition Height="75" />
             </Grid.RowDefinitions>
             <Image Source="Resources/Images/backgr.png"
@@ -217,11 +217,14 @@
                                 Opacity="1" />
                     </Border.Shadow>
                     <ImageButton x:Name="menu"
-                                 Source="Resources/Images/menu_icon_blue.svg"
                                  Aspect="Center"
                                  HorizontalOptions="Center"
                                  Clicked="menu_Clicked"
-                                 VerticalOptions="Center" />
+                                 VerticalOptions="Center">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="FAS" Glyph="{StaticResource menu}" Color="#333A57" Size="20"/>
+                        </ImageButton.Source>
+                    </ImageButton>
                 </Border>
             </Grid>
             <!-- Search bar -->
@@ -232,6 +235,7 @@
                 <Border Grid.Column="0"
                         HeightRequest="55"
                         VerticalOptions="Start"
+                        BackgroundColor="White"
                         Stroke="white"
                         StrokeShape="RoundRectangle 20"
                         Visual="Default">
@@ -242,6 +246,7 @@
                                 Opacity="0.5" />
                     </Border.Shadow>
                     <editors:SfAutocomplete Margin="10, 0 , 10, -8"
+                                            BackgroundColor="White"
                                             IsClearButtonVisible="True"
                                             x:Name="InputWord"
                                             ItemsSource="{Binding TheList}"
@@ -268,17 +273,19 @@
                                 Opacity="0.5" />
                     </Border.Shadow>
                     <ImageButton x:Name="search"
-                                 Source="Resources/Images/search_icon_white.svg"
                                  Aspect="Center"
                                  BackgroundColor="#333A57"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
-                                 Command="{Binding searchBookmarkCommand}" />
+                                 Command="{Binding searchBookmarkCommand}">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="FAS" Glyph="{StaticResource search}" Color="White" Size="22"/>
+                        </ImageButton.Source>
+                    </ImageButton>
                 </Border>
             </Grid>
             <!-- Content -->
             <Border Grid.Row="2"
-                    Grid.RowSpan="1"
                     StrokeThickness="0"
                     Margin="-1, 8, -1, -1"
                     StrokeShape="RoundRectangle 20, 20, 0, 0"
@@ -342,13 +349,16 @@
                                                     Opacity="1" />
                                         </Border.Shadow>
                                         <ImageButton x:Name="sortBtn"
-                                                     Source="sort_desc.svg"
-                                                     Aspect="AspectFill"
+                                                     Aspect="Center"
                                                      Padding="2"
                                                      BackgroundColor="#333A57"
                                                      VerticalOptions="Center"
                                                      HorizontalOptions="Center"
-                                                     Command="{Binding SortBookmarksCommand}" />
+                                                     Command="{Binding SortBookmarksCommand}">
+                                            <ImageButton.Source>
+                                                <FontImageSource FontFamily="FAS" Glyph="{StaticResource sort}" Color="White" Size="28"/>
+                                            </ImageButton.Source>
+                                        </ImageButton>
                                     </Border>
                                 </Grid>
                             </Grid>
@@ -365,7 +375,7 @@
                                                     <Border Padding="18, 0"
                                                             HeightRequest="60"
                                                             Stroke="#333A57"
-                                                            StrokeThickness="4"
+                                                            StrokeThickness="3"
                                                             StrokeShape="RoundRectangle 20">
                                                         <Grid ColumnDefinitions="auto, *, auto"
                                                               VerticalOptions="Center">
@@ -376,10 +386,13 @@
                                                                    VerticalOptions="Center" />
                                                             <ImageButton Grid.Column="2"
                                                                          BackgroundColor="#00FFFFFF"
-                                                                         Source="delete_icon_default.svg"
                                                                          Scale="0.5"
                                                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=DeleteCommand}"
-                                                                         CommandParameter="{Binding .}" />
+                                                                         CommandParameter="{Binding .}">
+                                                                <ImageButton.Source>
+                                                                    <FontImageSource FontFamily="FAS" Glyph="{StaticResource cross}" Color="#FF5E5E" Size="20"/>
+                                                                </ImageButton.Source>
+                                                            </ImageButton>
                                                             <Grid.GestureRecognizers>
                                                                 <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=SearchCommand}"
                                                                                       CommandParameter="{Binding .}" />
@@ -425,14 +438,17 @@
                                 Opacity="1" />
                     </Border.Shadow>
                     <ImageButton x:Name="house_icon"
-                                 Source="Resources/Images/house_icon.svg"
                                  Aspect="Center"
                                  BackgroundColor="White"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                                  Command="{Binding HomeClickCommand}"
                                  HeightRequest="45"
-                                 WidthRequest="45" />
+                                 WidthRequest="45">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="FAS" Glyph="{StaticResource home}" Color="#333A57" Size="20"/>
+                        </ImageButton.Source>
+                    </ImageButton>
                 </Border>
                 <Border Grid.Column="1"
                         WidthRequest="4"
@@ -454,14 +470,17 @@
                                 Opacity="1" />
                     </Border.Shadow>
                     <ImageButton x:Name="bookmark1"
-                                 Source="Resources/Images/bookmark_icon.svg"
                                  Aspect="Center"
                                  BackgroundColor="White"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                                  Command="{Binding Bookmark1ClickCommand}"
                                  HeightRequest="45"
-                                 WidthRequest="45" />
+                                 WidthRequest="45">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="FAR" Glyph="{StaticResource bookmark}" Color="#333A57" Size="20"/>
+                        </ImageButton.Source>
+                    </ImageButton>
                 </Border>
             </Grid>
         </Grid>

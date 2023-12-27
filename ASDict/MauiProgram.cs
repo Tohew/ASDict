@@ -3,7 +3,9 @@ using CommunityToolkit.Maui;
 using Syncfusion.Maui.Core.Hosting;
 using ASDict.MVVM.ViewModels;
 using ASDict.MVVM.Views;
+#if ANDROID
 using Android.Content.Res;
+#endif
 
 namespace ASDict
 {
