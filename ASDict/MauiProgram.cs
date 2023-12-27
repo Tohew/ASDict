@@ -20,6 +20,11 @@ namespace ASDict
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("PatrickHand-Regular.ttf", "PatrickHand");
+                    fonts.AddFont("Free-Regular.otf", "FAR");
+                    fonts.AddFont("Free-Solid.otf", "FAS");
+                    fonts.AddFont("Brands-Regular.otf", "FAB");
+
+
                 });
             builder.Services.AddSingleton<HomeScreenView>();
 
