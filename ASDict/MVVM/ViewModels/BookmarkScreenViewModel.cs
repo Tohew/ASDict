@@ -146,9 +146,10 @@ namespace ASDict.MVVM.ViewModels
         {
             if (InputWord != null)
             {
+#if ANDROID
                 if (Platform.CurrentActivity.CurrentFocus != null)
                     Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-
+#endif
                 var result = new ContentScreenView();
                 var resultViewModel = new DictionaryViewModel(inputWord);
                 result.BindingContext = resultViewModel;

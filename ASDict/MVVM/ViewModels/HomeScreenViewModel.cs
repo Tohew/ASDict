@@ -36,7 +36,8 @@ namespace ASDict.MVVM.ViewModels
 
             LoadRandomWords();
             //while (RandomWords == null);
-            RandomWord = "Hello";
+            //RandomWord = "Hello";
+            RandomWord = GetRandomWord(RandomWords);
 
 
             _httpClient = new HttpClient();
@@ -57,9 +58,10 @@ namespace ASDict.MVVM.ViewModels
         {
             if (InputWord != null)
             {
+#if ANDROID
                 if (Platform.CurrentActivity.CurrentFocus != null)
                     Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-
+#endif
                 var result = new ContentScreenView();
                 var resultViewModel = new DictionaryViewModel(inputWord);
                 result.BindingContext = resultViewModel;
@@ -175,13 +177,13 @@ namespace ASDict.MVVM.ViewModels
         [ObservableProperty]
         public string randomWord;
 
-        public List<string> RandomWords;
+        public ObservableCollection<string> RandomWords = new ObservableCollection<string>();
         public async void LoadRandomWords()
         {
             string line;
             try
             {
-                using Stream fileStream1 = await FileSystem.Current.OpenAppPackageFileAsync("smallwords.txt");
+                using Stream fileStream1 = await FileSystem.Current.OpenAppPackageFileAsync("randomwords.txt");
                 using StreamReader reader1 = new StreamReader(fileStream1);
                 while ((line = reader1.ReadLine()) != null)
                 {
@@ -193,7 +195,7 @@ namespace ASDict.MVVM.ViewModels
                 Console.WriteLine($"Request failed. Error");
             }
         }
-        static string GetRandomWord(ObservableCollection<string> collection)
+        string GetRandomWord(ObservableCollection<string> collection)
         {
             if (collection.Count == 0)
             {
@@ -205,7 +207,7 @@ namespace ASDict.MVVM.ViewModels
             return collection[index];
         }
         [ObservableProperty]
-        public List<string> resultRandomList = new List<string>();
+        public ObservableCollection<string> resultRandomList = new ObservableCollection<string>();
 
         private readonly HttpClient _httpClient = new HttpClient();
         public async Task FetchApiRandom(string query)
