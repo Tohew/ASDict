@@ -1,5 +1,4 @@
 map
-two
 health
 system
 meat
@@ -20,7 +19,6 @@ fact
 product
 investment
 area
-society
 activity
 story
 industry
@@ -38,7 +36,6 @@ country
 exam
 movie
 physics
-policy
 series
 thought
 basis

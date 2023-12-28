@@ -164,6 +164,8 @@
                 </VerticalStackLayout>
             </Border>
         </Grid>
+        
+        <!-- Content Page-->
         <Grid x:Name="ContentGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -227,67 +229,71 @@
                     </ImageButton>
                 </Border>
             </Grid>
+            
             <!-- Search bar -->
             <Grid VerticalOptions="Start"
-                  Grid.Row="1"
-                  ColumnDefinitions="4*, *"
-                  Padding="20, 0">
+                          Grid.Row="1"
+                          ColumnDefinitions="4*, *"
+                          ColumnSpacing="18"
+                          Padding="20, 0">
                 <Border Grid.Column="0"
-                        HeightRequest="55"
-                        VerticalOptions="Start"
-                        BackgroundColor="White"
-                        Stroke="white"
-                        StrokeShape="RoundRectangle 20"
-                        Visual="Default">
+                                VerticalOptions="Center"
+                                BackgroundColor="White"
+                                Stroke="White"
+                                StrokeShape="RoundRectangle 20"
+                                HeightRequest="55"
+                                Visual="Default">
                     <Border.Shadow>
                         <Shadow Brush="#333A57"
-                                Radius="0"
-                                Offset="0,10"
-                                Opacity="0.5" />
+                                        Radius="0"
+                                        Offset="0,10"
+                                        Opacity="0.5" />
                     </Border.Shadow>
                     <editors:SfAutocomplete Margin="10, 0 , 10, -8"
-                                            BackgroundColor="White"
-                                            IsClearButtonVisible="True"
-                                            x:Name="InputWord"
-                                            ItemsSource="{Binding TheList}"
-                                            Text="{Binding InputWord.word, Mode=TwoWay}"
-                                            DisplayMemberPath="TheSuggest"
-                                            TextMemberPath="TheSuggest"
-                                            TextSearchMode="Contains"
-                                            FontFamily="PatrickHand"
-                                            FontSize="24"
-                                            MaxDropDownHeight="300"
-                                            ClearButtonIconColor="#333A57" />
+                                                    BackgroundColor="White"
+                                                    IsClearButtonVisible="True"
+                                                    x:Name="InputWord"
+                                                    Text="{Binding InputWord.word, Mode=TwoWay}"
+                                                    ItemsSource="{Binding TheList}"
+                                                    DisplayMemberPath="TheSuggest"
+                                                    TextMemberPath="TheSuggest"
+                                                    TextSearchMode="Contains"
+                                                    FontFamily="PatrickHand"
+                                                    FontSize="24"
+                                                    MaxDropDownHeight="300"
+                                                    ClearButtonIconColor="#333A57" />
                 </Border>
-                <Border Grid.Column="1"
-                        StrokeShape="RoundRectangle 20"
-                        BackgroundColor="#333A57"
-                        VerticalOptions="Center"
-                        Stroke="#333A57"
-                        HeightRequest="55"
-                        WidthRequest="55">
+                <Border Grid.Column="2"
+                                StrokeShape="RoundRectangle 20"
+                                BackgroundColor="#333A57"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"
+                                Stroke="#333A57"
+                                HeightRequest="55"
+                                WidthRequest="55">
                     <Border.Shadow>
                         <Shadow Brush="#333A57"
-                                Radius="0"
-                                Offset="0,10"
-                                Opacity="0.5" />
+                                        Radius="0"
+                                        Offset="0,10"
+                                        Opacity="0.5" />
                     </Border.Shadow>
                     <ImageButton x:Name="search"
                                  Aspect="Center"
                                  BackgroundColor="#333A57"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
-                                 Command="{Binding searchBookmarkCommand}">
+                                 Command="{Binding searchCommand}">
                         <ImageButton.Source>
                             <FontImageSource FontFamily="FAS" Glyph="{StaticResource search}" Color="White" Size="22"/>
                         </ImageButton.Source>
                     </ImageButton>
                 </Border>
             </Grid>
+
             <!-- Content -->
             <Border Grid.Row="2"
                     StrokeThickness="0"
-                    Margin="-1, 8, -1, -1"
+                    Margin="-1, 20, -1, -1"
                     StrokeShape="RoundRectangle 20, 20, 0, 0"
                     BackgroundColor="#FEF2F2">
                 <Grid Grid.Row="2"
@@ -376,14 +382,16 @@
                                                             HeightRequest="60"
                                                             Stroke="#333A57"
                                                             StrokeThickness="3"
-                                                            StrokeShape="RoundRectangle 20">
+                                                            StrokeShape="RoundRectangle 20"
+                                                            BackgroundColor="White">
                                                         <Grid ColumnDefinitions="auto, *, auto"
                                                               VerticalOptions="Center">
                                                             <Label Grid.Column="0"
                                                                    Text="{Binding bookmarkWord}"
                                                                    FontSize="20"
                                                                    FontFamily="PatrickHand"
-                                                                   VerticalOptions="Center" />
+                                                                   VerticalOptions="Center" 
+                                                                   TextColor="#333A57"/>
                                                             <ImageButton Grid.Column="2"
                                                                          BackgroundColor="#00FFFFFF"
                                                                          Scale="0.5"

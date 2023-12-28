@@ -268,7 +268,6 @@
                                                     x:Name="InputWord"
                                                     Text="{Binding InputWord.word, Mode=TwoWay}"
                                                     ItemsSource="{Binding TheList}"
-                                                    Placeholder="{Binding Count}"
                                                     DisplayMemberPath="TheSuggest"
                                                     TextMemberPath="TheSuggest"
                                                     TextSearchMode="Contains"
@@ -303,6 +302,7 @@
                             </ImageButton>
                         </Border>
                     </Grid>
+                    
                     <!-- Content -->
                     <Border Grid.Row="2"
                             StrokeThickness="0"
@@ -329,7 +329,7 @@
                                     <Label Grid.Column="0"
                                            Text="Search history"
                                            FontSize="22"
-                                           TextColor="Black"
+                                           TextColor="#333A57"
                                            FontFamily="PatrickHand"
                                            VerticalOptions="Center"
                                            HorizontalOptions="Start" />
@@ -371,12 +371,14 @@
                                                         HeightRequest="45"
                                                         Stroke="#333A57"
                                                         StrokeThickness="2"
-                                                        StrokeShape="RoundRectangle 20">
+                                                        StrokeShape="RoundRectangle 20"
+                                                        BackgroundColor="White">
                                                     <Grid ColumnDefinitions="auto, *, auto"
                                                           VerticalOptions="Center">
                                                         <Label Grid.Column="0"
                                                                Text="{Binding word}"
                                                                FontSize="20"
+                                                               TextColor="#333A57"
                                                                FontFamily="PatrickHand"
                                                                VerticalOptions="Center" 
                                                                Margin="4, 0, 0, 0"/>
@@ -493,8 +495,11 @@
                                                        VerticalOptions="Center"
                                                        HorizontalOptions="Center"
                                                        FontSize="20"
+                                                       TextColor="#333A57"
                                                        />
                                                 <!--3 results-->
+                                            <ScrollView
+                                                    Grid.Row="2">
                                                 <FlexLayout
                                                     VerticalOptions="Center"
                                                     HorizontalOptions="Fill"
@@ -503,7 +508,6 @@
                                                     JustifyContent="Center"
                                                     AlignContent="Center"
                                                     AlignItems="Center"
-                                                    Grid.Row="2"
                                                     BindableLayout.ItemsSource="{Binding ResultRandomList}">
                                                     
                                                     <BindableLayout.ItemTemplate>
@@ -520,8 +524,7 @@
                                                                 <Label x:Name="randomWordLabel"
                                                                 Text="{Binding .}"
                                                                 FontSize="20"
-                                                                Margin="4, 0, 0, 0"
-                                                                       Padding="6"
+                                                                Padding="8,6"
                                                                 TextColor="#333A57"
                                                                 FontFamily="PatrickHand"
                                                                 VerticalOptions="Center"
@@ -530,6 +533,7 @@
                                                         </DataTemplate>
                                                     </BindableLayout.ItemTemplate>
                                                 </FlexLayout>
+                                            </ScrollView>
                                             </Grid>
                                     </Grid>
                                 </Border>
@@ -566,14 +570,17 @@
                                         Opacity="1" />
                             </Border.Shadow>
                             <ImageButton x:Name="house_icon"
-                                         Source="Resources/Images/house_icon.svg"
                                          Aspect="Center"
                                          BackgroundColor="White"
                                          HorizontalOptions="Center"
                                          VerticalOptions="Center"
                                          Command="{Binding HomeClickCommand}"
                                          HeightRequest="45"
-                                         WidthRequest="45" />
+                                         WidthRequest="45">
+                                <ImageButton.Source>
+                                    <FontImageSource FontFamily="FAS" Glyph="{StaticResource home}" Color="#333A57" Size="20"/>
+                                </ImageButton.Source>
+                            </ImageButton>
                         </Border>
                         <Border Grid.Column="1"
                                 WidthRequest="4"
@@ -595,14 +602,17 @@
                                         Opacity="1" />
                             </Border.Shadow>
                             <ImageButton x:Name="bookmark1"
-                                         Source="Resources/Images/bookmark_icon.svg"
                                          Aspect="Center"
                                          BackgroundColor="White"
                                          HorizontalOptions="Center"
                                          VerticalOptions="Center"
                                          Command="{Binding Bookmark1ClickCommand}"
                                          HeightRequest="45"
-                                         WidthRequest="45" />
+                                         WidthRequest="45">
+                                <ImageButton.Source>
+                                    <FontImageSource FontFamily="FAR" Glyph="{StaticResource bookmark}" Color="#333A57" Size="20"/>
+                                </ImageButton.Source>
+                            </ImageButton>
                         </Border>
                     </Grid>
                 </Grid>
