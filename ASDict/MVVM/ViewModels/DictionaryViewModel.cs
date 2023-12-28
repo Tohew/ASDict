@@ -1,12 +1,14 @@
 ﻿using ASDict.MVVM.Models;
+using ASDict.MVVM.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Windows.Input;
 
 namespace ASDict.MVVM.ViewModels
 {
-    internal partial class DictionaryViewModel :ObservableObject
+    internal partial class DictionaryViewModel : ObservableObject
     {
         [ObservableProperty]
         public string word;
@@ -24,7 +26,6 @@ namespace ASDict.MVVM.ViewModels
         public ObservableCollection<string> tempSynonymsCol2 = new ObservableCollection<string>();
         [ObservableProperty]
         public bool isProcessing;
-
 
 
         [ObservableProperty]
@@ -53,6 +54,11 @@ namespace ASDict.MVVM.ViewModels
 
                 Word = dictModel.word;
                 Console.WriteLine(Word);
+                if (dictModel.synonyms.Count == 0 && dictModel.antonyms.Count == 0)
+                {
+                    App.Current.MainPage.DisplayAlert("ASDict", "No result", "OK");
+                    await App.Current.MainPage.Navigation.PopModalAsync();
+                }
 
                 //Kiểm tra điều kiện hiển thị của Synonyms
                 if (dictModel.synonyms.Count >= 8)
@@ -121,7 +127,7 @@ namespace ASDict.MVVM.ViewModels
 
                 IsProcessing = false;
             }
-            catch(HttpRequestException ex)
+            catch (HttpRequestException ex)
             {
                 Console.WriteLine($"Request failed. Error: {ex.Message}");
             }
@@ -141,7 +147,7 @@ namespace ASDict.MVVM.ViewModels
             _ = CheckIfFavoriteAsync();
 
             starClicked = new Command(favoriteCommand);
-            
+
         }
 
         public void ConvertToAnt()
@@ -179,11 +185,11 @@ namespace ASDict.MVVM.ViewModels
                 tempSynonymsCol2.Add(synonym);
             }
         }
-        
+
         public DictionaryViewModel()
         {
         }
-        
+
         private async Task CheckIfFavoriteAsync()
         {
             FavoriteWord = await _bookmarkService.GetByWord(Word);
@@ -209,5 +215,26 @@ namespace ASDict.MVVM.ViewModels
                 });
             }
         }
+        [RelayCommand]
+        void HomeClick()
+        {
+            var homeView = new HomeScreenView();
+            homeView.BindingContext = new HomeScreenViewModel();
+            App.Current.MainPage.Navigation.PushModalAsync(homeView);
+        }
+
+        [RelayCommand]
+        void Bookmark1Click()
+        {
+            var bookmarkView = new BookmarkScreenView();
+            bookmarkView.BindingContext = new BookmarkScreenViewModel();
+            App.Current.MainPage.Navigation.PushModalAsync(bookmarkView);
+        }
+        [RelayCommand]
+        void SearchClick()
+        {
+            App.Current.MainPage.Navigation.PushModalAsync(new HomeScreenView());
+        }
+
     }
 }

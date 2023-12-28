@@ -14,491 +14,608 @@
             <OnIdiom.Tablet>false</OnIdiom.Tablet>
         </OnIdiom>
     </Shell.NavBarIsVisible>
+    
+        <ContentPage.Resources>
+        <x:String x:Key="menu">&#xf0c9;</x:String> <!--FAS-->
+        <x:String x:Key="bookmark">&#xf02e;</x:String> <!--FAR-->
+        <x:String x:Key="question">&#x3f;</x:String> <!--FAS-->
+        <x:String x:Key="info">&#xf129;</x:String> <!--FAS-->
+        <x:String x:Key="search">&#xf002;</x:String> <!--FAS-->
+        <x:String x:Key="sort">&#xf15d;</x:String> <!--FAS-->
+        <x:String x:Key="cross">&#xf00d;</x:String> <!--FAS-->
+        <x:String x:Key="home">&#xf015;</x:String> <!--FAS-->
+        <x:String x:Key="arrow">&#xf101;</x:String> <!-- FAS -->
+        <x:String x:Key="trash">&#xf1f8;</x:String> <!-- FAS -->
+        
+        
+    </ContentPage.Resources>
 
     <Grid>
-        <!--Menu Page-->
-        <Grid x:Name="MenuContainer" BackgroundColor="#333A57" RowSpacing="2">
-
+        <!-- Menu Page -->
+        <Grid x:Name="MenuContainer"
+                      BackgroundColor="#333A57"
+                      RowSpacing="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
-                <RowDefinition Height="75"/>
-                <RowDefinition Height="75"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="75" />
+                <RowDefinition Height="75" />
+                <RowDefinition Height="75" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
-            <!--Bookmark-->
-            <Border StrokeThickness="0" BackgroundColor="#333A57" Grid.Row="0">
+            <!-- Bookmark -->
+            <Border StrokeThickness="0"
+                            BackgroundColor="#333A57"
+                            Grid.Row="0">
                 <Border.Shadow>
                     <Shadow Brush="#FAC4C7"
-                            Offset="0, 8"
-                            Radius="0"/>
+                                    Offset="0, 8"
+                                    Radius="0" />
                 </Border.Shadow>
-                <VerticalStackLayout >
+                <VerticalStackLayout>
                     <Grid ColumnDefinitions="*, *">
-                        <VerticalStackLayout  Grid.Column="1" Padding="16,12, 0, 0">
+                        <VerticalStackLayout Grid.Column="1"
+                                                     Padding="16,12, 0, 0">
                             <VerticalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="bookmark_Clicked" />
                             </VerticalStackLayout.GestureRecognizers>
                             <Grid ColumnDefinitions="auto, *, auto">
-                                <Label 
-                            Grid.Column="0"
-                            Text="Bookmark"
-                           FontSize="22"
-                           VerticalOptions="CenterAndExpand"
-                           HorizontalOptions="CenterAndExpand"
-                           TextColor="White"
-                           FontFamily="PatrickHand"/>
-                                <Border 
-                            Grid.Column="2"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                        Background="#FAC4C7" 
-                        Stroke="#333A57" 
-                        StrokeThickness="2"
-                        StrokeShape="RoundRectangle 60"
-                        HeightRequest="50"
-                        WidthRequest="50">
-                                    <Image Source="Resources/Images/bookmark_icon.svg" Scale="0.5"/>
+                                <Label Grid.Column="0"
+                                               Text="Bookmark"
+                                               FontSize="22"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="CenterAndExpand"
+                                               TextColor="White"
+                                               FontFamily="PatrickHand" />
+                                <Border Grid.Column="2"
+                                                Background="#FAC4C7"
+                                                Stroke="#333A57"
+                                                StrokeThickness="2"
+                                                StrokeShape="RoundRectangle 60"
+                                                HeightRequest="50"
+                                                WidthRequest="50">
+                                    <ImageButton Aspect="Center">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FAR"
+                                                                     Glyph="{StaticResource bookmark}"
+                                                                     Color="#333A57"
+                                                                     Size="20" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
                                 </Border>
                             </Grid>
                         </VerticalStackLayout>
                     </Grid>
-
                 </VerticalStackLayout>
             </Border>
-
-            <!--Help-->
-            <Border StrokeThickness="0" BackgroundColor="#333A57" Grid.Row="1">
+            <!-- Help -->
+            <Border StrokeThickness="0"
+                            BackgroundColor="#333A57"
+                            Grid.Row="1">
                 <Border.Shadow>
                     <Shadow Brush="#FAC4C7"
-                            Offset="0,8"
-                            Radius="0"/>
+                                    Offset="0,8"
+                                    Radius="0" />
                 </Border.Shadow>
                 <VerticalStackLayout>
                     <Grid ColumnDefinitions="*, *">
-                        <VerticalStackLayout Padding="16,12, 0, 0" Grid.Column="1">
+                        <VerticalStackLayout Padding="16,12, 0, 0"
+                                                     Grid.Column="1">
                             <VerticalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="help_Clicked" />
                             </VerticalStackLayout.GestureRecognizers>
                             <Grid ColumnDefinitions="auto, *, auto">
-                                <Label 
-                            Grid.Column="0"
-                            Text="Help"
-                           FontSize="22"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                           TextColor="White"
-                           FontFamily="PatrickHand"/>
-                                <Border 
-                            Grid.Column="2"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                        Background="#FAC4C7" 
-                        Stroke="#333A57" 
-                        StrokeThickness="2"
-                        StrokeShape="RoundRectangle 60"
-                        HeightRequest="50"
-                        WidthRequest="50">
-                                    <Image Source="Resources/Images/help_icon.svg" Scale="0.5"/>
+                                <Label Grid.Column="0"
+                                               Text="Help"
+                                               FontSize="22"
+                                               HorizontalOptions="CenterAndExpand"
+                                               VerticalOptions="CenterAndExpand"
+                                               TextColor="White"
+                                               FontFamily="PatrickHand" />
+                                <Border Grid.Column="2"
+                                                Background="#FAC4C7"
+                                                Stroke="#333A57"
+                                                StrokeThickness="2"
+                                                StrokeShape="RoundRectangle 60"
+                                                HeightRequest="50"
+                                                WidthRequest="50">
+                                    <ImageButton Aspect="Center">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FAS"
+                                                                     Glyph="{StaticResource question}"
+                                                                     Color="#333A57"
+                                                                     Size="22" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
                                 </Border>
                             </Grid>
                         </VerticalStackLayout>
                     </Grid>
-
                 </VerticalStackLayout>
             </Border>
-
-            <!--Infor-->
-            <Border StrokeThickness="0" BackgroundColor="#333A57" Grid.Row="2">
+            <!-- Infor -->
+            <Border StrokeThickness="0"
+                            BackgroundColor="#333A57"
+                            Grid.Row="2">
                 <Border.Shadow>
                     <Shadow Brush="#FAC4C7"
-                            Offset="0,8"
-                            Radius="0"/>
+                                    Offset="0,8"
+                                    Radius="0" />
                 </Border.Shadow>
                 <VerticalStackLayout>
                     <Grid ColumnDefinitions="*, *">
-                        <VerticalStackLayout Padding="16,12, 0, 0" Grid.Column="1">
+                        <VerticalStackLayout Padding="16,12, 0, 0"
+                                                     Grid.Column="1">
                             <VerticalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="infor_Clicked" />
                             </VerticalStackLayout.GestureRecognizers>
                             <Grid ColumnDefinitions="auto, *, auto">
-                                <Label 
-                            Grid.Column="0"
-                            Text="Infor"
-                           FontSize="22"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                           TextColor="White"
-                           FontFamily="PatrickHand"/>
-                                <Border 
-                            Grid.Column="2"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                        Background="#FAC4C7" 
-                        Stroke="#333A57" 
-                        StrokeThickness="2"
-                        StrokeShape="RoundRectangle 60"
-                        HeightRequest="50"
-                        WidthRequest="50">
-                                    <Image Source="Resources/Images/information_icon.svg" Scale="0.5"/>
+                                <Label Grid.Column="0"
+                                               Text="Infor"
+                                               FontSize="22"
+                                               HorizontalOptions="CenterAndExpand"
+                                               VerticalOptions="CenterAndExpand"
+                                               TextColor="White"
+                                               FontFamily="PatrickHand" />
+                                <Border Grid.Column="2"
+                                                Background="#FAC4C7"
+                                                Stroke="#333A57"
+                                                StrokeThickness="2"
+                                                StrokeShape="RoundRectangle 60"
+                                                HeightRequest="50"
+                                                WidthRequest="50">
+                                    <ImageButton Aspect="Center">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="FAS"
+                                                                     Glyph="{StaticResource info}"
+                                                                     Color="#333A57"
+                                                                     Size="20" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
                                 </Border>
                             </Grid>
                         </VerticalStackLayout>
                     </Grid>
-
                 </VerticalStackLayout>
             </Border>
-
         </Grid>
 
-        <Grid x:Name="ContentGrid" >
+        <!-- Content Page -->
+        <Grid x:Name="ContentGrid">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="9*"/>
-                <RowDefinition Height="75"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="75" />
             </Grid.RowDefinitions>
-
-            <Image Source="Resources/Images/backgr.png" Aspect="AspectFill"
-               Grid.RowSpan="3"/>
-
-            <!--Header-->
+            <Image Source="Resources/Images/backgr.png"
+                           Aspect="AspectFill"
+                           Grid.RowSpan="3" />
+            <!-- Header -->
             <Grid ColumnDefinitions="auto, * , auto"
-              Padding="8,0,8,12"
-              VerticalOptions="Start">
-
-
-                <!--App icon-->
-                <Border
-                Padding="0"
-                StrokeThickness="3"
-                StrokeShape="RoundRectangle 90"
-                Background="White"
-                HorizontalOptions="Start"
-                VerticalOptions="Start"
-                HeightRequest="60"
-                WidthRequest="60"
-                Stroke="#333A57">
+                          Padding="8,0,8,12"
+                          VerticalOptions="Start">
+                <!-- App icon -->
+                <Border Padding="0"
+                                StrokeThickness="3"
+                                StrokeShape="RoundRectangle 90"
+                                Background="White"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Start"
+                                HeightRequest="60"
+                                WidthRequest="60"
+                                Stroke="#333A57">
                     <Border.Shadow>
                         <Shadow Brush="#333A57"
-                            Radius="0"
-                            Offset="0, 10"
-                            Opacity="1"/>
+                                        Radius="0"
+                                        Offset="0, 10"
+                                        Opacity="1" />
                     </Border.Shadow>
-                    <Image 
-                    Source="app_icon_small.svg"
-                    Aspect="AspectFill"
-                    BackgroundColor="White"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+                    <Image Source="app_icon_small.svg"
+                                   Aspect="AspectFill"
+                                   BackgroundColor="White"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center" />
                 </Border>
-
-                <!--Menu icon-->
-                <Border 
-                Grid.Column="2"
-                StrokeThickness="3"
-                StrokeShape="RoundRectangle 90"
-                Background="White"
-                HorizontalOptions="Start"
-                VerticalOptions="Start"
-                Stroke="#333A57"
-                HeightRequest="60"
-                WidthRequest="60">
+                <!-- Menu icon -->
+                <Border Grid.Column="2"
+                                StrokeThickness="3"
+                                StrokeShape="RoundRectangle 90"
+                                Background="White"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Start"
+                                Stroke="#333A57"
+                                HeightRequest="60"
+                                WidthRequest="60">
                     <Border.Shadow>
                         <Shadow Brush="#333A57"
-                            Radius="0"
-                            Offset="0,10"
-                            Opacity="1"/>
+                                        Radius="0"
+                                        Offset="0,10"
+                                        Opacity="1" />
                     </Border.Shadow>
                     <ImageButton x:Name="menu"
-                             Source="menu_icon_blue.svg"
-                             Aspect="Center"
-                             Clicked="menu_Clicked"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center"/>
+                                 Aspect="Center"
+                                 HorizontalOptions="Center"
+                                 Clicked="menu_Clicked"
+                                 VerticalOptions="Center">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="FAS" Glyph="{StaticResource menu}" Color="#333A57" Size="20"/>
+                        </ImageButton.Source>
+                    </ImageButton>
                 </Border>
             </Grid>
 
-            <!--Search Bar-->
+            <!-- Search Bar -->
             <Grid VerticalOptions="Start"
-              Grid.Row="1"
-              ColumnDefinitions="4*, *"
-              Padding="20, 0">
-                <Border
-                Grid.Column="0"
-                VerticalOptions="Start"
-                Stroke="White"
-                StrokeShape="RoundRectangle 20"
-                HeightRequest="55"
-                Visual="Default">
+                          Grid.Row="1"
+                          ColumnDefinitions="4*, *"
+                          ColumnSpacing="18"
+                          Padding="20, 0">
+                <Border Grid.Column="0"
+                                VerticalOptions="Center"
+                                BackgroundColor="White"
+                                Stroke="White"
+                                StrokeShape="RoundRectangle 20"
+                                HeightRequest="55"
+                                Visual="Default">
                     <Border.Shadow>
                         <Shadow Brush="#333A57"
-                            Radius="0"
-                            Offset="0,10"
-                            Opacity="0.5"/>
+                                        Radius="0"
+                                        Offset="0,10"
+                                        Opacity="0.5" />
                     </Border.Shadow>
-                    <editors:SfAutocomplete
-                    Margin="10, 0 , 10, -8"
-                        IsClearButtonVisible="True"
-                        x:Name="InputWord"
-                        Text="{Binding InputWord.word, Mode=TwoWay}"
-                        ItemsSource="{Binding TheList}"
-                        Placeholder="{Binding Count}"
-                        DisplayMemberPath = "TheSuggest"
-                        TextMemberPath = "TheSuggest"
-                        TextSearchMode="Contains"
-                        FontFamily="PatrickHand"
-                        FontSize="24" MaxDropDownHeight="300" ClearButtonIconColor="#333A57"/>
+                    <editors:SfAutocomplete Margin="10, 0 , 10, -8"
+                                                    BackgroundColor="White"
+                                                    IsClearButtonVisible="True"
+                                                    x:Name="InputWord"
+                                                    Text="{Binding InputWord.word, Mode=TwoWay}"
+                                                    ItemsSource="{Binding TheList}"
+                                                    DisplayMemberPath="TheSuggest"
+                                                    TextMemberPath="TheSuggest"
+                                                    TextSearchMode="Contains"
+                                                    FontFamily="PatrickHand"
+                                                    FontSize="24"
+                                                    MaxDropDownHeight="300"
+                                                    ClearButtonIconColor="#333A57" />
                 </Border>
-
-                <Border Grid.Column="1"
-                    StrokeShape="RoundRectangle 20"
-                    BackgroundColor="#333A57"
-                    VerticalOptions="End"
-                    HorizontalOptions="End"
-                    Stroke="#333A57"
-                    HeightRequest="55"
-                    WidthRequest="55">
+                <Border Grid.Column="2"
+                                StrokeShape="RoundRectangle 20"
+                                BackgroundColor="#333A57"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"
+                                Stroke="#333A57"
+                                HeightRequest="55"
+                                WidthRequest="55">
                     <Border.Shadow>
                         <Shadow Brush="#333A57"
-                            Radius="0"
-                            Offset="0,10"
-                            Opacity="0.5"/>
+                                        Radius="0"
+                                        Offset="0,10"
+                                        Opacity="0.5" />
                     </Border.Shadow>
                     <ImageButton x:Name="search"
-                             Source="search_icon_white.svg"
-                             Aspect="Center"
-                             BackgroundColor="#333A57"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center"
-                             Command="{Binding searchCommand}"/>
+                                 Aspect="Center"
+                                 BackgroundColor="#333A57"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 Command="{Binding searchCommand}">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="FAS" Glyph="{StaticResource search}" Color="White" Size="22"/>
+                        </ImageButton.Source>
+                    </ImageButton>
                 </Border>
             </Grid>
 
             <!--Content-->
             <Border Grid.Row="2"
-                Grid.RowSpan="1"
-                StrokeThickness="0"
-                Margin="-1, 8, -1, -1"
-                StrokeShape="RoundRectangle 20 20 0 0"
-                BackgroundColor="#FEF2F2">
-
-
-                <Grid>
+                            StrokeThickness="0"
+                            Margin="-1, 20, -1, -1"
+                            StrokeShape="RoundRectangle 20, 20, 0, 0"
+                            BackgroundColor="#FEF2F2">
+                <Grid ColumnDefinitions="*, 15*, *">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="7*" />
                     </Grid.RowDefinitions>
-
                     <!--Search History-->
                     <Border Grid.Row="0"
-                        StrokeThickness="0"
-                        BackgroundColor="#FEF2F2">
-                        <Grid ColumnDefinitions="auto,*,auto">
-                            <Label
-                            Grid.Column="0"
-                            Padding="10"
-                            Text="Search history"
-                            FontSize="20"
-                            TextColor="Black"
-                            FontFamily="PatrickHand"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"/>
-
-                            <ImageButton Source="rubbish_icon.svg"
-                            Grid.Column="2"
-                            Padding="0"
-                            VerticalOptions="Center"
-                            HorizontalOptions="End"
-                                         Command="{Binding DeleteAllWordsCommand}"/>
+                                    Grid.ColumnSpan="3"
+                                    StrokeThickness="0"
+                                    BackgroundColor="#FEF2F2"
+                                    Padding="18, 12">
+                        <Grid 
+                                    ColumnDefinitions="auto,*,auto"
+                                    Margin="0"
+                                        >
+                            <Label Grid.Column="0"
+                                           Text="Search history"
+                                           FontSize="22"
+                                           TextColor="#333A57"
+                                           FontFamily="PatrickHand"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start" />
+                            <ImageButton 
+                                        Grid.Column="2"
+                                        Padding="0"
+                                        Margin="0"
+                                        Aspect="Center"    
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="End"
+                                        Command="{Binding DeleteAllWordsCommand}">
+                                <ImageButton.Source>
+                                    <FontImageSource FontFamily="FAS" Glyph="{StaticResource trash}" Color="#333A57" Size="26"/>
+                                </ImageButton.Source>
+                            </ImageButton>
                         </Grid>
                     </Border>
 
-                <!--History Label-->
-                <Border Grid.Row="1"
-                        StrokeThickness="0"
-                        BackgroundColor="#FEF2F2">
-                    <StackLayout VerticalOptions="Center"
-                                 HorizontalOptions="Center">
-                            <CollectionView ItemsSource="{Binding RecentWords}">
-                                <CollectionView.ItemsLayout>
-                                    <GridItemsLayout Orientation="Horizontal"/>
-                                </CollectionView.ItemsLayout>
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border
-                                            Padding="5, 0"
-                                            HeightRequest="50"
-                                            Stroke="#333A57"
-                                            StrokeThickness="4"
-                                            StrokeShape="RoundRectangle 20">
-                                            <Grid ColumnDefinitions="auto, *, auto" VerticalOptions="Center">
-                                                <Label 
-                                                    Grid.Column="0"
-                                                    Text="{Binding word}"
-                                                    FontSize="20"
-                                                    FontFamily="PatrickHand"
-                                                    VerticalOptions="Center"/>
-                                                <ImageButton
-                                                    Grid.Column="2"
-                                                    BackgroundColor="#00FFFFFF"
-                                                    Source="delete_icon_default.svg"
-                                                    Scale="0.25"
-                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=DeleteCommand}"
-                                                    CommandParameter="{Binding .}"/>
-                                                <Grid.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=SelectionChangedCommand}"
-                                                                                  CommandParameter="{Binding .}"/>
-                                                </Grid.GestureRecognizers>
-                                            </Grid>
-                                        </Border>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </StackLayout>
-                    
-                </Border>
+                    <Border Grid.Row="1"
+                                    Grid.Column="1"
+                                    StrokeThickness="0"
+                                    HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="#FEF2F2"
+                                    Padding="0"
+                                    Margin="0">
+                        <FlexLayout VerticalOptions="Fill"
+                                            HorizontalOptions="Fill"
+                                            Wrap="Wrap"
+                                            Direction="Row"
+                                            JustifyContent="Start"
+                                            AlignContent="Start"
+                                            AlignItems="Start"
+                                            BindableLayout.ItemsSource="{Binding RecentWords}"
+                                            >
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Padding="6, 0"
+                                                        Margin="0"
+                                                        HeightRequest="45"
+                                                        Stroke="#333A57"
+                                                        StrokeThickness="2"
+                                                        StrokeShape="RoundRectangle 20"
+                                                        BackgroundColor="White">
+                                        <Grid ColumnDefinitions="auto, *, auto"
+                                                          VerticalOptions="Center">
+                                            <Label Grid.Column="0"
+                                                               Text="{Binding word}"
+                                                               FontSize="20"
+                                                               TextColor="#333A57"
+                                                               FontFamily="PatrickHand"
+                                                               VerticalOptions="Center" 
+                                                               Margin="4, 0, 0, 0"/>
+                                            <ImageButton Grid.Column="2"
+                                                                 Aspect="Center"
+                                                                 BackgroundColor="#00FFFFFF"
+                                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=DeleteCommand}"
+                                                                 CommandParameter="{Binding .}">
+                                                <ImageButton.Source>
+                                                    <FontImageSource FontFamily="FAS" Glyph="{StaticResource cross}" Color="#FF5E5E" Size="20"/>
+                                                </ImageButton.Source>
+                                            </ImageButton>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=SelectionChangedCommand}"
+                                                                                  CommandParameter="{Binding .}" />
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
 
-                    <!--Line-->
-                    <Line X1="25" Y1="50" X2="355" Y2="50"
-                          Stroke="Black" StrokeThickness="2"
-                      Grid.Row="2">
-                    </Line>
+                        </FlexLayout>
+                    </Border>
+                    <!-- Line -->
+                    <Border Grid.Column="1" Grid.Row="2" HeightRequest="3" BackgroundColor="#333A57" StrokeThickness="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+
 
                     <!--Do you know?-->
                     <Grid Grid.Row="3"
-                    RowDefinitions="*, 11*, *"
-                    ColumnDefinitions="*, 15*, *">
-
+                                  Grid.Column="1"
+                                  RowDefinitions="*, 11*, *">
                         <Border Grid.Row="1"
-                          Grid.Column="1"
-                          StrokeThickness="8"
-                          Stroke="#333A57"
-                          StrokeShape="RoundRectangle 20"
-                          BackgroundColor="White">
+                                        StrokeThickness="8"
+                                        Stroke="#333A57"
+                                        StrokeShape="RoundRectangle 20"
+                                        BackgroundColor="White">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="90"/>
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="80" />
+                                    <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
-
-                                <!--Top-->
+                                <!-- Top -->
                                 <Grid Grid.Row="0"
-                                BackgroundColor="#AEB1E4"
-                                ZIndex="1">
+                                              BackgroundColor="#AEB1E4"
+                                              ZIndex="1">
                                     <Grid Padding="16"
-                                      ColumnDefinitions="auto, *, auto">
-
-                                        <!--Do you know lable-->
+                                                  ColumnDefinitions="auto, *, auto">
+                                        <!-- Do you know lable -->
                                         <Border Grid.Column="0"
-                                            HorizontalOptions="Center"
-                                            Padding="12, 0"
-                                            VerticalOptions="Center"
-                                            StrokeShape="RoundRectangle 20"
-                                            StrokeThickness="0"
-                                            BackgroundColor="#333A57">
+                                                        HorizontalOptions="Center"
+                                                        Padding="12, 0"
+                                                        VerticalOptions="Center"
+                                                        StrokeShape="RoundRectangle 20"
+                                                        StrokeThickness="0"
+                                                        BackgroundColor="#333A57">
                                             <Border.Shadow>
                                                 <Shadow Brush="Black"
-                                                    Radius="0"
-                                                    Offset="0, 10"
-                                                    Opacity="1"/>
+                                                                Radius="0"
+                                                                Offset="0, 10"
+                                                                Opacity="1" />
                                             </Border.Shadow>
-
-                                            <Label x:Name="bookmarkLable"
-                                                BackgroundColor="#333A57"
-                                                Text="Do you know ?"
-                                                FontSize="20"
-                                                Padding="10"
-                                                TextColor="White"
-                                                FontFamily="PatrickHand"
-                                                VerticalOptions="Center"
-                                                HorizontalOptions="Center"/>
+                                            <Label x:Name="doyouLable"
+                                                           BackgroundColor="#333A57"
+                                                           Text="Do you know ?"
+                                                           FontSize="20"
+                                                           Padding="10"
+                                                           TextColor="White"
+                                                           FontFamily="PatrickHand"
+                                                           VerticalOptions="Center"
+                                                           HorizontalOptions="Center" />
                                         </Border>
-
-                                        <!--Double arrow icon-->
+                                        <!-- Double arrow icon -->
                                         <ImageButton Grid.Column="2"
-                                                HeightRequest="130"
-                                                WidthRequest="20"
-                                                Source="double_arrow.svg"/>
+                                                             Aspect="Center">
+                                            <ImageButton.Source>
+                                                <FontImageSource FontFamily="FAS" Glyph="{StaticResource arrow}" Color="#333A57" Size="28"/>
+                                            </ImageButton.Source>
+                                        </ImageButton>
                                     </Grid>
+                                </Grid>
+
+                                <!-- Bottom -->
+                                <Grid Grid.Row="1"
+                                               RowDefinitions="*, 40, *"
+                                              BackgroundColor="White">
+                                    <!--Label word random-->
+                                    <Border Grid.Row="0"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        Margin="4,0"
+                                                        Padding="4, 0"
+                                                        StrokeShape="RoundRectangle 20"
+                                                        StrokeThickness="3"
+                                                        Stroke="#333A57"
+                                                        BackgroundColor="White">
+                                        <Border.Shadow>
+                                            <Shadow Brush="#333A57"
+                                                        Radius="0"
+                                                        Offset="0, 5"
+                                                        Opacity="1"/>
+                                        </Border.Shadow>
+
+                                        <Label x:Name="randomWord"
+                                                    Text="{Binding RandomWord}"
+                                                    FontSize="24"
+                                                    Padding="8"
+                                                    TextColor="#333A57"
+                                                    FontFamily="PatrickHand"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"/>
+                                    </Border>
+
+                                    <Label Grid.Row="1"
+                                               Text="is another word for"
+                                                       FontFamily="PatrickHand"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="Center"
+                                                       FontSize="20"
+                                                       TextColor="#333A57"
+                                                       />
+                                    <!--3 results-->
+                                    <ScrollView
+                                                    Grid.Row="2">
+                                        <FlexLayout
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Fill"
+                                                    Wrap="Wrap"
+                                                    Direction="Row"
+                                                    JustifyContent="Center"
+                                                    AlignContent="Center"
+                                                    AlignItems="Center"
+                                                    BindableLayout.ItemsSource="{Binding ResultRandomList}">
+
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Grid.Row="0"
+                                                                HorizontalOptions="Center"
+                                                                VerticalOptions="Center"
+                                                                Padding="4, 0"
+                                                                StrokeShape="RoundRectangle 20"
+                                                                StrokeThickness="3"
+                                                                Stroke="#333A57"
+                                                                BackgroundColor="White">
+
+                                                        <Label x:Name="randomWordLabel"
+                                                                Text="{Binding .}"
+                                                                FontSize="20"
+                                                                Padding="8,6"
+                                                                TextColor="#333A57"
+                                                                FontFamily="PatrickHand"
+                                                                VerticalOptions="Center"
+                                                                HorizontalOptions="Center"/>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </FlexLayout>
+                                    </ScrollView>
                                 </Grid>
                             </Grid>
                         </Border>
                     </Grid>
-
                 </Grid>
-
-
             </Border>
 
             <!--Footer-->
-            <Grid Grid.Row="3" BackgroundColor="#FEF2F2">
+            <Grid Grid.Row="3"
+                          BackgroundColor="#FEF2F2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Border  Grid.Column="0" Grid.ColumnSpan="3"          
-            StrokeShape="RoundRectangle 20, 20, 0, 0"
-            StrokeThickness="0">
-
-                    <Image  Source="Resources/Images/backgr.png" 
-                       Aspect="AspectFill"
-                        Scale="2"/>
+                <Border Grid.Column="0"
+                                Grid.ColumnSpan="3"
+                                StrokeShape="RoundRectangle 20, 20, 0, 0"
+                                StrokeThickness="0">
+                    <Image Source="Resources/Images/backgr.png"
+                                   Aspect="AspectFill"
+                                   Scale="2" />
                 </Border>
-                <Border  Grid.Column="0"
-            StrokeThickness="4" 
-            StrokeShape="RoundRectangle 90"
-            Background="white"
-            VerticalOptions="Center"
-            HorizontalOptions="EndAndExpand"
-            Stroke="#333A57">
+                <Border Grid.Column="0"
+                                StrokeThickness="4"
+                                StrokeShape="RoundRectangle 90"
+                                Background="white"
+                                VerticalOptions="Center"
+                                HorizontalOptions="EndAndExpand"
+                                Stroke="#333A57">
                     <Border.Shadow>
                         <Shadow Brush="#333A57"
-                        Radius="0"
-                        Offset="0,10"
-                        Opacity="1"/>
+                                        Radius="0"
+                                        Offset="0,10"
+                                        Opacity="1" />
                     </Border.Shadow>
                     <ImageButton x:Name="house_icon"
-                Source="Resources/Images/house_icon.svg" 
-                Aspect="Center" 
-                BackgroundColor="White"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="house_icon_Clicked"
-                HeightRequest="45"
-                WidthRequest="45"/>
+                                         Aspect="Center"
+                                         BackgroundColor="White"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Command="{Binding HomeClickCommand}"
+                                         HeightRequest="45"
+                                         WidthRequest="45">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="FAS" Glyph="{StaticResource home}" Color="#333A57" Size="20"/>
+                        </ImageButton.Source>
+                    </ImageButton>
                 </Border>
-
-                <Border Grid.Column="1" WidthRequest="4"
-                    BackgroundColor="#333A57" StrokeThickness="0" Margin="8" />
-
-                <Border  
-            Grid.Column="2"
-            StrokeThickness="4" 
-            StrokeShape="RoundRectangle 90"
-            Background="white"
-            Grid.Row="3"
-            VerticalOptions="CenterAndExpand"
-            HorizontalOptions="StartAndExpand"
-            Stroke="#333A57">
+                <Border Grid.Column="1"
+                                WidthRequest="4"
+                                BackgroundColor="#333A57"
+                                StrokeThickness="0"
+                                Margin="8" />
+                <Border Grid.Column="2"
+                                StrokeThickness="4"
+                                StrokeShape="RoundRectangle 90"
+                                Background="white"
+                                Grid.Row="3"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="StartAndExpand"
+                                Stroke="#333A57">
                     <Border.Shadow Margin="255,70,65,-20">
                         <Shadow Brush="#333A57"
-                        Radius="0"
-                        Offset="0,10"
-                        Opacity="1"/>
+                                        Radius="0"
+                                        Offset="0,10"
+                                        Opacity="1" />
                     </Border.Shadow>
                     <ImageButton x:Name="bookmark1"
-                Source="Resources/Images/bookmark_icon.svg" 
-                Aspect="Center" 
-                BackgroundColor="White"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="bookmark1_Clicked"
-                HeightRequest="45"
-                WidthRequest="45"/>
+                                         Aspect="Center"
+                                         BackgroundColor="White"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Command="{Binding Bookmark1ClickCommand}"
+                                         HeightRequest="45"
+                                         WidthRequest="45">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="FAR" Glyph="{StaticResource bookmark}" Color="#333A57" Size="20"/>
+                        </ImageButton.Source>
+                    </ImageButton>
                 </Border>
             </Grid>
         </Grid>

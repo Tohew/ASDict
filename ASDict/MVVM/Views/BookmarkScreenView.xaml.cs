@@ -7,8 +7,8 @@ public partial class BookmarkScreenView : ContentPage
 {
     private const uint AnimationDuration = 100u;
     public BookmarkScreenView()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         BindingContext = new BookmarkScreenViewModel();
         Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF1cWWhIYVdpR2Nbe05xdl9DZ1ZRRmYuP1ZhSXxQd0djXH9fcXJWRWNYVUE=");
     }
@@ -29,10 +29,11 @@ public partial class BookmarkScreenView : ContentPage
         _ = ContentGrid.ScaleTo(1, AnimationDuration);
         await ContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
     }
-    private void bookmark_Clicked(object sender, EventArgs e)
+
+    private async void bookmark_Clicked(object sender, EventArgs e)
     {
         if (isMenuOpen)
-            DisplayAlert("ASDict", "You are in Bookmark", "OK");
+            await DisplayAlert("ASDict", "You are in Bookmark", "OK");
     }
 
     private async void help_Clicked(object sender, EventArgs e)
@@ -45,28 +46,4 @@ public partial class BookmarkScreenView : ContentPage
         if (isMenuOpen)
             await DisplayAlert("info", "cc, cl", "OK");
     }
-    private void AppIcon_Clicked(object sender, EventArgs e)
-    {
-
-    }
-    private void house_icon_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushModalAsync(new HomeScreenView());
-    }
-
-    private void bookmark1_Clicked(object sender, EventArgs e)
-    {
-        DisplayAlert("ASDict", "You are in Bookmark", "OK");
-    }
-
-    //private async void search_Clicked(object sender, EventArgs e)
-    //{
-    //    if (Platform.CurrentActivity.CurrentFocus != null)
-    //        Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-
-    //    var result = new ContentScreenView();
-    //    var resultViewModel = new DictionaryViewModel(InputWord.Text);
-    //    result.BindingContext = resultViewModel;
-    //    await Navigation.PushModalAsync(result);
-    //}
 }

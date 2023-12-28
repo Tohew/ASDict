@@ -28,8 +28,8 @@ namespace ASDict.MVVM.ViewModels
         [ObservableProperty]
         ObservableCollection<Bookmark> favoriteWords;
 
-        public ICommand selectedCommand {  get; }
-        public ICommand setSelectedFavoriteWord {  get; }
+        public ICommand selectedCommand { get; }
+        public ICommand setSelectedFavoriteWord { get; }
         private readonly BookmarkService _bookmarkService;
         private bool _isSortedAlphabetically = false;
 
@@ -146,9 +146,10 @@ namespace ASDict.MVVM.ViewModels
         {
             if (InputWord != null)
             {
+#if ANDROID
                 if (Platform.CurrentActivity.CurrentFocus != null)
                     Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
-
+#endif
                 var result = new ContentScreenView();
                 var resultViewModel = new DictionaryViewModel(inputWord);
                 result.BindingContext = resultViewModel;
@@ -182,6 +183,19 @@ namespace ASDict.MVVM.ViewModels
             await NavigateToContentScreen(InputWord.word);
             InputWord = new HistoryWord();
             await LoadRecentWords();
+        }
+
+        [RelayCommand]
+        void HomeClick()
+        {
+            var homeView = new HomeScreenView();
+            homeView.BindingContext = new HomeScreenViewModel();
+            App.Current.MainPage.Navigation.PushModalAsync(homeView);
+        }
+        [RelayCommand]
+        void Bookmark1Click()
+        {
+            App.Current.MainPage.DisplayAlert("ASDict", "You are in Bookmark", "OK");
         }
     }
 }

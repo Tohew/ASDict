@@ -8,7 +8,7 @@ public partial class HomeScreenView : ContentPage
 {
     private const uint AnimationDuration = 100u;
     public HomeScreenView()
-	{
+    {
         Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF1cWWhIYVdpR2Nbe05xdl9DZ1ZRRmYuP1ZhSXxQd0djXH9fcXJWRWNYVUE=");
         InitializeComponent();
         BindingContext = new HomeScreenViewModel();
@@ -48,15 +48,5 @@ public partial class HomeScreenView : ContentPage
     {
         if (isMenuOpen)
             await DisplayAlert("info", "cc, cl", "OK");
-    }
-
-    private void bookmark1_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushModalAsync(new BookmarkScreenView());
-    }
-
-    private void house_icon_Clicked(object sender, EventArgs e)
-    {
-        DisplayAlert("ASDict", "You are in Home", "OK");
     }
 }

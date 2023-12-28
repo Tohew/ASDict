@@ -3,6 +3,9 @@ using CommunityToolkit.Maui;
 using Syncfusion.Maui.Core.Hosting;
 using ASDict.MVVM.ViewModels;
 using ASDict.MVVM.Views;
+#if ANDROID
+using Android.Content.Res;
+#endif
 
 namespace ASDict
 {
@@ -20,6 +23,11 @@ namespace ASDict
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("PatrickHand-Regular.ttf", "PatrickHand");
+
+                    fonts.AddFont("FASolid.otf", "FAS");
+                    fonts.AddFont("FABrands.otf", "FAB");
+                    fonts.AddFont("FARegular5.otf", "FAR");
+
                 });
             builder.Services.AddSingleton<HomeScreenView>();
 
