@@ -282,7 +282,7 @@
                                  BackgroundColor="#333A57"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
-                                 Command="{Binding searchCommand}">
+                                 Command="{Binding searchBookmarkCommand}">
                         <ImageButton.Source>
                             <FontImageSource FontFamily="FAS" Glyph="{StaticResource search}" Color="White" Size="22"/>
                         </ImageButton.Source>
@@ -402,7 +402,7 @@
                                                                 </ImageButton.Source>
                                                             </ImageButton>
                                                             <Grid.GestureRecognizers>
-                                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=SearchCommand}"
+                                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=searchBookmarkCommand }"
                                                                                       CommandParameter="{Binding .}" />
                                                             </Grid.GestureRecognizers>
                                                         </Grid>

@@ -289,7 +289,7 @@
                 Clicked="menu_Clicked">
                                     <ImageButton.Source>
                                         <FontImageSource FontFamily="FAS"
-                                                                     Glyph="{StaticResource search}"
+                                                                     Glyph="{StaticResource menu}"
                                                                      Color="#333A57"
                                                                      Size="20" />
                                     </ImageButton.Source>
