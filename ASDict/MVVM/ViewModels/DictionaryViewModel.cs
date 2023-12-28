@@ -55,10 +55,13 @@ namespace ASDict.MVVM.ViewModels
                 Word = dictModel.word;
                 Console.WriteLine(Word);
                 if (dictModel.synonyms.Count == 0 && dictModel.antonyms.Count == 0)
+                {
                     App.Current.MainPage.DisplayAlert("ASDict", "No result", "OK");
+                    await App.Current.MainPage.Navigation.PopModalAsync();
+                }
 
-                //Kiểm tra điều kiện hiển thị của Synonyms
-                if (dictModel.synonyms.Count >= 8)
+                    //Kiểm tra điều kiện hiển thị của Synonyms
+                    if (dictModel.synonyms.Count >= 8)
                 {
                     // Nếu có 8 phần tử hoặc nhiều hơn, thêm 4 phần tử vào SynonymsCol1
                     for (int i = 0; i < 4; i++)
