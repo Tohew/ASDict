@@ -312,8 +312,7 @@
                         <Grid ColumnDefinitions="*, 15*, *">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50" />
-                                <RowDefinition Height="2*" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="4*" />
                                 <RowDefinition Height="7*" />
                             </Grid.RowDefinitions>
                             <!-- Search History -->
@@ -349,21 +348,26 @@
                             </Border>
                             <!-- History Label -->
                             <Border Grid.Row="1"
-                                    Grid.Column="2"
+                                    Grid.Column="1"
                                     StrokeThickness="0"
+                                    HorizontalOptions="Fill"
                                     BackgroundColor="#FEF2F2">
-                                <StackLayout VerticalOptions="Center"
-                                             HorizontalOptions="Center">
-                                    <CollectionView ItemsSource="{Binding RecentWords}">
-                                        <CollectionView.ItemsLayout>
-                                            <GridItemsLayout Orientation="Horizontal" />
-                                        </CollectionView.ItemsLayout>
-                                        <CollectionView.ItemTemplate>
+                                <FlexLayout VerticalOptions="Fill"
+                                            HorizontalOptions="Fill"
+                                            Wrap="Wrap"
+                                            Direction="Row"
+                                            JustifyContent="Start"
+                                            AlignContent="Start"
+                                            AlignItems="Start"
+                                            BindableLayout.ItemsSource="{Binding RecentWords}"
+                                            >
+                                    <BindableLayout.ItemTemplate>
                                             <DataTemplate>
-                                                <Border Padding="5, 0"
-                                                        HeightRequest="50"
+                                                <Border Padding="6, 0"
+                                                        Margin="0"
+                                                        HeightRequest="45"
                                                         Stroke="#333A57"
-                                                        StrokeThickness="4"
+                                                        StrokeThickness="2"
                                                         StrokeShape="RoundRectangle 20">
                                                     <Grid ColumnDefinitions="auto, *, auto"
                                                           VerticalOptions="Center">
@@ -371,13 +375,17 @@
                                                                Text="{Binding word}"
                                                                FontSize="20"
                                                                FontFamily="PatrickHand"
-                                                               VerticalOptions="Center" />
-                                                        <ImageButton Grid.Column="2"
-                                                                     BackgroundColor="#00FFFFFF"
-                                                                     Source="delete_icon_default.svg"
-                                                                     Scale="0.25"
-                                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=DeleteCommand}"
-                                                                     CommandParameter="{Binding .}" />
+                                                               VerticalOptions="Center" 
+                                                               Margin="4, 0, 0, 0"/>
+                                                    <ImageButton Grid.Column="2"
+                                                                 Aspect="Center"
+                                                                 BackgroundColor="#00FFFFFF"
+                                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=DeleteCommand}"
+                                                                 CommandParameter="{Binding .}">
+                                                        <ImageButton.Source>
+                                                            <FontImageSource FontFamily="FAS" Glyph="{StaticResource cross}" Color="#FF5E5E" Size="20"/>
+                                                        </ImageButton.Source>
+                                                    </ImageButton>
                                                         <Grid.GestureRecognizers>
                                                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=SelectionChangedCommand}"
                                                                                   CommandParameter="{Binding .}" />
@@ -385,21 +393,16 @@
                                                     </Grid>
                                                 </Border>
                                             </DataTemplate>
-                                        </CollectionView.ItemTemplate>
-                                    </CollectionView>
-                                </StackLayout>
+                                    </BindableLayout.ItemTemplate>
+
+                                </FlexLayout>
                             </Border>
                             <!-- Line -->
-                            <Line X1="25"
-                                  Y1="25"
-                                  X2="340"
-                                  Y2="25"
-                                  Grid.Row="2"
-                                  Grid.Column="1"
-                                  Stroke="Black"
-                                  StrokeThickness="2" />
+                            <Border Grid.Column="1" Grid.Row="2" HeightRequest="3" BackgroundColor="#333A57" StrokeThickness="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
                             <!-- Do you know? -->
-                            <Grid Grid.Row="3"
+                            <Frame BackgroundColor="Red" Grid.Column="1" Grid.Row="2"/>
+                            <Grid Grid.Row="2"
+                                  Grid.Column="1"
                                   RowDefinitions="*, 11*, *"
                                   ColumnDefinitions="*, 15*, *">
                                 <Border Grid.Row="1"
@@ -421,9 +424,9 @@
                                                   ColumnDefinitions="auto, *, auto">
                                                 <!-- Do you know lable -->
                                                 <Border Grid.Column="0"
-                                                        HorizontalOptions="StartAndExpand"
+                                                        HorizontalOptions="Center"
                                                         Padding="12, 0"
-                                                        VerticalOptions="StartAndExpand"
+                                                        VerticalOptions="Center"
                                                         StrokeShape="RoundRectangle 20"
                                                         StrokeThickness="0"
                                                         BackgroundColor="#333A57">
@@ -433,7 +436,7 @@
                                                                 Offset="0, 10"
                                                                 Opacity="1" />
                                                     </Border.Shadow>
-                                                    <Label x:Name="bookmarkLable"
+                                                    <Label x:Name="doyouLable"
                                                            BackgroundColor="#333A57"
                                                            Text="Do you know ?"
                                                            FontSize="20"
@@ -445,12 +448,15 @@
                                                 </Border>
                                                 <!-- Double arrow icon -->
                                                 <ImageButton Grid.Column="2"
-                                                             HeightRequest="40"
-                                                             WidthRequest="20"
-                                                             Source="double_arrow.svg" />
+                                                             Aspect="Center">
+                                                    <ImageButton.Source>
+                                                        <FontImageSource FontFamily="FAS" Glyph="{StaticResource arrow}" Color="#333A57" Size="28"/>
+                                                    </ImageButton.Source>
+                                                </ImageButton>
                                             </Grid>
                                         </Grid>
-
+                                        
+                                        <!-- Bottom -->
                                         <Grid Grid.Row="1">
                                             <Grid RowDefinitions="3*,*,4*">
                                                 <!--Label word random-->

@@ -11,7 +11,7 @@ namespace ASDict
     public class HistoryWordService
     {
         private const string DB_NAME = "db_recent.db3";
-        private const int MaxStorageLimit = 5;
+        private const int MaxStorageLimit = 8;
         private readonly SQLiteAsyncConnection _connection;
 
         public HistoryWordService()
