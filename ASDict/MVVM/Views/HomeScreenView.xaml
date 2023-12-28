@@ -313,6 +313,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50" />
                                 <RowDefinition Height="4*" />
+                                <RowDefinition Height="5" />
                                 <RowDefinition Height="7*" />
                             </Grid.RowDefinitions>
                             <!-- Search History -->
@@ -350,8 +351,10 @@
                             <Border Grid.Row="1"
                                     Grid.Column="1"
                                     StrokeThickness="0"
-                                    HorizontalOptions="Fill"
-                                    BackgroundColor="#FEF2F2">
+                                    HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="#FEF2F2"
+                                    Padding="0"
+                                    Margin="0">
                                 <FlexLayout VerticalOptions="Fill"
                                             HorizontalOptions="Fill"
                                             Wrap="Wrap"
@@ -398,22 +401,19 @@
                                 </FlexLayout>
                             </Border>
                             <!-- Line -->
-                            <Border Grid.Column="1" Grid.Row="2" HeightRequest="3" BackgroundColor="#333A57" StrokeThickness="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+                            <Border Grid.Column="1" Grid.Row="2" HeightRequest="3" BackgroundColor="#333A57" StrokeThickness="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
                             <!-- Do you know? -->
-                            <Frame BackgroundColor="Red" Grid.Column="1" Grid.Row="2"/>
-                            <Grid Grid.Row="2"
+                            <Grid Grid.Row="3"
                                   Grid.Column="1"
-                                  RowDefinitions="*, 11*, *"
-                                  ColumnDefinitions="*, 15*, *">
+                                  RowDefinitions="*, 11*, *">
                                 <Border Grid.Row="1"
-                                        Grid.Column="1"
                                         StrokeThickness="8"
                                         Stroke="#333A57"
                                         StrokeShape="RoundRectangle 20"
                                         BackgroundColor="White">
                                     <Grid>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="90" />
+                                            <RowDefinition Height="80" />
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
                                         <!-- Top -->
@@ -457,70 +457,80 @@
                                         </Grid>
                                         
                                         <!-- Bottom -->
-                                        <Grid Grid.Row="1">
-                                            <Grid RowDefinitions="3*,*,4*">
+                                        <Grid Grid.Row="1"
+                                               RowDefinitions="*, 40, *"
+                                              BackgroundColor="White">
                                                 <!--Label word random-->
                                                 <Border Grid.Row="0"
-                                                    HorizontalOptions="Center"
-                                                    Padding="12, 0"
-                                                    VerticalOptions="Center"
-                                                    StrokeShape="RoundRectangle 20"
-                                                    StrokeThickness="0"
-                                                    BackgroundColor="#333A57">
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        Margin="4,0"
+                                                        Padding="4, 0"
+                                                        StrokeShape="RoundRectangle 20"
+                                                        StrokeThickness="3"
+                                                        Stroke="#333A57"
+                                                        BackgroundColor="White">
                                                     <Border.Shadow>
-                                                        <Shadow Brush="Black"
+                                                        <Shadow Brush="#333A57"
                                                         Radius="0"
-                                                        Offset="0, 10"
+                                                        Offset="0, 5"
                                                         Opacity="1"/>
                                                     </Border.Shadow>
 
                                                 <Label x:Name="randomWord"
                                                     Text="{Binding RandomWord}"
-                                                    BackgroundColor="#333A57"
-                                                    FontSize="20"
-                                                    Padding="10"
-                                                    TextColor="White"
+                                                    FontSize="24"
+                                                    Padding="8"
+                                                    TextColor="#333A57"
                                                     FontFamily="PatrickHand"
                                                     VerticalOptions="Center"
                                                     HorizontalOptions="Center"/>
                                                 </Border>
 
                                                 <Label Grid.Row="1"
-                                               Text="is another word for"/>
+                                               Text="is another word for"
+                                                       FontFamily="PatrickHand"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="Center"
+                                                       FontSize="20"
+                                                       />
                                                 <!--3 results-->
-                                                <CollectionView ItemsSource="{Binding ResultRandomList}"
-                                                        Grid.Row="2">
-                                                    <CollectionView.ItemTemplate>
+                                                <FlexLayout
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Fill"
+                                                    Wrap="Wrap"
+                                                    Direction="Row"
+                                                    JustifyContent="Center"
+                                                    AlignContent="Center"
+                                                    AlignItems="Center"
+                                                    Grid.Row="2"
+                                                    BindableLayout.ItemsSource="{Binding ResultRandomList}">
+                                                    
+                                                    <BindableLayout.ItemTemplate>
                                                         <DataTemplate>
-                                                            <Border Grid.Column="0"
-                                                            HorizontalOptions="Center"
-                                                            Padding="12, 0"
-                                                            VerticalOptions="Center"
-                                                            StrokeShape="RoundRectangle 20"
-                                                            StrokeThickness="0"
-                                                            BackgroundColor="#333A57">
-                                                                <Border.Shadow>
-                                                                    <Shadow Brush="Black"
-                                                                    Radius="0"
-                                                                    Offset="0, 10"
-                                                                    Opacity="1"/>
-                                                                </Border.Shadow>
+                                                            <Border Grid.Row="0"
+                                                                HorizontalOptions="Center"
+                                                                VerticalOptions="Center"
+                                                                Padding="4, 0"
+                                                                StrokeShape="RoundRectangle 20"
+                                                                StrokeThickness="3"
+                                                                Stroke="#333A57"
+                                                                BackgroundColor="White">
 
                                                                 <Label x:Name="randomWordLabel"
-                                                                BackgroundColor="#333A57"
                                                                 Text="{Binding .}"
                                                                 FontSize="20"
-                                                                Padding="10"
-                                                                TextColor="White"
+                                                                Margin="4, 0, 0, 0"
+                                                                       Padding="6"
+                                                                TextColor="#333A57"
                                                                 FontFamily="PatrickHand"
                                                                 VerticalOptions="Center"
                                                                 HorizontalOptions="Center"/>
                                                             </Border>
                                                         </DataTemplate>
-                                                    </CollectionView.ItemTemplate>
-                                                </CollectionView>
+                                                    </BindableLayout.ItemTemplate>
+                                                </FlexLayout>
                                             </Grid>
-                                        </Grid>
                                     </Grid>
                                 </Border>
                             </Grid>
