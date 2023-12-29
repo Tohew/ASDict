@@ -14,19 +14,29 @@
         </OnIdiom>
     </Shell.NavBarIsVisible>
     <ContentPage.Resources>
-        <x:String x:Key="menu">&#xf0c9;</x:String> <!--FAS-->
-        <x:String x:Key="bookmark">&#xf02e;</x:String> <!--FAR-->
-        <x:String x:Key="question">&#x3f;</x:String> <!--FAS-->
-        <x:String x:Key="info">&#xf129;</x:String> <!--FAS-->
-        <x:String x:Key="search">&#xf002;</x:String> <!--FAS-->
-        <x:String x:Key="sort">&#xf15d;</x:String> <!--FAS-->
-        <x:String x:Key="cross">&#xf00d;</x:String> <!--FAS-->
-        <x:String x:Key="home">&#xf015;</x:String> <!--FAS-->
-        <x:String x:Key="arrow">&#xf101;</x:String> <!-- FAS -->
-        <x:String x:Key="trash">&#xf1f8;</x:String> <!-- FAS -->
+        <x:String x:Key="menu">&#xf0c9;</x:String>
+        <!--FAS-->
+        <x:String x:Key="bookmark">&#xf02e;</x:String>
+        <!--FAR-->
+        <x:String x:Key="question">&#x3f;</x:String>
+        <!--FAS-->
+        <x:String x:Key="info">&#xf129;</x:String>
+        <!--FAS-->
+        <x:String x:Key="search">&#xf002;</x:String>
+        <!--FAS-->
+        <x:String x:Key="sort">&#xf15d;</x:String>
+        <!--FAS-->
+        <x:String x:Key="cross">&#xf00d;</x:String>
+        <!--FAS-->
+        <x:String x:Key="home">&#xf015;</x:String>
+        <!--FAS-->
+        <x:String x:Key="arrow">&#xf101;</x:String>
+        <!-- FAS -->
+        <x:String x:Key="trash">&#xf1f8;</x:String>
+        <!-- FAS -->
     </ContentPage.Resources>
     <OnPlatform x:TypeArguments="Grid">
-        <!-- Destop -->
+        <!-- Android -->
         <On Platform="Android">
             <Grid>
                 <!-- Menu Page -->
@@ -626,71 +636,80 @@
                 </Grid>
             </Grid>
         </On>
-        
+
         <!-- WinUI -->
         <On Platform="WinUI">
             <Grid
+                Padding="10,0,0,0"
                 ColumnDefinitions="60, 2*, 5*"
                 BackgroundColor="#FEF2F2">
-                
+
                 <!--Icon bar-->
-                <VerticalStackLayout
+                <Grid
+                    RowDefinitions="auto, auto, auto, auto, *"
+                    RowSpacing="10"
                     BackgroundColor="White">
                     <!--Icon app-->
-                    <Border Padding="0"
-                                StrokeThickness="2"
-                                Margin="-2,0, 0,0"
-                                StrokeShape="RoundRectangle 90"
-                                Background="White"
-                                HorizontalOptions="Center"
-                                VerticalOptions="Center"
-                                HeightRequest="45"
-                                WidthRequest="45"
-                                Stroke="#333A57">
+                    <Border 
+                        Grid.Row="0"
+                        Padding="0"
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 90"
+                        Background="White"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        Stroke="#333A57">
                         <Border.Shadow>
                             <Shadow Brush="#333A57"
                                         Radius="0"
-                                        Offset="-1, 3"
+                                        Offset="0, 3"
                                         Opacity="1" />
                         </Border.Shadow>
                         <ImageButton 
-                            Padding="0, 0, 1, 0"
+                            Padding="0, 0,0, 0"
                             Source="app_icon_small.png"
-                            BackgroundColor="White"
+                            BackgroundColor="#00FFFFFF"
                             Aspect="Center"
                             HorizontalOptions="Center"
-                            VerticalOptions="Center" />
+                            VerticalOptions="Center" 
+                            />
                     </Border>
-                    
+
                     <!--Icon bookmark-->
-                    <Border Padding="0"
-                                StrokeThickness="2"
-                                StrokeShape="RoundRectangle 90"
-                                Background="White"
-                                HorizontalOptions="Center"
-                                VerticalOptions="Center"
-                                HeightRequest="45"
-                                WidthRequest="45"
-                                Stroke="#333A57">
+                    <Border
+                        Grid.Row="1"
+                        Padding="0"
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 90"
+                        Background="White"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        Stroke="#333A57">
                         <Border.Shadow>
                             <Shadow Brush="#333A57"
                                         Radius="0"
-                                        Offset="-1.5, 3"
+                                        Offset="0, 3"
                                         Opacity="1" />
                         </Border.Shadow>
 
                         <ImageButton 
+                            
                                  Aspect="Center"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
-                            Margin="-2, -1, 0, 0">
+                            BackgroundColor="#00FFFFFF"
+                            >
                             <ImageButton.Source>
-                                <FontImageSource FontFamily="FAR" Glyph="{StaticResource bookmark}" Color="#333A57" Size="20"/>
+                                <FontImageSource FontFamily="FAR" Glyph="{StaticResource bookmark}" Color="#333A57" Size="18"/>
                             </ImageButton.Source>
                         </ImageButton>
                     </Border>
-                </VerticalStackLayout>
-                
+                </Grid>
+
             </Grid>
         </On>
     </OnPlatform>
