@@ -640,7 +640,6 @@
         <!-- WinUI -->
         <On Platform="WinUI">
             <Grid
-                Padding="10,0,0,0"
                 ColumnDefinitions="60, 2*, 5*"
                 BackgroundColor="#FEF2F2">
 
@@ -648,13 +647,15 @@
                 <Grid
                     RowDefinitions="auto, auto, auto, auto, *"
                     RowSpacing="10"
+                Padding="0,10,0,0"
+                    
                     BackgroundColor="White">
                     <!--Icon app-->
                     <Border 
+                        Margin="0,0,2,0"
                         Grid.Row="0"
                         Padding="0"
                         StrokeThickness="2"
-                        StrokeShape="RoundRectangle 90"
                         Background="White"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
@@ -682,7 +683,6 @@
                         Grid.Row="1"
                         Padding="0"
                         StrokeThickness="2"
-                        StrokeShape="RoundRectangle 90"
                         Background="White"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
