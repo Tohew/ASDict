@@ -637,14 +637,15 @@
             </Grid>
         </On>
 
-        <!-- WinUI -->
+        <!--  WinUI  -->
         <On Platform="WinUI">
             <Grid
-                ColumnDefinitions="60, 2*, 5*"
-                BackgroundColor="#FEF2F2">
+                ColumnDefinitions="60, 4*, 5*"
+                BackgroundColor="#333A57">
 
                 <!--Icon bar-->
-                <Grid
+                <Border Stroke="#333A57" StrokeThickness="1" Margin="-2,0,0,0">
+                    <Grid
                     RowDefinitions="auto, auto, auto, auto, *"
                     RowSpacing="10"
                     Padding="0,10,0,0"
@@ -697,7 +698,7 @@
                         </Border.Shadow>
 
                         <ImageButton 
-                            Margin="-4,-3,4,3"
+                            Margin="-4.5,-3,4.5,3"
                             
                             
                                  Aspect="Center"
@@ -731,7 +732,7 @@
                         </Border.Shadow>
 
                         <ImageButton 
-                            Margin="-4,-3,4,3"
+                            Margin="-5,-3,5,3"
                             
                             
                                  Aspect="Center"
@@ -780,6 +781,306 @@
                     </Border>
 
                 </Grid>
+                </Border>
+                
+                <!--Search-->
+                <Border 
+                    Grid.Column="1"
+                    Stroke="#333A57"
+                    StrokeThickness="1"
+                    BackgroundColor="#FEF2F2">
+
+                    <Grid RowDefinitions="auto, 50, *">
+                        <!--Search bar-->
+                        <Grid VerticalOptions="Start"
+                          ColumnDefinitions="4*, *"
+                          ColumnSpacing="18"
+                          Padding="10">
+                            <Border Grid.Column="0"
+                                VerticalOptions="Center"
+                                BackgroundColor="White"
+                                Stroke="#333A57"
+                                    StrokeThickness="2"
+                                StrokeShape="RoundRectangle 5"
+                                HeightRequest="40"
+                                Visual="Default">
+                                <editors:SfAutocomplete 
+                                    HeightRequest="35"
+                                    PlaceholderColor="White"
+                                    Stroke="#333A57"
+                                    BackgroundColor="#FFFFFF"
+                                    IsClearButtonVisible="True"
+                                    x:Name="InputWord2"
+                                    Text="{Binding InputWord2.word, Mode=TwoWay}"
+                                    ItemsSource="{Binding TheList}"
+                                    DisplayMemberPath="TheSuggest"
+                                    TextMemberPath="TheSuggest"
+                                    TextSearchMode="Contains"
+                                    FontFamily="PatrickHand"
+                                    FontSize="18"
+                                    MaxDropDownHeight="300"
+                                    ClearButtonIconColor="#333A57"
+                                />
+                        </Border>
+                            <Border Grid.Column="2"
+                                StrokeShape="RoundRectangle 5"
+                                BackgroundColor="#333A57"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"
+                                Stroke="#333A57"
+                                HeightRequest="40"
+                                WidthRequest="40">
+                                <ImageButton 
+                                    Margin="-3,-2,3,2"
+                                         Aspect="Center"
+                                         BackgroundColor="#00FFFFFF"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Command="{Binding searchCommand}">
+                                <ImageButton.Source>
+                                    <FontImageSource FontFamily="FAS"
+                                                     Glyph="{StaticResource search}"
+                                                     Color="White"
+                                                     Size="18" />
+                                </ImageButton.Source>
+                            </ImageButton>
+                        </Border>
+                    </Grid>
+
+                        <!--Line-->
+                        <Border 
+                                    Grid.Row="0"
+                                    HeightRequest="3"
+                                    BackgroundColor="#333A57"
+                                    StrokeThickness="0"
+                                    VerticalOptions="End"
+                                    HorizontalOptions="FillAndExpand" />
+                        
+                        <!--Search History-->
+                        <Border Grid.Row="1"
+                                    Grid.ColumnSpan="3"
+                                    StrokeThickness="0"
+                                    BackgroundColor="#FEF2F2"
+                                    Padding="6, 4">
+                            <Grid ColumnDefinitions="auto,*,auto"
+                                      Margin="0">
+                                <Label Grid.Column="0"
+                                           Text="Search history"
+                                           FontSize="20"
+                                           TextColor="#333A57"
+                                           FontFamily="PatrickHand"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start" />
+                                <ImageButton Grid.Column="2"
+                                                 Padding="0"
+                                                 Margin="0"
+                                                 Aspect="Center"
+                                                 VerticalOptions="Center"
+                                                 HorizontalOptions="End"
+                                                 Command="{Binding DeleteAllWordsCommand}">
+                            <ImageButton.Source>
+                                <FontImageSource FontFamily="FAS"
+                                                             Glyph="{StaticResource trash}"
+                                                             Color="#333A57"
+                                                             Size="20" />
+                            </ImageButton.Source>
+                        </ImageButton>
+                            </Grid>
+                        </Border>
+                        <!--HisLabel-->
+                        <Border Grid.Row="2"
+                                    StrokeThickness="0"
+                                    HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="#FEF2F2"
+                                    Padding="0"
+                                    Margin="0">
+                            <FlexLayout VerticalOptions="Fill"
+                                            HorizontalOptions="Fill"
+                                            Wrap="Wrap"
+                                            Direction="Row"
+                                            JustifyContent="Start"
+                                            AlignContent="Start"
+                                            AlignItems="Start"
+                                            BindableLayout.ItemsSource="{Binding RecentWords}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Border Padding="6, 0"
+                                                    Margin="0"
+                                                    HeightRequest="45"
+                                                    Stroke="#333A57"
+                                                    StrokeThickness="2"
+                                                    StrokeShape="RoundRectangle 20"
+                                                    BackgroundColor="White">
+                                    <Grid ColumnDefinitions="auto, *, auto"
+                                                      VerticalOptions="Center">
+                                        <Label Grid.Column="0"
+                                                           Text="{Binding word}"
+                                                           FontSize="20"
+                                                           TextColor="#333A57"
+                                                           FontFamily="PatrickHand"
+                                                           VerticalOptions="Center"
+                                                           Margin="4, 0, 0, 0" />
+                                        <ImageButton Grid.Column="2"
+                                                                 Aspect="Center"
+                                                                 BackgroundColor="#00FFFFFF"
+                                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=DeleteCommand}"
+                                                                 CommandParameter="{Binding .}">
+                                            <ImageButton.Source>
+                                                <FontImageSource FontFamily="FAS"
+                                                                             Glyph="{StaticResource cross}"
+                                                                             Color="#FF5E5E"
+                                                                             Size="20" />
+                                            </ImageButton.Source>
+                                        </ImageButton>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=SelectionChangedCommand}"
+                                                                              CommandParameter="{Binding .}" />
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </FlexLayout>
+                        </Border>
+                        
+                    </Grid>
+
+
+                </Border>
+                
+                <!--Doyouknow-->
+                <Border Grid.Column="2"
+                        Stroke="#333A57"
+                        StrokeThickness="1"
+                        BackgroundColor="#FEF2F2"
+                        Padding="16, 0">
+                    <Grid RowDefinitions="*, 11*, *">
+                        <Border Grid.Row="1"
+                                StrokeThickness="3"
+                                Stroke="#333A57"
+                                StrokeShape="RoundRectangle 20"
+                                BackgroundColor="White">
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <!-- Top -->
+                                <Grid Grid.Row="0"
+                                      BackgroundColor="#AEB1E4"
+                                      ZIndex="1">
+                                    <Grid Padding="8"
+                                          ColumnDefinitions="auto, *, auto">
+                                        <!-- Do you know lable -->
+                                        <Border Grid.Column="0"
+                                                HorizontalOptions="Center"
+                                                Padding="6, 0"
+                                                VerticalOptions="Center"
+                                                StrokeShape="RoundRectangle 20"
+                                                StrokeThickness="0"
+                                                BackgroundColor="#333A57">
+                                            <Border.Shadow>
+                                                <Shadow Brush="Black"
+                                                        Radius="0"
+                                                        Offset="0, 5"
+                                                        Opacity="1" />
+                                            </Border.Shadow>
+                                            <Label 
+                                                   BackgroundColor="#00FFFFFF"
+                                                   Text="Do you know ?"
+                                                   FontSize="16"
+                                                   Padding="4"
+                                                   TextColor="White"
+                                                   FontFamily="PatrickHand"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center" />
+                                        </Border>
+                                        <!-- Double arrow icon -->
+                                        <ImageButton Grid.Column="2"
+                                                     Aspect="Center">
+                                            <ImageButton.Source>
+                                                <FontImageSource FontFamily="FAS"
+                                                                 Glyph="{StaticResource arrow}"
+                                                                 Color="#333A57"
+                                                                 Size="20" />
+                                            </ImageButton.Source>
+                                        </ImageButton>
+                                    </Grid>
+                                </Grid>
+                                <!-- Bottom -->
+                                <Grid Grid.Row="1"
+                                      RowDefinitions="*, 40, *"
+                                      BackgroundColor="White">
+                                    <!-- Label word random -->
+                                    <Border Grid.Row="0"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            Margin="4,0"
+                                            Padding="4, 0"
+                                            StrokeShape="RoundRectangle 20"
+                                            StrokeThickness="3"
+                                            Stroke="#333A57"
+                                            BackgroundColor="White">
+                                        <Border.Shadow>
+                                            <Shadow Brush="#333A57"
+                                                    Radius="0"
+                                                    Offset="0, 5"
+                                                    Opacity="1" />
+                                        </Border.Shadow>
+                                        <Label 
+                                               Text="{Binding RandomWord}"
+                                               FontSize="24"
+                                               Padding="8"
+                                               TextColor="#333A57"
+                                               FontFamily="PatrickHand"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Center" />
+                                    </Border>
+                                    <Label Grid.Row="1"
+                                           Text="is another word for"
+                                           FontFamily="PatrickHand"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           FontSize="20"
+                                           TextColor="#333A57" />
+                                    <!-- 3 results -->
+                                    <ScrollView Grid.Row="2">
+                                        <FlexLayout VerticalOptions="Center"
+                                                    HorizontalOptions="Fill"
+                                                    Wrap="Wrap"
+                                                    Direction="Row"
+                                                    JustifyContent="Center"
+                                                    AlignContent="Center"
+                                                    AlignItems="Center"
+                                                    BindableLayout.ItemsSource="{Binding ResultRandomList}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Grid.Row="0"
+                                                            HorizontalOptions="Center"
+                                                            VerticalOptions="Center"
+                                                            Padding="4, 0"
+                                                            StrokeShape="RoundRectangle 20"
+                                                            StrokeThickness="3"
+                                                            Stroke="#333A57"
+                                                            BackgroundColor="White">
+                                                        <Label x:Name="randomWordLabel"
+                                                               Text="{Binding .}"
+                                                               FontSize="20"
+                                                               Padding="8,6"
+                                                               TextColor="#333A57"
+                                                               FontFamily="PatrickHand"
+                                                               VerticalOptions="Center"
+                                                               HorizontalOptions="Center" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </FlexLayout>
+                                    </ScrollView>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
 
             </Grid>
         </On>
