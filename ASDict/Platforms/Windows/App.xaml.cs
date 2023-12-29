@@ -35,7 +35,7 @@ namespace ASDict.WinUI
                 AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
 
                 // set a specific window size
-                appWindow.Resize(new SizeInt32(900, 600));
+                appWindow.Resize(new SizeInt32(450, 600));
 
                 if (appWindow.Presenter is OverlappedPresenter p)
                 {
