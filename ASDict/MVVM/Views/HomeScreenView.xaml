@@ -647,28 +647,27 @@
                 <Grid
                     RowDefinitions="auto, auto, auto, auto, *"
                     RowSpacing="10"
-                Padding="0,10,0,0"
+                    Padding="0,10,0,0"
                     
                     BackgroundColor="White">
                     <!--Icon app-->
                     <Border 
-                        Margin="0,0,2,0"
                         Grid.Row="0"
                         Padding="0"
                         StrokeThickness="2"
                         Background="White"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
                         HeightRequest="40"
                         WidthRequest="40"
+                        StrokeShape="RoundRectangle 5"
                         Stroke="#333A57">
                         <Border.Shadow>
                             <Shadow Brush="#333A57"
                                         Radius="0"
-                                        Offset="0, 3"
+                                        Offset="-2.3, 2"
                                         Opacity="1" />
                         </Border.Shadow>
                         <ImageButton 
+                            Margin="-3,-2,3,2"
                             Padding="0, 0,0, 0"
                             Source="app_icon_small.png"
                             BackgroundColor="#00FFFFFF"
@@ -688,15 +687,18 @@
                         VerticalOptions="Center"
                         HeightRequest="40"
                         WidthRequest="40"
+                        StrokeShape="RoundRectangle 5"
                         Stroke="#333A57">
                         <Border.Shadow>
                             <Shadow Brush="#333A57"
                                         Radius="0"
-                                        Offset="0, 3"
+                                        Offset="-2.5, 2"
                                         Opacity="1" />
                         </Border.Shadow>
 
                         <ImageButton 
+                            Margin="-4,-3,4,3"
+                            
                             
                                  Aspect="Center"
                                  HorizontalOptions="Center"
@@ -704,10 +706,79 @@
                             BackgroundColor="#00FFFFFF"
                             >
                             <ImageButton.Source>
-                                <FontImageSource FontFamily="FAR" Glyph="{StaticResource bookmark}" Color="#333A57" Size="18"/>
+                                <FontImageSource FontFamily="FAR" Glyph="{StaticResource bookmark}" Color="#333A57" Size="20"/>
                             </ImageButton.Source>
                         </ImageButton>
                     </Border>
+
+                    <!--Icon help-->
+                    <Border
+                        Grid.Row="2"
+                        Padding="0"
+                        StrokeThickness="2"
+                        Background="White"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        StrokeShape="RoundRectangle 5"
+                        Stroke="#333A57">
+                        <Border.Shadow>
+                            <Shadow Brush="#333A57"
+                                        Radius="0"
+                                        Offset="-2.5, 2"
+                                        Opacity="1" />
+                        </Border.Shadow>
+
+                        <ImageButton 
+                            Margin="-4,-3,4,3"
+                            
+                            
+                                 Aspect="Center"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                            BackgroundColor="#00FFFFFF"
+                            >
+                            <ImageButton.Source>
+                                <FontImageSource FontFamily="FAS" Glyph="{StaticResource question}" Color="#333A57" Size="20"/>
+                            </ImageButton.Source>
+                        </ImageButton>
+                    </Border>
+
+                    <!--Icon info-->
+                    <Border
+                        Grid.Row="3"
+                        Padding="0"
+                        StrokeThickness="2"
+                        Background="White"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        StrokeShape="RoundRectangle 5"
+                        Stroke="#333A57">
+                        <Border.Shadow>
+                            <Shadow Brush="#333A57"
+                                        Radius="0"
+                                        Offset="-2.5, 2"
+                                        Opacity="1" />
+                        </Border.Shadow>
+
+                        <ImageButton 
+                            Margin="-4,-3,4,3"
+                            
+                            
+                                 Aspect="Center"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                            BackgroundColor="#00FFFFFF"
+                            >
+                            <ImageButton.Source>
+                                <FontImageSource FontFamily="FAS" Glyph="{StaticResource info}" Color="#333A57" Size="20"/>
+                            </ImageButton.Source>
+                        </ImageButton>
+                    </Border>
+
                 </Grid>
 
             </Grid>
