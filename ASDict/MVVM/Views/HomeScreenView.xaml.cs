@@ -6,7 +6,9 @@ namespace ASDict.MVVM.Views;
 
 public partial class HomeScreenView : ContentPage
 {
+    public ImageButton SearchButton => search;
     private const uint AnimationDuration = 100u;
+
     public HomeScreenView()
 	{
         Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF1cWWhIYVdpR2Nbe05xdl9DZ1ZRRmYuP1ZhSXxQd0djXH9fcXJWRWNYVUE=");
@@ -48,5 +50,11 @@ public partial class HomeScreenView : ContentPage
     {
         if (isMenuOpen)
             await DisplayAlert("info", "cc, cl", "OK");
+    }
+
+    private void search_Clicked(object sender, EventArgs e)
+    {
+        search.ScaleTo(0.7, 100, Easing.CubicInOut);
+        search.ScaleTo(1, 100, Easing.CubicInOut);
     }
 }

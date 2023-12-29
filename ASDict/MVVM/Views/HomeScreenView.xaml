@@ -295,7 +295,9 @@
                                  BackgroundColor="#333A57"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
+                                 Clicked="search_Clicked"
                                  Command="{Binding searchCommand}">
+                                                                
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAS" Glyph="{StaticResource search}" Color="White" Size="22"/>
                                 </ImageButton.Source>

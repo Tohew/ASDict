@@ -9,6 +9,7 @@ using System.Windows.Input;
 
 namespace ASDict.MVVM.ViewModels
 {
+
     public partial class HomeScreenViewModel : ObservableObject
     {
         [ObservableProperty]
@@ -32,7 +33,7 @@ namespace ASDict.MVVM.ViewModels
             InputWord = new HistoryWord();
             RecentWords = new ObservableCollection<HistoryWord>();
             Task.Run(async () => await LoadRecentWords());
-            searchCommand = new Command(search_Clicked);
+            searchCommand = new Command(async () => await search_Clicked());
 
             LoadRandomWords();
             RandomWord = GetRandomWord(RandomWords);
@@ -66,7 +67,7 @@ namespace ASDict.MVVM.ViewModels
                 await App.Current.MainPage.Navigation.PushModalAsync(result);
             }
         }
-        private async void search_Clicked()
+        private async Task search_Clicked()
         {
             if (string.IsNullOrEmpty(InputWord.word))
             {

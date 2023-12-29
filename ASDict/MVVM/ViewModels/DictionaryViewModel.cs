@@ -233,8 +233,7 @@ namespace ASDict.MVVM.ViewModels
         [RelayCommand]
         void SearchClick()
         {
-            App.Current.MainPage.Navigation.PushModalAsync(new HomeScreenView());
+            App.Current.MainPage.Navigation.PopModalAsync();
         }
-
     }
 }
