@@ -463,6 +463,7 @@
                                                RowDefinitions="*, 40, *"
                                               BackgroundColor="White">
                                                 <!--Label word random-->
+                                            
                                                 <Border Grid.Row="0"
                                                         HorizontalOptions="Center"
                                                         VerticalOptions="Center"
@@ -472,24 +473,28 @@
                                                         StrokeThickness="3"
                                                         Stroke="#333A57"
                                                         BackgroundColor="White">
+                                                            
                                                     <Border.Shadow>
                                                         <Shadow Brush="#333A57"
                                                         Radius="0"
                                                         Offset="0, 5"
                                                         Opacity="1"/>
                                                     </Border.Shadow>
-
-                                                <Label x:Name="randomWord"
+                                                        <!--<Grid>-->
+                                                <Button x:Name="randomWord"
+                                                    BackgroundColor="#00FFFFFF"
                                                     Text="{Binding RandomWord}"
                                                     FontSize="24"
                                                     Padding="8"
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=RandWordCommand}"
+                                                                                  CommandParameter="{Binding .}"
                                                     TextColor="#333A57"
                                                     FontFamily="PatrickHand"
                                                     VerticalOptions="Center"
                                                     HorizontalOptions="Center"/>
-                                                </Border>
-
-                                                <Label Grid.Row="1"
+                                            </Border>
+                                                                                        
+                                            <Label Grid.Row="1"
                                                Text="is another word for"
                                                        FontFamily="PatrickHand"
                                                        VerticalOptions="Center"
@@ -521,12 +526,15 @@
                                                                 Stroke="#333A57"
                                                                 BackgroundColor="White">
 
-                                                                <Label x:Name="randomWordLabel"
+                                                                <Button x:Name="randomWordLabel"
+                                                                BackgroundColor="#00FFFFFF"
                                                                 Text="{Binding .}"
                                                                 FontSize="20"
-                                                                Padding="8,6"
+                                                                Padding="0"
                                                                 TextColor="#333A57"
                                                                 FontFamily="PatrickHand"
+                                                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=ListRandWordCommand}"
+                                                                                  CommandParameter="{Binding .}"
                                                                 VerticalOptions="Center"
                                                                 HorizontalOptions="Center"/>
                                                             </Border>

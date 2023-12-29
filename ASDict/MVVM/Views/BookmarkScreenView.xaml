@@ -402,7 +402,7 @@
                                                                 </ImageButton.Source>
                                                             </ImageButton>
                                                             <Grid.GestureRecognizers>
-                                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=searchBookmarkCommand }"
+                                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=SearchCommand }"
                                                                                       CommandParameter="{Binding .}" />
                                                             </Grid.GestureRecognizers>
                                                         </Grid>

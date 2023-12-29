@@ -118,6 +118,16 @@ namespace ASDict.MVVM.ViewModels
                 App.Current.MainPage.DisplayAlert("Error", "Unable to show result", "OK");
             }
         }
+
+        [RelayCommand]
+        async Task RandWord()
+        {
+
+            var resultView = new ContentScreenView();
+            resultView.BindingContext = new DictionaryViewModel(RandomWord);
+            await App.Current.MainPage.Navigation.PushModalAsync(resultView);
+
+        }
         [RelayCommand]
         async Task Delete(HistoryWord s)
         {
@@ -220,6 +230,15 @@ namespace ASDict.MVVM.ViewModels
         [ObservableProperty]
         public ObservableCollection<string> resultRandomList = new ObservableCollection<string>();
 
+        [RelayCommand]
+        async Task ListRandWord(string selectedWord)
+        {
+
+            var resultView = new ContentScreenView();
+            resultView.BindingContext = new DictionaryViewModel(selectedWord);
+            await App.Current.MainPage.Navigation.PushModalAsync(resultView);
+
+        }
         private readonly HttpClient _httpClient = new HttpClient();
         public async Task FetchApiRandom(string query)
         {
@@ -230,7 +249,7 @@ namespace ASDict.MVVM.ViewModels
                 var response = await _httpClient.GetStringAsync(api_url);
                 DictionaryModel dictModel = JsonSerializer.Deserialize<DictionaryModel>(response);
 
-                if (dictModel.synonyms.Count >= 0)
+                if (dictModel.synonyms.Count > 0)
                 {
                     int count = 0;
                     while (count < 3)
