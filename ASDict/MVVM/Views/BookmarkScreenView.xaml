@@ -482,6 +482,7 @@
                                  BackgroundColor="White"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
+                                 Command="{Binding Bookmark1ClickCommand}"
                                  HeightRequest="45"
                                  WidthRequest="45">
                         <ImageButton.Source>
