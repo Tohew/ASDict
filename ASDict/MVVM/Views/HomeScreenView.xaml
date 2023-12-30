@@ -584,7 +584,6 @@
                                          BackgroundColor="White"
                                          HorizontalOptions="Center"
                                          VerticalOptions="Center"
-                                         Command="{Binding HomeClickCommand}"
                                          HeightRequest="45"
                                          WidthRequest="45">
                                 <ImageButton.Source>
