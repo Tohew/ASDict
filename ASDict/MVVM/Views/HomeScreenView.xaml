@@ -699,11 +699,10 @@
 
                         <ImageButton 
                             Margin="-4.5,-3,4.5,3"
-                            
-                            
-                                 Aspect="Center"
-                                 HorizontalOptions="Center"
-                                 VerticalOptions="Center"
+                            Command="{Binding Bookmark1ClickCommand}"
+                            Aspect="Center"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
                             BackgroundColor="#00FFFFFF"
                             >
                             <ImageButton.Source>
@@ -806,8 +805,7 @@
                                     Stroke="#333A57"
                                     BackgroundColor="#FFFFFF"
                                     IsClearButtonVisible="True"
-                                    x:Name="InputWord2"
-                                    Text="{Binding InputWord2.word, Mode=TwoWay}"
+                                    Text="{Binding InputWord.word, Mode=TwoWay}"
                                     ItemsSource="{Binding TheList}"
                                     DisplayMemberPath="TheSuggest"
                                     TextMemberPath="TheSuggest"
