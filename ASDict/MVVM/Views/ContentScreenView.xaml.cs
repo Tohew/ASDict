@@ -19,7 +19,7 @@ public partial class ContentScreenView : ContentPage
     private bool isMenuOpen = false;
     async void menu_Clicked(object sender, EventArgs e)
     {
-        
+
         if (!isMenuOpen)
             _ = ContentGrid.TranslateTo(-this.Width * 0.5, this.Height * 0, AnimationDuration, Easing.CubicIn);
         else

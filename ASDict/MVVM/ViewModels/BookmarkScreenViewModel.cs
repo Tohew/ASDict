@@ -28,8 +28,8 @@ namespace ASDict.MVVM.ViewModels
         [ObservableProperty]
         ObservableCollection<Bookmark> favoriteWords;
 
-        public ICommand selectedCommand {  get; }
-        public ICommand setSelectedFavoriteWord {  get; }
+        public ICommand selectedCommand { get; }
+        public ICommand setSelectedFavoriteWord { get; }
         private readonly BookmarkService _bookmarkService;
         private bool _isSortedAlphabetically = false;
 

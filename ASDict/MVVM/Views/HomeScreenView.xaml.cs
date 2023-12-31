@@ -10,7 +10,7 @@ public partial class HomeScreenView : ContentPage
     private const uint AnimationDuration = 100u;
 
     public HomeScreenView()
-	{
+    {
         Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF1cWWhIYVdpR2Nbe05xdl9DZ1ZRRmYuP1ZhSXxQd0djXH9fcXJWRWNYVUE=");
         InitializeComponent();
         BindingContext = new HomeScreenViewModel();
@@ -53,11 +53,5 @@ public partial class HomeScreenView : ContentPage
     {
         if (isMenuOpen)
             await DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices. Thank you for choosing our app to enhance your language skills!", "OK");
-    }
-
-    private void search_Clicked(object sender, EventArgs e)
-    {
-        search.ScaleTo(0.7, 100, Easing.CubicInOut);
-        search.ScaleTo(1, 100, Easing.CubicInOut);
     }
 }

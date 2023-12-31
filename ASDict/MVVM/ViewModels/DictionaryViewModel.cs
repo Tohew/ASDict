@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace ASDict.MVVM.ViewModels
 {
-    internal partial class DictionaryViewModel :ObservableObject
+    internal partial class DictionaryViewModel : ObservableObject
     {
         [ObservableProperty]
         public string word;
@@ -111,7 +111,7 @@ namespace ASDict.MVVM.ViewModels
             _ = CheckIfFavoriteAsync();
 
             starClicked = new Command(favoriteCommand);
-            
+
         }
 
         public void ConvertToAnt()
@@ -149,11 +149,11 @@ namespace ASDict.MVVM.ViewModels
                 tempSynonymsCol2.Add(synonym);
             }
         }
-        
+
         public DictionaryViewModel()
         {
         }
-        
+
         private async Task CheckIfFavoriteAsync()
         {
             FavoriteWord = await _bookmarkService.GetByWord(Word);
