@@ -348,6 +348,7 @@
                     VerticalOptions="FillAndExpand"
                     Stroke="#333A57"
                     StrokeShape="RoundRectangle 20"
+                    HeightRequest="350"
                     BackgroundColor="White">
                     <Frame Padding="0">
                         <Grid>
@@ -415,7 +416,7 @@
                                 <Grid  ColumnDefinitions="*, *" Padding="32,16">
                                     
                                 <VerticalStackLayout Grid.Column="0">
-                                    <CollectionView ItemsSource="{Binding TempSynonymsCol1}">
+                                                <CollectionView ItemsSource="{Binding TempSynonymsCol1}" HeightRequest="350">
                                             <CollectionView.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border
@@ -456,7 +457,7 @@
                                 </VerticalStackLayout>
                                     
                                 <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
-                                        <CollectionView ItemsSource="{Binding TempSynonymsCol2}">
+                                                <CollectionView ItemsSource="{Binding TempSynonymsCol2}" HeightRequest="350">
                                             <CollectionView.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border
