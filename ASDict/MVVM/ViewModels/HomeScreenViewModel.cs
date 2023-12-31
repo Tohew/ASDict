@@ -264,6 +264,18 @@ namespace ASDict.MVVM.ViewModels
             {
                 Console.WriteLine($"Request failed. Error: {ex.Message}");
             }
-        } 
+        }
+
+        [RelayCommand]
+        void InfoClick()
+        {
+            App.Current.MainPage.DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices. Thank you for choosing our app to enhance your language skills!", "OK");
+        }
+        [RelayCommand]
+        void HelpClick()
+        {
+            string url = "https://nghgi.github.io/ASDict-Download/";
+            _ = Launcher.OpenAsync(new Uri(url));
+        }
     }
 }

@@ -497,10 +497,12 @@
                                                             Offset="0, 5"
                                                             Opacity="1" />
                                                 </Border.Shadow>
-                                                <Label x:Name="randomWord"
+                                                <Button x:Name="randomWord"
                                                        Text="{Binding RandomWord}"
                                                        FontSize="24"
                                                        Padding="8"
+                                                       Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=RandWordCommand}"
+                                                                                  CommandParameter="{Binding .}"
                                                        TextColor="#333A57"
                                                        FontFamily="PatrickHand"
                                                        VerticalOptions="Center"
@@ -533,10 +535,12 @@
                                                                     StrokeThickness="3"
                                                                     Stroke="#333A57"
                                                                     BackgroundColor="White">
-                                                                <Label x:Name="randomWordLabel"
+                                                                <Button x:Name="randomWordLabel"
                                                                        Text="{Binding .}"
                                                                        FontSize="20"
                                                                        Padding="8,6"
+                                                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=ListRandWordCommand}"
+                                                                                  CommandParameter="{Binding .}"
                                                                        TextColor="#333A57"
                                                                        FontFamily="PatrickHand"
                                                                        VerticalOptions="Center"
@@ -738,6 +742,7 @@
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                             BackgroundColor="#00FFFFFF"
+                            Command="{Binding HelpClickCommand}"
                             >
                             <ImageButton.Source>
                                 <FontImageSource FontFamily="FAS" Glyph="{StaticResource question}" Color="#333A57" Size="20"/>
@@ -764,16 +769,14 @@
                                         Opacity="1" />
                         </Border.Shadow>
 
-                        <ImageButton 
-                            Margin="-4,-3,4,3"
-                            
-                            
+                            <ImageButton 
+                            Margin="-4,-3,4,3"              
                                  Aspect="Center"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                             BackgroundColor="#00FFFFFF"
-                            >
-                            <ImageButton.Source>
+                                Command="{Binding InfoClickCommand}">
+                                <ImageButton.Source>
                                 <FontImageSource FontFamily="FAS" Glyph="{StaticResource info}" Color="#333A57" Size="20"/>
                             </ImageButton.Source>
                         </ImageButton>

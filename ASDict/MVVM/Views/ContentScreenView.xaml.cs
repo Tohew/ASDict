@@ -54,7 +54,33 @@ public partial class ContentScreenView : ContentPage
             viewModel.ConvertToAnt();
         }
     }
+    private void synonymWin_Clicked(object sender, EventArgs e)
+    {
+        synonymWin.BackgroundColor = Color.FromRgb(248, 76, 84);
+        synonymWin.TextColor = Color.FromRgb(255, 255, 255);
 
+        antonymWin.BackgroundColor = Color.FromRgb(51, 58, 87);
+        antonymWin.TextColor = Color.FromRgb(128, 128, 128);
+
+        if (BindingContext is DictionaryViewModel viewModel)
+        {
+            viewModel.ConvertToSyn();
+        }
+    }
+
+    private void antonymWin_Clicked(object sender, EventArgs e)
+    {
+        antonymWin.BackgroundColor = Color.FromRgb(248, 76, 84);
+        antonymWin.TextColor = Color.FromRgb(255, 255, 255);
+
+        synonymWin.BackgroundColor = Color.FromRgb(51, 58, 87);
+        synonymWin.TextColor = Color.FromRgb(128, 128, 128);
+
+        if (BindingContext is DictionaryViewModel viewModel)
+        {
+            viewModel.ConvertToAnt();
+        }
+    }
     private async Task CloseMenu()
     {
 

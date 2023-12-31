@@ -544,6 +544,7 @@
                             Aspect="Center"
                             HorizontalOptions="Center"
                             VerticalOptions="Center" 
+                                Command="{Binding HomeClickCommand}"
                             />
                         </Border>
 
@@ -601,12 +602,11 @@
 
                             <ImageButton 
                             Margin="-5,-3,5,3"
-                            
-                            
                                  Aspect="Center"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                             BackgroundColor="#00FFFFFF"
+                                Command="{Binding HelpClickCommand}"
                             >
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAS" Glyph="{StaticResource question}" Color="#333A57" Size="20"/>
@@ -641,7 +641,7 @@
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                             BackgroundColor="#00FFFFFF"
-                            >
+                                Command="{Binding InfoClickCommand}">
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAS" Glyph="{StaticResource info}" Color="#333A57" Size="20"/>
                                 </ImageButton.Source>

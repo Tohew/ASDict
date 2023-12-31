@@ -638,6 +638,7 @@
                             Aspect="Center"
                             HorizontalOptions="Center"
                             VerticalOptions="Center" 
+                            Command="{Binding HomeClickCommand}"
                             />
                         </Border>
 
@@ -695,13 +696,11 @@
 
                             <ImageButton 
                             Margin="-5,-3,5,3"
-                            
-                            
                                  Aspect="Center"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                             BackgroundColor="#00FFFFFF"
-                            >
+                                Command="{Binding HelpClickCommand}">
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAS" Glyph="{StaticResource question}" Color="#333A57" Size="20"/>
                                 </ImageButton.Source>
@@ -729,13 +728,11 @@
 
                             <ImageButton 
                             Margin="-4,-3,4,3"
-                            
-                            
                                  Aspect="Center"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                             BackgroundColor="#00FFFFFF"
-                            >
+                                Command="{Binding InfoClickCommand}">
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAS" Glyph="{StaticResource info}" Color="#333A57" Size="20"/>
                                 </ImageButton.Source>
@@ -767,7 +764,7 @@
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                             BackgroundColor="#00FFFFFF"
-                            >
+                            Command="{Binding HomeClickCommand}">
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAS" Glyph="{StaticResource search}" Color="white" Size="20"/>
                                 </ImageButton.Source>
@@ -838,12 +835,12 @@
                             <!--Table result-->
                         <Border
                             Grid.Row="1"
-                    StrokeThickness="3"
-                    HorizontalOptions="Fill"
-                    VerticalOptions="FillAndExpand"
-                    Stroke="#333A57"
-                    StrokeShape="RoundRectangle 20"
-                    BackgroundColor="White"
+                            StrokeThickness="3"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="FillAndExpand"
+                            Stroke="#333A57"
+                            StrokeShape="RoundRectangle 20"
+                            BackgroundColor="White"
                             Margin="0, 0,0, 12">
                             <Frame Padding="0">
                                 <Grid>
@@ -856,32 +853,33 @@
                                         <HorizontalStackLayout Padding="4">
                                             <!--Synonym-->
                                             <Border HorizontalOptions="Center"
-                                    VerticalOptions="Center"
-                                    StrokeShape="RoundRectangle 20"
-                                    StrokeThickness="0"
-                                    Stroke="#333A57">
+                                                    VerticalOptions="Center"
+                                                    StrokeShape="RoundRectangle 20"
+                                                    StrokeThickness="0"
+                                                    Stroke="#333A57">           
                                                 <Border.Shadow>
                                                     <Shadow Brush="Black"
-                                            Radius="0"
-                                            Offset="0,5"
-                                            Opacity="1"/>
+                                                            Radius="0"
+                                                            Offset="0,5"
+                                                            Opacity="1"/>
                                                 </Border.Shadow>
 
-                                                <Button 
-                                        BackgroundColor="#F74B54"
-                                        Text="Synonym"
-                                        FontSize="16"
-                                        TextColor="White"
-                                        FontFamily="PatrickHand"
-                                        Clicked="synonym_Clicked"
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Center"/>
+                                                <Button x:Name="synonymWin"
+                                                        BackgroundColor="#F74B54"
+                                                        Text="Synonym"
+                                                        FontSize="16"
+                                                        TextColor="White"
+                                                        FontFamily="PatrickHand"
+                                                        Clicked="synonymWin_Clicked"
+                                                        Command="{Binding SynonymCommand}"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="Center"/>
                                             </Border>
 
                                             <!--Antonym-->
                                             <Border 
-                                Margin="8,0"
-                                HorizontalOptions="Center"
+                                    Margin="8,0"
+                                    HorizontalOptions="Center"
                                     VerticalOptions="Center"
                                     StrokeShape="RoundRectangle 20"
                                     StrokeThickness="0"
@@ -894,12 +892,13 @@
                                                 </Border.Shadow>
 
                                                 <Button
+                                                    x:Name="antonymWin"
                                         BackgroundColor="#333A57"
                                         Text="Antonym"
                                         FontSize="16"
                                         TextColor="Gray"
                                         FontFamily="PatrickHand"
-                                        Clicked="antonym_Clicked"
+                                        Clicked="antonymWin_Clicked"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Center"/>
                                             </Border>

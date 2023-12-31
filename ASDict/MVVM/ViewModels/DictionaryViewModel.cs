@@ -117,36 +117,36 @@ namespace ASDict.MVVM.ViewModels
         public void ConvertToAnt()
         {
             // Xóa dữ liệu của Synonyms
-            tempSynonymsCol1.Clear();
-            tempSynonymsCol2.Clear();
+            TempSynonymsCol1.Clear();
+            TempSynonymsCol2.Clear();
 
             // Gán dữ liệu của Antonyms cho Synonyms
             foreach (var antonym in AntonymsCol1)
             {
-                tempSynonymsCol1.Add(antonym);
+                TempSynonymsCol1.Add(antonym);
             }
 
             foreach (var antonym in AntonymsCol2)
             {
-                tempSynonymsCol2.Add(antonym);
+                TempSynonymsCol2.Add(antonym);
             }
         }
 
         public void ConvertToSyn()
         {
             // Xóa dữ liệu của Antonyms
-            tempSynonymsCol1.Clear();
-            tempSynonymsCol2.Clear();
+            TempSynonymsCol1.Clear();
+            TempSynonymsCol2.Clear();
 
             // Gán dữ liệu của Synonyms từ bước lưu trữ tạm thời cho Antonyms
             foreach (var synonym in SynonymsCol1)
             {
-                tempSynonymsCol1.Add(synonym);
+                TempSynonymsCol1.Add(synonym);
             }
 
             foreach (var synonym in SynonymsCol2)
             {
-                tempSynonymsCol2.Add(synonym);
+                TempSynonymsCol2.Add(synonym);
             }
         }
 
@@ -198,6 +198,18 @@ namespace ASDict.MVVM.ViewModels
         void SearchClick()
         {
             App.Current.MainPage.Navigation.PopModalAsync();
+        }
+
+        [RelayCommand]
+        void InfoClick()
+        {
+            App.Current.MainPage.DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices. Thank you for choosing our app to enhance your language skills!", "OK");
+        }
+        [RelayCommand]
+        void HelpClick()
+        {
+            string url = "https://nghgi.github.io/ASDict-Download/";
+            _ = Launcher.OpenAsync(new Uri(url));
         }
     }
 }
