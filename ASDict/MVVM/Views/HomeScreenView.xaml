@@ -274,8 +274,8 @@
                             <editors:SfAutocomplete Margin="10, 0 , 10, -8"
                                                     BackgroundColor="White"
                                                     IsClearButtonVisible="True"
-                                                    x:Name="InputWord"
-                                                    Text="{Binding InputWord.word, Mode=TwoWay}"
+                                                    x:Name="InputWord2"
+                                                    Text="{Binding InputWord2.word, Mode=TwoWay}"
                                                     ItemsSource="{Binding TheList}"
                                                     DisplayMemberPath="TheSuggest"
                                                     TextMemberPath="TheSuggest"
@@ -784,7 +784,7 @@
 
                 <!--Content-->
                 <Border Grid.Column="1" Stroke="#333A57" StrokeThickness="1" Margin="-2,0">
-                    <Grid RowDefinitions="auto, 40, *, 2*" RowSpacing="8" BackgroundColor="#FEF2F2" Padding="8,0">
+                    <Grid RowDefinitions="auto, 25, 105, *" RowSpacing="6" BackgroundColor="#FEF2F2" Padding="8,0">
 
                         <!--Search bar-->
                         <Grid VerticalOptions="Start"
@@ -805,6 +805,7 @@
                                     Stroke="#333A57"
                                     BackgroundColor="#FFFFFF"
                                     IsClearButtonVisible="True"
+                                    x:Name="InputWord"
                                     Text="{Binding InputWord.word, Mode=TwoWay}"
                                     ItemsSource="{Binding TheList}"
                                     DisplayMemberPath="TheSuggest"
@@ -855,12 +856,12 @@
                                     Grid.ColumnSpan="3"
                                     StrokeThickness="0"
                                     BackgroundColor="#FEF2F2"
-                                    Padding="6, 0">
+                                    Padding="0,0,6, 0">
                             <Grid ColumnDefinitions="auto,*,auto"
                                         Margin="0">
                                 <Label Grid.Column="0"
                                             Text="Search history"
-                                            FontSize="20"
+                                            FontSize="16"
                                             TextColor="#333A57"
                                             FontFamily="PatrickHand"
                                             VerticalOptions="Center"
@@ -876,7 +877,7 @@
                                 <FontImageSource FontFamily="FAS"
                                                                 Glyph="{StaticResource trash}"
                                                                 Color="#333A57"
-                                                                Size="18" />
+                                                                Size="14" />
                             </ImageButton.Source>
                         </ImageButton>
                             </Grid>
@@ -888,7 +889,9 @@
                                     BackgroundColor="#FEF2F2"
                                     Padding="0"
                                     Margin="0">
-                            <FlexLayout VerticalOptions="Fill"
+                            <ScrollView>
+                                
+                                <FlexLayout VerticalOptions="Fill"
                                             HorizontalOptions="Fill"
                                             Wrap="Wrap"
                                             Direction="Row"
@@ -898,9 +901,9 @@
                                             BindableLayout.ItemsSource="{Binding RecentWords}">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Border Padding="6, 0"
-                                                    Margin="0"
-                                                    HeightRequest="45"
+                                <Border Padding="4, 2"
+                                        Margin="2,1"
+                                                    HeightRequest="30"
                                                     Stroke="#333A57"
                                                     StrokeThickness="2"
                                                     StrokeShape="RoundRectangle 20"
@@ -909,12 +912,13 @@
                                                         VerticalOptions="Center">
                                         <Label Grid.Column="0"
                                                             Text="{Binding word}"
-                                                            FontSize="20"
+                                                            FontSize="16"
                                                             TextColor="#333A57"
                                                             FontFamily="PatrickHand"
                                                             VerticalOptions="Center"
-                                                            Margin="4, 0, 0, 0" />
+                                                            Margin="4, -2, 0, 0" />
                                         <ImageButton Grid.Column="2"
+                                                     Margin="0,-8,4,0"
                                                                     Aspect="Center"
                                                                     BackgroundColor="#00FFFFFF"
                                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=DeleteCommand}"
@@ -923,7 +927,7 @@
                                                 <FontImageSource FontFamily="FAS"
                                                                                 Glyph="{StaticResource cross}"
                                                                                 Color="#FF5E5E"
-                                                                                Size="20" />
+                                                                                Size="16" />
                                             </ImageButton.Source>
                                         </ImageButton>
                                         <Grid.GestureRecognizers>
@@ -935,10 +939,11 @@
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </FlexLayout>
+                            </ScrollView>
                         </Border>
                         
                         <!--Doyouknow-->
-                        <Grid Grid.Row="3" RowDefinitions="*, 11*, *">
+                        <Grid Grid.Row="3" RowDefinitions="*, 12*, *" Margin="0,-8">
                             <Border Grid.Row="1"
                                     StrokeThickness="3"
                                     Stroke="#333A57"
@@ -981,7 +986,8 @@
                                             </Border>
                                             <!-- Double arrow icon -->
                                             <ImageButton Grid.Column="2"
-                                                         Aspect="Center">
+                                                         Aspect="Center"
+                                                         BackgroundColor="#AEB1E4">
                                                 <ImageButton.Source>
                                                     <FontImageSource FontFamily="FAS"
                                                                      Glyph="{StaticResource arrow}"
@@ -993,28 +999,29 @@
                                     </Grid>
                                     <!-- Bottom -->
                                     <Grid Grid.Row="1"
-                                          RowDefinitions="*, 30, *"
+                                          RowDefinitions="3*, 25, 4*"
                                           BackgroundColor="White">
+
                                         <!-- Label word random -->
                                         <Border Grid.Row="0"
                                                 HorizontalOptions="Center"
                                                 VerticalOptions="Center"
-                                                Margin="4,0"
+                                                Margin="6,0"
                                                 Padding="4, 0"
-                                                StrokeShape="RoundRectangle 20"
-                                                StrokeThickness="3"
+                                                StrokeShape="RoundRectangle 10"
+                                                StrokeThickness="2"
                                                 Stroke="#333A57"
                                                 BackgroundColor="White">
                                             <Border.Shadow>
                                                 <Shadow Brush="#333A57"
                                                         Radius="0"
-                                                        Offset="0, 5"
+                                                        Offset="-2, 3"
                                                         Opacity="1" />
                                             </Border.Shadow>
                                             <Label 
                                                    Text="{Binding RandomWord}"
-                                                   FontSize="16"
-                                                   Padding="6"
+                                                   FontSize="24"
+                                                   Padding="6,4"
                                                    TextColor="#333A57"
                                                    FontFamily="PatrickHand"
                                                    VerticalOptions="Center"
@@ -1042,15 +1049,16 @@
                                                         <Border Grid.Row="0"
                                                                 HorizontalOptions="Center"
                                                                 VerticalOptions="Center"
-                                                                Padding="4, 0"
+                                                                Padding="4, 2"
+                                                                Margin="2"
                                                                 StrokeShape="RoundRectangle 20"
-                                                                StrokeThickness="3"
+                                                                StrokeThickness="2"
                                                                 Stroke="#333A57"
                                                                 BackgroundColor="White">
                                                             <Label x:Name="randomWordLabel"
                                                                    Text="{Binding .}"
-                                                                   FontSize="14"
-                                                                   Padding="8,6"
+                                                                   FontSize="16"
+                                                                   Padding="3,2"
                                                                    TextColor="#333A57"
                                                                    FontFamily="PatrickHand"
                                                                    VerticalOptions="Center"
@@ -1061,6 +1069,8 @@
                                             </FlexLayout>
                                         </ScrollView>
                                     </Grid>
+                                    
+
                                 </Grid>
                             </Border>
                         </Grid>

@@ -515,7 +515,7 @@
                 <!--Icon bar-->
                 <Border Stroke="#333A57" StrokeThickness="1" Margin="-2,0,0,0">
                     <Grid
-                    RowDefinitions="auto, auto, auto, auto,auto, *"
+                    RowDefinitions="auto, auto, auto, auto, *"
                     RowSpacing="10"
                     Padding="0,10,0,0"
                     
@@ -644,38 +644,6 @@
                             >
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAS" Glyph="{StaticResource info}" Color="#333A57" Size="20"/>
-                                </ImageButton.Source>
-                            </ImageButton>
-                        </Border>
-
-                        <!--Icon search-->
-                        <Border
-                        Grid.Row="4"
-                        Padding="0"
-                        StrokeThickness="2"
-                        Background="#333A57"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        HeightRequest="40"
-                        WidthRequest="40"
-                        StrokeShape="RoundRectangle 5"
-                        Stroke="#333A57">
-                            <Border.Shadow>
-                                <Shadow Brush="Black"
-                                        Radius="0"
-                                        Offset="-3, 2"
-                                        Opacity="1" />
-                            </Border.Shadow>
-
-                            <ImageButton 
-                            Margin="-4,-3,4,3"
-                                 Aspect="Center"
-                                 HorizontalOptions="Center"
-                                 VerticalOptions="Center"
-                            BackgroundColor="#00FFFFFF"
-                            >
-                                <ImageButton.Source>
-                                    <FontImageSource FontFamily="FAS" Glyph="{StaticResource search}" Color="white" Size="20"/>
                                 </ImageButton.Source>
                             </ImageButton>
                         </Border>
