@@ -824,9 +824,9 @@
                                         Opacity="1" />
                                 </Border.Shadow>
                     <ImageButton 
-                            Source="{Binding SourceFavorite}" 
+                            Source="{Binding SourceWinFavorite}" 
                             Aspect="Center" 
-                            Command="{Binding starClicked}"
+                            Command="{Binding starWinClicked}"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"/>
                 </Border>
@@ -910,7 +910,8 @@
                                         <Grid  ColumnDefinitions="*, *" Padding="0" Margin="6">
 
                                             <VerticalStackLayout Grid.Column="0">
-                                                <CollectionView ItemsSource="{Binding TempSynonymsCol1}">
+                                                <CollectionView ItemsSource="{Binding TempSynonymsCol1}"
+                                                                BackgroundColor="Yellow">
                                                     <CollectionView.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border
@@ -935,7 +936,7 @@
 
                                                                     <Label
                                                         Grid.Column="1"
-                                                        Text="{Binding .}"
+                                                        Text="addadaddaad"
                                                         FontSize="16"
                                                         FontFamily="PatrickHand"
                                                         HorizontalOptions="End"
@@ -951,7 +952,8 @@
                                             </VerticalStackLayout>
 
                                             <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
-                                                <CollectionView ItemsSource="{Binding TempSynonymsCol2}">
+                                                <CollectionView ItemsSource="{Binding TempSynonymsCol2}"
+                                                                BackgroundColor="Red">
                                                     <CollectionView.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border
@@ -976,7 +978,7 @@
 
                                                                     <Label
                                                                         Grid.Column="1"
-                                                                        Text="{Binding .}"
+                                                                        Text="adadaada"
                                                                         FontSize="16"
                                                                         FontFamily="PatrickHand"
                                                                         HorizontalOptions="End"

@@ -12,6 +12,9 @@ namespace ASDict.MVVM.ViewModels
     {
         [ObservableProperty]
         private HistoryWord inputWord;
+        
+        [ObservableProperty]
+        private HistoryWord inputWordBookmark;
 
         [ObservableProperty]
         private ObservableCollection<HistoryWord> recentWords;
@@ -30,6 +33,7 @@ namespace ASDict.MVVM.ViewModels
 
         public ICommand selectedCommand { get; }
         public ICommand setSelectedFavoriteWord { get; }
+        public ICommand searchBarCommand{ get; }
         private readonly BookmarkService _bookmarkService;
         private bool _isSortedAlphabetically = false;
 
@@ -37,12 +41,15 @@ namespace ASDict.MVVM.ViewModels
         {
             _historyWordService = new HistoryWordService();
             InputWord = new HistoryWord();
+            InputWordBookmark = new HistoryWord();
             RecentWords = new ObservableCollection<HistoryWord>();
             Task.Run(async () => await LoadRecentWords());
 
             _bookmarkService = new BookmarkService();
             FavoriteWords = new ObservableCollection<Bookmark>();
             Task.Run(async () => await LoadFavoriteWords());
+
+            searchBarCommand = new Command(searchWinBookmark);
 
             _list = new List<SuggestionModel>();
             FillList();
@@ -157,7 +164,7 @@ namespace ASDict.MVVM.ViewModels
             }
         }
         [RelayCommand]
-        async void searchBookmark()
+        private async void searchBookmark()
         {   
             if (string.IsNullOrEmpty(InputWord.word))
             {
@@ -184,7 +191,33 @@ namespace ASDict.MVVM.ViewModels
             InputWord = new HistoryWord();
             await LoadRecentWords();
         }
+        private async void searchWinBookmark()
+        {
+            if (string.IsNullOrEmpty(InputWordBookmark.word))
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "Please input a word", "OK");
+                return;
+            }
+            if (_editWordId == 0)
+            {
+                await _historyWordService.Create(new HistoryWord
+                {
+                    word = InputWordBookmark.word,
 
+                });
+            }
+            else
+            {
+                await _historyWordService.Update(new HistoryWord
+                {
+                    word = InputWordBookmark.word
+                });
+                _editWordId = 0;
+            }
+            await NavigateToContentScreen(InputWordBookmark.word);
+            InputWordBookmark = new HistoryWord();
+            await LoadRecentWords();
+        }
         [RelayCommand]
         void HomeClick()
         {

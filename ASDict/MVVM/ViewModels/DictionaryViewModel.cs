@@ -36,7 +36,10 @@ namespace ASDict.MVVM.ViewModels
         public bool isFavorite;
         [ObservableProperty]
         public string sourceFavorite;
+        [ObservableProperty]
+        public string sourceWinFavorite;
         public ICommand starClicked { get; }
+        public ICommand starWinClicked { get; }
         private readonly BookmarkService _bookmarkService;
 
 
@@ -111,6 +114,8 @@ namespace ASDict.MVVM.ViewModels
             _ = CheckIfFavoriteAsync();
 
             starClicked = new Command(favoriteCommand);
+            starWinClicked = new Command(favoriteWinCommand);
+
 
         }
 
@@ -159,6 +164,7 @@ namespace ASDict.MVVM.ViewModels
             FavoriteWord = await _bookmarkService.GetByWord(Word);
             IsFavorite = FavoriteWord != null;
             SourceFavorite = IsFavorite ? "star_icon_blue.svg" : "star_icon_white.svg";
+            SourceWinFavorite = IsFavorite ? "star_icon_blue.png" : "star_icon_white.png";
         }
 
         public async void favoriteCommand()
@@ -167,12 +173,35 @@ namespace ASDict.MVVM.ViewModels
             {
                 SourceFavorite = "star_icon_white.svg";
                 IsFavorite = false;
+                App.Current.MainPage.DisplayAlert("ASDict", "Successfully remove from bookmark", "OK");
                 await _bookmarkService.DeleteByWordAsync(Word);
             }
             else
             {
                 SourceFavorite = "star_icon_blue.svg";
                 IsFavorite = true;
+                App.Current.MainPage.DisplayAlert("ASDict", "Successfully add to bookmark", "OK");
+                await _bookmarkService.Create(new Bookmark
+                {
+                    bookmarkWord = Word
+                });
+            }
+        }
+
+        public async void favoriteWinCommand()
+        {
+            if (IsFavorite)
+            {
+                SourceWinFavorite = "star_icon_white.png";
+                IsFavorite = false;
+                App.Current.MainPage.DisplayAlert("ASDict", "Successfully remove from bookmark", "OK");
+                await _bookmarkService.DeleteByWordAsync(Word);
+            }
+            else
+            {
+                SourceWinFavorite = "star_icon_blue.png";
+                IsFavorite = true;
+                App.Current.MainPage.DisplayAlert("ASDict", "Successfully add to bookmark", "OK");
                 await _bookmarkService.Create(new Bookmark
                 {
                     bookmarkWord = Word

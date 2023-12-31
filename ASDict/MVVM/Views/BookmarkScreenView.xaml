@@ -674,8 +674,8 @@
                                     Stroke="#333A57"
                                     BackgroundColor="#FFFFFF"
                                     IsClearButtonVisible="True"
-                                    x:Name="InputWord2"
-                                    Text="{Binding InputWord2.word, Mode=TwoWay}"
+                                    x:Name="InputWordBookmark"
+                                    Text="{Binding InputWordBookmark.word, Mode=TwoWay}"
                                     ItemsSource="{Binding TheList}"
                                     DisplayMemberPath="TheSuggest"
                                     TextMemberPath="TheSuggest"
@@ -700,7 +700,7 @@
                                             BackgroundColor="#00FFFFFF"
                                             HorizontalOptions="Center"
                                             VerticalOptions="Center"
-                                            Command="{Binding searchCommand}">
+                                            Command="{Binding searchBarCommand}">
                                     <ImageButton.Source>
                                         <FontImageSource FontFamily="FAS"
                                                         Glyph="{StaticResource search}"
@@ -823,7 +823,7 @@
                                                                     </ImageButton.Source>
                                                                 </ImageButton>
                                                                 <Grid.GestureRecognizers>
-                                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=searchBookmarkCommand }"
+                                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=SearchCommand }"
                                                                                   CommandParameter="{Binding .}" />
                                                                 </Grid.GestureRecognizers>
                                                             </Grid>

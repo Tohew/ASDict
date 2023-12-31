@@ -481,7 +481,8 @@
                                         <Grid Grid.Row="1"
                                               RowDefinitions="*, 40, *"
                                               BackgroundColor="White">
-                                            <!-- Label word random -->
+                                            <!--Label word random-->
+
                                             <Border Grid.Row="0"
                                                     HorizontalOptions="Center"
                                                     VerticalOptions="Center"
@@ -491,60 +492,70 @@
                                                     StrokeThickness="3"
                                                     Stroke="#333A57"
                                                     BackgroundColor="White">
+
                                                 <Border.Shadow>
                                                     <Shadow Brush="#333A57"
                                                             Radius="0"
                                                             Offset="0, 5"
-                                                            Opacity="1" />
+                                                            Opacity="1"/>
                                                 </Border.Shadow>
+                                                <!--<Grid>-->
                                                 <Button x:Name="randomWord"
-                                                       Text="{Binding RandomWord}"
-                                                       FontSize="24"
-                                                       Padding="8"
-                                                       Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=RandWordCommand}"
-                                                                                  CommandParameter="{Binding .}"
-                                                       TextColor="#333A57"
-                                                       FontFamily="PatrickHand"
-                                                       VerticalOptions="Center"
-                                                       HorizontalOptions="Center" />
+                                                        BackgroundColor="#00FFFFFF"
+                                                        Text="{Binding RandomWord}"
+                                                        FontSize="24"
+                                                        Padding="8"
+                                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=RandWordCommand}"
+                                                                                      CommandParameter="{Binding .}"
+                                                        TextColor="#333A57"
+                                                        FontFamily="PatrickHand"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="Center"/>
                                             </Border>
+
                                             <Label Grid.Row="1"
                                                    Text="is another word for"
-                                                   FontFamily="PatrickHand"
-                                                   VerticalOptions="Center"
-                                                   HorizontalOptions="Center"
-                                                   FontSize="20"
-                                                   TextColor="#333A57" />
-                                            <!-- 3 results -->
-                                            <ScrollView Grid.Row="2">
-                                                <FlexLayout VerticalOptions="Center"
-                                                            HorizontalOptions="Fill"
-                                                            Wrap="Wrap"
-                                                            Direction="Row"
-                                                            JustifyContent="Center"
-                                                            AlignContent="Center"
-                                                            AlignItems="Center"
-                                                            BindableLayout.ItemsSource="{Binding ResultRandomList}">
+                                                           FontFamily="PatrickHand"
+                                                           VerticalOptions="Center"
+                                                           HorizontalOptions="Center"
+                                                           FontSize="20"
+                                                           TextColor="#333A57"
+               />
+                                            <!--3 results-->
+                                            <ScrollView
+                                                    Grid.Row="2">
+                                                <FlexLayout
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="Fill"
+                                                        Wrap="Wrap"
+                                                        Direction="Row"
+                                                        JustifyContent="Center"
+                                                        AlignContent="Center"
+                                                        AlignItems="Center"
+                                                        BindableLayout.ItemsSource="{Binding ResultRandomList}">
+
                                                     <BindableLayout.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border Grid.Row="0"
-                                                                    HorizontalOptions="Center"
-                                                                    VerticalOptions="Center"
-                                                                    Padding="4, 0"
-                                                                    StrokeShape="RoundRectangle 20"
-                                                                    StrokeThickness="3"
-                                                                    Stroke="#333A57"
-                                                                    BackgroundColor="White">
+                                                                HorizontalOptions="Center"
+                                                                VerticalOptions="Center"
+                                                                Padding="4, 0"
+                                                                StrokeShape="RoundRectangle 20"
+                                                                StrokeThickness="3"
+                                                                Stroke="#333A57"
+                                                                BackgroundColor="White">
+
                                                                 <Button x:Name="randomWordLabel"
-                                                                       Text="{Binding .}"
-                                                                       FontSize="20"
-                                                                       Padding="8,6"
+                                                                        BackgroundColor="#00FFFFFF"
+                                                                        Text="{Binding .}"
+                                                                        FontSize="20"
+                                                                        Padding="0"
+                                                                        TextColor="#333A57"
+                                                                        FontFamily="PatrickHand"
                                                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=ListRandWordCommand}"
-                                                                                  CommandParameter="{Binding .}"
-                                                                       TextColor="#333A57"
-                                                                       FontFamily="PatrickHand"
-                                                                       VerticalOptions="Center"
-                                                                       HorizontalOptions="Center" />
+                                                                                          CommandParameter="{Binding .}"
+                                                                        VerticalOptions="Center"
+                                                                        HorizontalOptions="Center"/>
                                                             </Border>
                                                         </DataTemplate>
                                                     </BindableLayout.ItemTemplate>
