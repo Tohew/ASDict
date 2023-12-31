@@ -14,7 +14,7 @@ namespace ASDict.MVVM.ViewModels
         private HistoryWord inputWord;
         
         [ObservableProperty]
-        private HistoryWord inputWordBookmark;
+        private HistoryWord inputWordWin;
 
         [ObservableProperty]
         private ObservableCollection<HistoryWord> recentWords;
@@ -41,7 +41,7 @@ namespace ASDict.MVVM.ViewModels
         {
             _historyWordService = new HistoryWordService();
             InputWord = new HistoryWord();
-            InputWordBookmark = new HistoryWord();
+            InputWordWin = new HistoryWord();
             RecentWords = new ObservableCollection<HistoryWord>();
             Task.Run(async () => await LoadRecentWords());
 
@@ -193,7 +193,7 @@ namespace ASDict.MVVM.ViewModels
         }
         private async void searchWinBookmark()
         {
-            if (string.IsNullOrEmpty(InputWordBookmark.word))
+            if (string.IsNullOrEmpty(InputWordWin.word))
             {
                 await App.Current.MainPage.DisplayAlert("Error", "Please input a word", "OK");
                 return;
@@ -202,7 +202,7 @@ namespace ASDict.MVVM.ViewModels
             {
                 await _historyWordService.Create(new HistoryWord
                 {
-                    word = InputWordBookmark.word,
+                    word = InputWordWin.word,
 
                 });
             }
@@ -210,12 +210,12 @@ namespace ASDict.MVVM.ViewModels
             {
                 await _historyWordService.Update(new HistoryWord
                 {
-                    word = InputWordBookmark.word
+                    word = InputWordWin.word
                 });
                 _editWordId = 0;
             }
-            await NavigateToContentScreen(InputWordBookmark.word);
-            InputWordBookmark = new HistoryWord();
+            await NavigateToContentScreen(InputWordWin.word);
+            InputWordWin = new HistoryWord();
             await LoadRecentWords();
         }
         [RelayCommand]

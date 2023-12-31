@@ -16,6 +16,9 @@ namespace ASDict.MVVM.ViewModels
         private HistoryWord inputWord;
 
         [ObservableProperty]
+        private HistoryWord inputWordWin;
+
+        [ObservableProperty]
         private HistoryWord selectedWord;
 
         [ObservableProperty]
@@ -26,14 +29,17 @@ namespace ASDict.MVVM.ViewModels
         private int _editWordId;
 
         public ICommand searchCommand { get; }
+        public ICommand searchWinCommand { get; }
         public HomeScreenViewModel()
         {
 
             _historyWordService = new HistoryWordService();
             InputWord = new HistoryWord();
+            InputWordWin = new HistoryWord();
             RecentWords = new ObservableCollection<HistoryWord>();
             Task.Run(async () => await LoadRecentWords());
             searchCommand = new Command(async () => await search_Clicked());
+            searchWinCommand = new Command(async () => await searchWin_Clicked());
 
             LoadRandomWords();
             RandomWord = GetRandomWord(RandomWords);
@@ -92,6 +98,33 @@ namespace ASDict.MVVM.ViewModels
             }
             await NavigateToContentScreen(InputWord.word);
             InputWord = new HistoryWord();
+            await LoadRecentWords();
+        }
+        private async Task searchWin_Clicked()
+        {
+            if (string.IsNullOrEmpty(InputWordWin.word))
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "Please input a word", "OK");
+                return;
+            }
+            if (_editWordId == 0)
+            {
+                await _historyWordService.Create(new HistoryWord
+                {
+                    word = InputWordWin.word,
+
+                });
+            }
+            else
+            {
+                await _historyWordService.Update(new HistoryWord
+                {
+                    word = InputWordWin.word
+                });
+                _editWordId = 0;
+            }
+            await NavigateToContentScreen(InputWordWin.word);
+            InputWordWin = new HistoryWord();
             await LoadRecentWords();
         }
         [RelayCommand]

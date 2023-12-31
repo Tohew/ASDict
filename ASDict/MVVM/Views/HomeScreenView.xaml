@@ -274,8 +274,8 @@
                             <editors:SfAutocomplete Margin="10, 0 , 10, -8"
                                                     BackgroundColor="White"
                                                     IsClearButtonVisible="True"
-                                                    x:Name="InputWord2"
-                                                    Text="{Binding InputWord2.word, Mode=TwoWay}"
+                                                    x:Name="InputWord"
+                                                    Text="{Binding InputWord.word, Mode=TwoWay}"
                                                     ItemsSource="{Binding TheList}"
                                                     DisplayMemberPath="TheSuggest"
                                                     TextMemberPath="TheSuggest"
@@ -819,8 +819,8 @@
                                     Stroke="#333A57"
                                     BackgroundColor="#FFFFFF"
                                     IsClearButtonVisible="True"
-                                    x:Name="InputWord"
-                                    Text="{Binding InputWord.word, Mode=TwoWay}"
+                                    x:Name="InputWordWin"
+                                    Text="{Binding InputWordWin.word, Mode=TwoWay}"
                                     ItemsSource="{Binding TheList}"
                                     DisplayMemberPath="TheSuggest"
                                     TextMemberPath="TheSuggest"
@@ -845,7 +845,7 @@
                                             BackgroundColor="#00FFFFFF"
                                             HorizontalOptions="Center"
                                             VerticalOptions="Center"
-                                            Command="{Binding searchCommand}">
+                                            Command="{Binding searchWinCommand}">
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAS"
                                                         Glyph="{StaticResource search}"
