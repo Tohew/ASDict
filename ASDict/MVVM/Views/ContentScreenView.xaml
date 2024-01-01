@@ -911,7 +911,8 @@
 
                                             <VerticalStackLayout Grid.Column="0">
                                                 <CollectionView ItemsSource="{Binding TempSynonymsCol1}"
-                                                                BackgroundColor="Yellow">
+                                                                HeightRequest="275"
+                                                                WidthRequest="100">
                                                     <CollectionView.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border
@@ -936,7 +937,7 @@
 
                                                                     <Label
                                                         Grid.Column="1"
-                                                        Text="addadaddaad"
+                                                        Text="{Binding .}"
                                                         FontSize="16"
                                                         FontFamily="PatrickHand"
                                                         HorizontalOptions="End"
@@ -953,7 +954,8 @@
 
                                             <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
                                                 <CollectionView ItemsSource="{Binding TempSynonymsCol2}"
-                                                                BackgroundColor="Red">
+                                                                HeightRequest="275"
+                                                                WidthRequest="100">
                                                     <CollectionView.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border
@@ -971,14 +973,14 @@
 
                                                                     <Image
                                                                         Grid.Column="0"
-                                                                        Source="Resources/Images/text_icon.png"
+                                                                        Source="text_icon.png"
                                                                         Aspect="Center"
                                                                         HorizontalOptions="Start"
                                                                         VerticalOptions="Center"/>
 
                                                                     <Label
                                                                         Grid.Column="1"
-                                                                        Text="adadaada"
+                                                                        Text="{Binding .}"
                                                                         FontSize="16"
                                                                         FontFamily="PatrickHand"
                                                                         HorizontalOptions="End"
