@@ -27,7 +27,7 @@
 <ol>
    <li>
      Splash Screen
-     ![splash_screen](https://github.com/Tohew/ASDict/assets/127734828/85d236bf-0d1a-448f-b5f1-b98f04517f48)
+     <img src="![splash_screen](https://github.com/Tohew/ASDict/assets/127734828/ec7add14-d9c3-43ec-aeab-446e37729802)">
    </li>
    <li></li>
    <li></li>
