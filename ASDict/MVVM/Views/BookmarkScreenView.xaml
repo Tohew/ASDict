@@ -412,7 +412,7 @@
                                                                         </ImageButton.Source>
                                                                     </ImageButton>
                                                                     <Grid.GestureRecognizers>
-                                                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=searchBookmarkCommand }"
+                                                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BookmarkScreenViewModel}}, Path=SearchCommand }"
                                                                                   CommandParameter="{Binding .}" />
                                                                     </Grid.GestureRecognizers>
                                                                 </Grid>
@@ -427,76 +427,73 @@
                             </Border>
                         </Grid>
                     </Border>
-
-                    <!--Footer-->
-                    <Grid Grid.Row="2"
-                      BackgroundColor="#FEF2F2">
+                    <!-- Footer -->
+                    <Grid Grid.Row="3" BackgroundColor="#FEF2F2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Border Grid.Column="0"
-                            Grid.ColumnSpan="3"
-                            StrokeShape="RoundRectangle 20, 20, 0, 0"
-                            StrokeThickness="0">
+                    Grid.ColumnSpan="3"
+                    StrokeShape="RoundRectangle 20, 20, 0, 0"
+                    StrokeThickness="0">
                             <Image Source="Resources/Images/backgr.png"
-                               Aspect="AspectFill"
-                               Scale="2" />
+                       Aspect="AspectFill"
+                       Scale="2" />
                         </Border>
                         <Border Grid.Column="0"
-                            StrokeThickness="4"
-                            StrokeShape="RoundRectangle 90"
-                            Background="white"
-                            VerticalOptions="Center"
-                            HorizontalOptions="EndAndExpand"
-                            Stroke="#333A57">
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 90"
+                    Background="white"
+                    VerticalOptions="Center"
+                    HorizontalOptions="EndAndExpand"
+                    Stroke="#333A57">
                             <Border.Shadow>
                                 <Shadow Brush="#333A57"
-                                    Radius="0"
-                                    Offset="0,10"
-                                    Opacity="1" />
+                            Radius="0"
+                            Offset="0,10"
+                            Opacity="1" />
                             </Border.Shadow>
                             <ImageButton x:Name="house_icon"
-                                     Aspect="Center"
-                                     BackgroundColor="White"
-                                     HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Command="{Binding HomeClickCommand}"
-                                     HeightRequest="45"
-                                     WidthRequest="45">
+                             Aspect="Center"
+                             BackgroundColor="White"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Command="{Binding HomeClickCommand}"
+                             HeightRequest="45"
+                             WidthRequest="45">
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAS" Glyph="{StaticResource home}" Color="#333A57" Size="20"/>
                                 </ImageButton.Source>
                             </ImageButton>
                         </Border>
                         <Border Grid.Column="1"
-                            WidthRequest="4"
-                            BackgroundColor="#333A57"
-                            StrokeThickness="0"
-                            Margin="8" />
+                    WidthRequest="4"
+                    BackgroundColor="#333A57"
+                    StrokeThickness="0"
+                    Margin="8" />
                         <Border Grid.Column="2"
-                            StrokeThickness="4"
-                            StrokeShape="RoundRectangle 90"
-                            Background="white"
-                            Grid.Row="3"
-                            VerticalOptions="CenterAndExpand"
-                            HorizontalOptions="StartAndExpand"
-                            Stroke="#333A57">
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 90"
+                    Background="white"
+                    Grid.Row="3"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand"
+                    Stroke="#333A57">
                             <Border.Shadow Margin="255,70,65,-20">
                                 <Shadow Brush="#333A57"
-                                    Radius="0"
-                                    Offset="0,10"
-                                    Opacity="1" />
+                            Radius="0"
+                            Offset="0,10"
+                            Opacity="1" />
                             </Border.Shadow>
                             <ImageButton x:Name="bookmark1"
-                                     Aspect="Center"
-                                     BackgroundColor="White"
-                                     HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Command="{Binding Bookmark1ClickCommand}"
-                                     HeightRequest="45"
-                                     WidthRequest="45">
+                             Aspect="Center"
+                             BackgroundColor="White"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             HeightRequest="45"
+                             WidthRequest="45">
                                 <ImageButton.Source>
                                     <FontImageSource FontFamily="FAR" Glyph="{StaticResource bookmark}" Color="#333A57" Size="20"/>
                                 </ImageButton.Source>
