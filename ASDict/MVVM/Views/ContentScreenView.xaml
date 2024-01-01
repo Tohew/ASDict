@@ -21,7 +21,7 @@
         <!--FAS-->
         <x:String x:Key="search">&#xf002;</x:String>
         <!--FAS-->
-        <x:String x:Key="start">&#xf005;</x:String>
+        <x:String x:Key="star">&#xf005;</x:String>
         <!--FAR/FAS-->
         <x:String x:Key="home">&#xf015;</x:String>
         <!--FAS-->
@@ -807,7 +807,7 @@
 
 
                 <!--star white icon-->
-                <Border  Grid.Column="1"
+                            <Border  Grid.Column="1"
                        StrokeThickness="2"
                          Padding="0"
                         Background="White"
@@ -816,19 +816,15 @@
                         HeightRequest="40"
                         WidthRequest="40"
                         StrokeShape="RoundRectangle 5"
-                        Stroke="#333A57">
-                    <Border.Shadow>
-                                    <Shadow Brush="#333A57"
-                                        Radius="0"
-                                        Offset="-3, 2"
-                                        Opacity="1" />
-                                </Border.Shadow>
-                    <ImageButton 
+                        Stroke="#333A57"
+                                     Margin="8,0">
+                                <ImageButton 
                             Source="{Binding SourceWinFavorite}" 
                             Aspect="Center" 
                             Command="{Binding starWinClicked}"
                             HorizontalOptions="Center"
-                            VerticalOptions="Center"/>
+                            VerticalOptions="Center"
+                        Margin="-4.5,-4,0,0"/>
                 </Border>
             </Grid>
 
@@ -912,7 +908,7 @@
                                             <VerticalStackLayout Grid.Column="0">
                                                 <CollectionView ItemsSource="{Binding TempSynonymsCol1}"
                                                                 HeightRequest="275"
-                                                                WidthRequest="125">
+                                                                VerticalScrollBarVisibility="Never">
                                                     <CollectionView.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border
@@ -940,7 +936,7 @@
                                                         Text="{Binding .}"
                                                         FontSize="16"
                                                         FontFamily="PatrickHand"
-                                                        HorizontalOptions="End"
+                                                        HorizontalOptions="Fill"
                                                         VerticalOptions="Center"
                                                                 TextColor="#333A57"/>
                                                                 </Grid>
@@ -955,7 +951,7 @@
                                             <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
                                                 <CollectionView ItemsSource="{Binding TempSynonymsCol2}"
                                                                 HeightRequest="275"
-                                                                WidthRequest="112">
+                                                                VerticalScrollBarVisibility="Never">
                                                     <CollectionView.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border
