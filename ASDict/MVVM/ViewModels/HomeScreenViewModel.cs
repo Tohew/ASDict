@@ -235,21 +235,35 @@ namespace ASDict.MVVM.ViewModels
         public ObservableCollection<string> RandomWords = new ObservableCollection<string>();
         public async void LoadRandomWords()
         {
-            string line;
-            try
-            {
-                using Stream fileStream1 = await FileSystem.Current.OpenAppPackageFileAsync("randomwords.txt");
-                using StreamReader reader1 = new StreamReader(fileStream1);
-                while ((line = reader1.ReadLine()) != null)
+            //string line;
+            //try
+            //{
+            //    using Stream fileStream1 = await FileSystem.Current.OpenAppPackageFileAsync("randomwords.txt");
+            //    using StreamReader reader1 = new StreamReader(fileStream1);
+            //    while ((line = reader1.ReadLine()) != null)
+            //    {
+            //        RandomWords.Add(line);
+            //    }
+            //}
+            //catch
+            //{
+            //    Console.WriteLine($"Request failed. Error");
+            //}
+            
+                string[] predefinedWords = {
+      "map", "health", "system", "meat", "year", "thanks", "person", "data", "food", "theory",
+      "law", "knowledge", "power", "ability", "love", "television", "nature", "fact", "product",
+      "investment", "area", "activity", "story", "industry", "media", "community", "definition",
+      "safety", "development", "language", "player", "variety", "video", "security", "country",
+      "exam", "movie", "physics", "series", "thought", "basis", "direction", "strategy", "technology",
+      "army", "freedom", "environment"
+  };
+
+                foreach (var word in predefinedWords)
                 {
-                    RandomWords.Add(line);
+                    RandomWords.Add(word);
                 }
             }
-            catch
-            {
-                Console.WriteLine($"Request failed. Error");
-            }
-        }
         string GetRandomWord(ObservableCollection<string> collection)
         {
             if (collection.Count == 0)
