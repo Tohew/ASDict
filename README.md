@@ -25,10 +25,26 @@
 * Kiến trúc: MVVM
 ## Giao diện ứng dụng
 <ol>
-   <li>
-     Splash Screen
-     <img src="https://github.com/Tohew/ASDict/assets/127734828/ec7add14-d9c3-43ec-aeab-446e37729802"/>
-   </li>
+<li class="splash-screen-item">
+  Splash Screen
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/ec7add14-d9c3-43ec-aeab-446e37729802" alt="Splash Screen Image">
+</li>
+<style>
+   /* Định dạng cho mục danh sách */
+.splash-screen-item {
+  list-style-type: none; /* Loại bỏ chấm đầu dòng của mục danh sách */
+  margin-bottom: 15px;  /* Khoảng cách giữa các mục danh sách */
+}
+
+/* Định dạng cho ảnh */
+.splash-screen-item img {
+  max-width: 60%;      /* Ảnh sẽ không vượt quá kích thước của phần tử cha */
+  height: auto;         /* Duy trì tỷ lệ khung hình khi thay đổi kích thước */
+  border-radius: 8px;    /* Bo tròn góc của ảnh */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+}
+
+</style>
    <li></li>
    <li></li>
    <li></li>
