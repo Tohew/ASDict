@@ -3,6 +3,7 @@ using CommunityToolkit.Maui;
 using Syncfusion.Maui.Core.Hosting;
 using ASDict.MVVM.ViewModels;
 using ASDict.MVVM.Views;
+using MetroLog.MicrosoftExtensions;
 #if ANDROID
 using Android.Content.Res;
 #endif
@@ -30,6 +31,10 @@ namespace ASDict
 
                 });
             builder.Services.AddSingleton<HomeScreenView>();
+            builder.Logging.AddTraceLogger(_ => { });
+            builder.Logging.AddInMemoryLogger(_ => { });
+            builder.Logging.AddStreamingFileLogger(_ => { });
+            builder.Services.AddTransient<LogPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

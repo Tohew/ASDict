@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ASDict.MVVM.Views.LogPage">
+
+    <Shell.NavBarIsVisible>
+        <OnIdiom x:TypeArguments="x:Boolean">
+            <OnIdiom.Phone>false</OnIdiom.Phone>
+            <OnIdiom.Tablet>false</OnIdiom.Tablet>
+        </OnIdiom>
+    </Shell.NavBarIsVisible>
+    <VerticalStackLayout>
+        <StackLayout>
+            <Label Text="Enable Log"
+                   HorizontalOptions="Start"/>
+
+            <Switch x:Name="switch_log" IsToggled="{Binding IsShakeEnabled}"
+                    HorizontalOptions="End"/>
+        </StackLayout>
+        
+
+        <Border Grid.Column="0"
+        HorizontalOptions="Center"
+        Padding="12, 0"
+        VerticalOptions="Center"
+        StrokeShape="RoundRectangle 20"
+        StrokeThickness="0"
+        BackgroundColor="#333A57">
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                Radius="0"
+                Offset="0, 10"
+                Opacity="1" />
+            </Border.Shadow>
+            <Button x:Name="home"
+           BackgroundColor="#333A57"
+           Text="Home"
+           FontSize="20"
+           Padding="5"
+           TextColor="White"
+           FontFamily="PatrickHand"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           Clicked="home_Clicked"/>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

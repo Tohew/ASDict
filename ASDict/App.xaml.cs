@@ -1,5 +1,7 @@
 ﻿using ASDict.MVVM.Views;
 using CommunityToolkit.Maui.Behaviors;
+using MetroLog.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace ASDict
 {
@@ -12,6 +14,10 @@ namespace ASDict
                 MainPage = new AppShell();
             if (DeviceInfo.Platform == DevicePlatform.WinUI)
                 MainPage = new AppShell();
+
+            LogController.InitializeNavigation(
+            page => MainPage!.Navigation.PushModalAsync(page),
+            () => MainPage!.Navigation.PopModalAsync());
         }
     }
 }
