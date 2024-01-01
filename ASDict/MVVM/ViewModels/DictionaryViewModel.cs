@@ -228,14 +228,12 @@ namespace ASDict.MVVM.ViewModels
             {
                 SourceWinFavorite = "star_icon_white.png";
                 IsFavorite = false;
-                App.Current.MainPage.DisplayAlert("ASDict", "Successfully remove from bookmark", "OK");
                 await _bookmarkService.DeleteByWordAsync(Word);
             }
             else
             {
                 SourceWinFavorite = "star_icon_blue.png";
                 IsFavorite = true;
-                App.Current.MainPage.DisplayAlert("ASDict", "Successfully add to bookmark", "OK");
                 await _bookmarkService.Create(new Bookmark
                 {
                     bookmarkWord = Word
