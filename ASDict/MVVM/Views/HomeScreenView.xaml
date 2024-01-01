@@ -1032,10 +1032,13 @@
                                                         Offset="-2, 3"
                                                         Opacity="1" />
                                             </Border.Shadow>
-                                            <Label 
+                                            <Button 
                                                    Text="{Binding RandomWord}"
                                                    FontSize="24"
                                                    Padding="6,4"
+                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=RandWordCommand}"
+                                                   CommandParameter="{Binding .}"
+                                                   BackgroundColor="#00FFFFFF"
                                                    TextColor="#333A57"
                                                    FontFamily="PatrickHand"
                                                    VerticalOptions="Center"
@@ -1069,11 +1072,14 @@
                                                                 StrokeThickness="2"
                                                                 Stroke="#333A57"
                                                                 BackgroundColor="White">
-                                                            <Label x:Name="randomWordLabel"
+                                                            <Button x:Name="randomWordLabel"
                                                                    Text="{Binding .}"
                                                                    FontSize="16"
                                                                    Padding="3,2"
                                                                    TextColor="#333A57"
+                                                                    BackgroundColor="#00FFFFFF"
+                                                                   Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeScreenViewModel}}, Path=ListRandWordCommand}"
+                                                                    CommandParameter="{Binding .}"
                                                                    FontFamily="PatrickHand"
                                                                    VerticalOptions="Center"
                                                                    HorizontalOptions="Center" />
