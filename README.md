@@ -26,9 +26,10 @@
 ## Giao diện ứng dụng
 <ol>
 <li>
-  Splash Screen
+  Splash Screen<br>
   <img src="https://github.com/Tohew/ASDict/assets/127734828/ec7add14-d9c3-43ec-aeab-446e37729802" width="300" height="200"/>
 </li>
+
    <li></li>
    <li></li>
    <li></li>
