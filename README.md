@@ -26,33 +26,33 @@
 ## Giao diện ứng dụng
 <ol>
 <li style="text-align: center;">
-  <span style="display: block;">Splash Screen<br></span>
+  <span style="display: block;"><b>Splash Screen</b><br></span>
   <img src="https://github.com/Tohew/ASDict/assets/127734828/ec7add14-d9c3-43ec-aeab-446e37729802" width="200" height="450" style="display: inline-block;"/>
 </li>
   <li style="text-align: center;">
-  <span style="display: block;">Home Screen<br></span>
+  <span style="display: block;"><b>Home Screen</b><br></span>
   <img src="https://github.com/Tohew/ASDict/assets/127734828/9bfab05f-ac9b-42d1-8286-42b6307506c1" width="200" height="450" style="display: inline-block;"/>
 </li>
   <li style="text-align: center;">
-  <span style="display: block;">Menu Screen<br></span>
+  <span style="display: block;"><b>Menu Screen</b><br></span>
   <img src="https://github.com/Tohew/ASDict/assets/127734828/13145639-0eca-435d-9168-cdb19ff57bb3" width="200" height="450" style="display: inline-block;"/>
 </li>
   <li style="text-align: center;">
-  <span style="display: block;">Suggest Screen<br></span>
+  <span style="display: block;"><b>Suggest Screen</b><br></span>
   <img src="https://github.com/Tohew/ASDict/assets/127734828/a5196b16-0bf9-409a-9797-cca652f7414a" width="200" height="450" style="display: inline-block;"/>
 </li>
   <li style="text-align: center;">
-  <span style="display: block;">Synonym Screen<br></span>
-  <img src="https://github.com/Tohew/ASDict/assets/127734828/f76eaff0-4d49-476d-86d8-c21523b56e3d" width="200" height="450" style="display: inline-block;"/>
+  <span style="display: block;"><b>Synonym Screen</b><br></span>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/2830de83-312f-483b-9b68-7da104392c67" width="200" height="450" style="display: inline-block;"/>
 </li>
   </li>
   <li style="text-align: center;">
-  <span style="display: block;">Antonym Screen<br></span>
+  <span style="display: block;"><b>Antonym Screen</b><br></span>
   <img src="https://github.com/Tohew/ASDict/assets/127734828/d3c9f840-2dfa-4913-8759-3ca5a6e1d659" width="200" height="450" style="display: inline-block;"/>
 </li>
   </li>
   <li style="text-align: center;">
-  <span style="display: block;">Bookmark Screen<br></span>
+  <span style="display: block;"><b>Bookmark Screen</b><br></span>
   <img src="https://github.com/Tohew/ASDict/assets/127734828/f76eaff0-4d49-476d-86d8-c21523b56e3d" width="200" height="450" style="display: inline-block;"/>
 </li>
 </ol>
