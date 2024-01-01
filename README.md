@@ -63,21 +63,21 @@
 <ol>
   <li style="text-align: center;">
   <span style="display: block;"><b>Home Screen</b><br></span>
-  <img src="https://github.com/Tohew/ASDict/assets/127734828/8a6b7605-3fde-4ab8-85f4-70a7d30af907" width="200" height="450" style="display: inline-block;"/>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/8a6b7605-3fde-4ab8-85f4-70a7d30af907" width="293" height="217" style="display: inline-block;"/>
 </li>
   <li style="text-align: center;">
   <span style="display: block;"><b>Synonym Screen</b><br></span>
-  <img src="https://github.com/Tohew/ASDict/assets/127734828/30d83f96-cf70-476d-b91e-49c8ce6d2fc0" width="200" height="450" style="display: inline-block;"/>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/30d83f96-cf70-476d-b91e-49c8ce6d2fc0" width="293" height="217" style="display: inline-block;"/>
 </li>
   </li>
   <li style="text-align: center;">
   <span style="display: block;"><b>Antonym Screen</b><br></span>
-  <img src="https://github.com/Tohew/ASDict/assets/127734828/14c0a0e5-677e-43ab-a614-0d3da0200457" width="200" height="450" style="display: inline-block;"/>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/14c0a0e5-677e-43ab-a614-0d3da0200457" width="293" height="217" style="display: inline-block;"/>
 </li>
   </li>
   <li style="text-align: center;">
   <span style="display: block;"><b>Bookmark Screen</b><br></span>
-  <img src="https://github.com/Tohew/ASDict/assets/127734828/c3c55984-d613-4b5e-8f6b-77a1b118c17a" width="200" height="450" style="display: inline-block;"/>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/c3c55984-d613-4b5e-8f6b-77a1b118c17a" width="293" height="217" style="display: inline-block;"/>
 </li>
 </ol>
 
