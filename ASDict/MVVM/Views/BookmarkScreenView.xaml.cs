@@ -47,6 +47,14 @@ public partial class BookmarkScreenView : ContentPage
     private async void infor_Clicked(object sender, EventArgs e)
     {
         if (isMenuOpen)
-            await DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices. Thank you for choosing our app to enhance your language skills!", "OK");
+        {//await DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices. Thank you for choosing our app to enhance your language skills!", "OK");
+            bool isUpdateChecked = await App.Current.MainPage.DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices.\n\nIf you have any questions, please feel free to contact us via email:\n\n22520357@gm.uit.edu.com\n22521205@gm.uit.edu.com\n22520577@gm.uit.edu.com\n\nTo check for update, visit our website", "Update", "OK");
+
+            if (isUpdateChecked)
+            {
+                string url = "https://nghgi.github.io/ASDict-Download/";
+                _ = Launcher.OpenAsync(new Uri(url));
+            }
+        }
     }
 }
