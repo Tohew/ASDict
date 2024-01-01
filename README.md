@@ -56,6 +56,7 @@
   <img src="https://github.com/Tohew/ASDict/assets/127734828/f76eaff0-4d49-476d-86d8-c21523b56e3d" width="200" height="450" style="display: inline-block;"/>
 </li>
 </ol>
+
 ## Hướng phát triển
 * Chỉnh sửa giao diện người dùng ở bảng kết quả.
 * Gọi nhiều API: hình ảnh minh họa, dịch Anh ↔ Việt, giọng nói, …
