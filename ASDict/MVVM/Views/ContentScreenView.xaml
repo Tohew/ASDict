@@ -428,11 +428,11 @@
                                             </Grid>
 
 
-                                            <Grid Grid.Row="1"   MaximumHeightRequest="700">
-                                                <Grid  ColumnDefinitions="*, *" Padding="32,16">
+                                            <Grid Grid.Row="1">
+                                                <Grid  ColumnDefinitions="*, *" Padding="24,16">
 
                                                     <VerticalStackLayout Grid.Column="0">
-                                                        <CollectionView ItemsSource="{Binding TempSynonymsCol1}" HeightRequest="350">
+                                                        <CollectionView ItemsSource="{Binding TempSynonymsCol1}">
                                                             <CollectionView.ItemTemplate>
                                                                 <DataTemplate>
                                                                     <Border
