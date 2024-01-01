@@ -24,6 +24,10 @@ namespace ASDict.MVVM.ViewModels
 
         [ObservableProperty]
         public string word;
+        [ObservableProperty]
+        public string sourceSort;
+        [ObservableProperty]
+        public bool isSort;
 
         [ObservableProperty]
         public Bookmark selectedFavoriteWord;
@@ -49,11 +53,17 @@ namespace ASDict.MVVM.ViewModels
             FavoriteWords = new ObservableCollection<Bookmark>();
             Task.Run(async () => await LoadFavoriteWords());
 
+            _ = CheckIfSortAsync();
+
             searchBarCommand = new Command(searchWinBookmark);
 
             _list = new List<SuggestionModel>();
             FillList();
             _count = _list.Count;
+        }
+        private async Task CheckIfSortAsync()
+        {
+            SourceSort = IsSort ? "sorted.png" : "unsorted.png";
         }
         public ICommand SortBookmarksCommand => new Command(SortBookmarks);
 
@@ -61,11 +71,15 @@ namespace ASDict.MVVM.ViewModels
         {
             if (!_isSortedAlphabetically)
             {
+                SourceSort = "sorted.png";
+                IsSort = true;
                 FavoriteWords = new ObservableCollection<Bookmark>(FavoriteWords.OrderBy(b => b.bookmarkWord));
                 _isSortedAlphabetically = true;
             }
             else
             {
+                SourceSort = "unsorted.png";
+                IsSort = false;
                 // Sort back to default (newest first, assuming 'wordId' is used for this purpose)
                 FavoriteWords = new ObservableCollection<Bookmark>(FavoriteWords.OrderByDescending(b => b.wordId));
                 _isSortedAlphabetically = false;

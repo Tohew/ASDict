@@ -370,10 +370,9 @@
                                                  BackgroundColor="#333A57"
                                                  VerticalOptions="Center"
                                                  HorizontalOptions="Center"
+                                                 Source="{Binding SourceSort}"
                                                  Command="{Binding SortBookmarksCommand}">
-                                                    <ImageButton.Source>
-                                                        <FontImageSource FontFamily="FAS" Glyph="{StaticResource sort}" Color="White" Size="28"/>
-                                                    </ImageButton.Source>
+                                                    
                                                 </ImageButton>
                                             </Border>
                                         </Grid>
@@ -778,11 +777,10 @@
                                             <ImageButton 
                                                  Aspect="Center"
                                                  BackgroundColor="#00FFFFFF"
-                                                Padding="0,-2,0,2"
+                                                 Padding="0,-2,0,2"
+                                                 Source="{Binding SourceSort}" 
                                                  Command="{Binding SortBookmarksCommand}">
-                                                <ImageButton.Source>
-                                                    <FontImageSource FontFamily="FAS" Glyph="{StaticResource sort}" Color="White" Size="18"/>
-                                                </ImageButton.Source>
+                                                
                                             </ImageButton>
                                         </Border>
                                     </Grid>
