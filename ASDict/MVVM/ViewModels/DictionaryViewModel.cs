@@ -64,31 +64,67 @@ namespace ASDict.MVVM.ViewModels
                 }
 
                 //Kiểm tra điều kiện hiển thị của Synonyms
-                if (dictModel.synonyms.Count > 0)
+                if (dictModel.synonyms.Count >= 8)
                 {
-                    for (int i = 0; i < dictModel.synonyms.Count / 2; i++)
+                    // Nếu có 8 phần tử hoặc nhiều hơn, thêm 4 phần tử vào SynonymsCol1
+                    for (int i = 0; i < 4; i++)
                     {
                         SynonymsCol1.Add(dictModel.synonyms[i]);
                         TempSynonymsCol1.Add(dictModel.synonyms[i]);
                     }
-                    
-                    for (int i = dictModel.synonyms.Count / 2; i < dictModel.synonyms.Count; i++)
+                    // Thêm phần tử còn lại vào SynonymsCol2
+                    for (int i = 4; i < 8; i++)
                     {
                         SynonymsCol2.Add(dictModel.synonyms[i]);
                         TempSynonymsCol2.Add(dictModel.synonyms[i]);
                     }
                 }
-
-                if (dictModel.antonyms.Count > 0)
+                else
                 {
-                    for (int i = 0; i < dictModel.antonyms.Count / 2; i++)
+                    int totalWords = dictModel.synonyms.Count;
+                    int wordsSynCol1 = Math.Min(4, totalWords);
+                    int wordsSynCol2 = Math.Max(0, totalWords - 4);
+
+                    for (int i = 0; i < wordsSynCol1; i++)
+                    {
+                        SynonymsCol1.Add(dictModel.synonyms[i]);
+                        TempSynonymsCol1.Add(dictModel.synonyms[i]);
+                    }
+
+                    for (int i = 0; i < wordsSynCol2; i++)
+                    {
+                        SynonymsCol2.Add(dictModel.synonyms[i + wordsSynCol1]);
+                        TempSynonymsCol2.Add(dictModel.synonyms[i + wordsSynCol1]);
+                    }
+                }
+
+                if (dictModel.antonyms.Count >= 8)
+                {
+                    // Nếu có 8 phần tử hoặc nhiều hơn, thêm 4 phần tử vào antonymsCol1
+                    for (int i = 0; i < 4; i++)
                     {
                         AntonymsCol1.Add(dictModel.antonyms[i]);
                     }
-                    
-                    for (int i = dictModel.antonyms.Count / 2; i < dictModel.antonyms.Count; i++)
+                    // Thêm phần tử còn lại vào antonymsCol2
+                    for (int i = 4; i < 8; i++)
                     {
                         AntonymsCol2.Add(dictModel.antonyms[i]);
+                    }
+                }
+                else
+                {
+                    int totalWords = dictModel.antonyms.Count;
+                    int wordsAntCol1 = Math.Min(4, totalWords);
+                    int wordsAntCol2 = Math.Max(0, totalWords - 4);
+
+                    for (int i = 0; i < wordsAntCol1; i++)
+                    {
+                        AntonymsCol1.Add(dictModel.antonyms[i]);
+                    }
+
+                    for (int i = 0; i < wordsAntCol2; i++)
+                    {
+                        AntonymsCol2.Add(dictModel.antonyms[i + wordsAntCol1]);
                     }
                 }
 
