@@ -63,7 +63,7 @@
 <ol>
   <li style="text-align: center;">
   <span style="display: block;"><b>Home Screen</b><br></span>
-  <img src="https://github.com/Tohew/ASDict/assets/127734828/8a6b7605-3fde-4ab8-85f4-70a7d30af907" width="293" height="217" style="display: inline-block;"/>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/8a6b7605-3fde-4ab8-85f4-70a7d30af907" style="display: inline-block;"/>
 </li>
   <li style="text-align: center;">
   <span style="display: block;"><b>Synonym Screen</b><br></span>
