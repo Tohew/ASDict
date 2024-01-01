@@ -2,6 +2,8 @@
 using ASDict.MVVM.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MetroLog;
+using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Platform;
 using System.Collections.ObjectModel;
 using System.Text.Json;
@@ -312,17 +314,32 @@ namespace ASDict.MVVM.ViewModels
                 Console.WriteLine($"Request failed. Error: {ex.Message}");
             }
         }
-
+        ILogger<HomeScreenView> logger;
         [RelayCommand]
         async void InfoClick()
         {
-            //App.Current.MainPage.DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices.\n\nIf you have any questions, suggestions, or feedback about ASDict, please feel free to contact us via email:\n\n22520357@gm.uit.edu.com\n22521205@gm.uit.edu.com\n22520577@gm.uit.edu.com", "OK");
-            bool isUpdateChecked = await App.Current.MainPage.DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices.\n\nIf you have any questions, please feel free to contact us via email:\n\n22520357@gm.uit.edu.com\n22521205@gm.uit.edu.com\n22520577@gm.uit.edu.com\n\nTo check for update, visit our website", "Update", "OK");
+            bool isUpdateChecked = await App.Current.MainPage.DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices.\n\nIf you have any questions, please feel free to contact us via email:\n\n22520357@gm.uit.edu.com\n22521205@gm.uit.edu.com\n22520577@gm.uit.edu.com", "Update or Log", "OK");
 
             if (isUpdateChecked)
             {
-                string url = "https://nghgi.github.io/ASDict-Download/";
-                _ = Launcher.OpenAsync(new Uri(url));
+                bool updateClicked = false;
+                bool logClicked = false;
+
+                var result = await App.Current.MainPage.DisplayAlert("Actions",
+                    "Check for update or view Log:",
+                    "Check for Update", "Log");
+
+                if (result)
+                {
+                    updateClicked = true;
+                    string url = "https://nghgi.github.io/ASDict-Download/";
+                    _ = Launcher.OpenAsync(new Uri(url));
+                }
+                else
+                {
+                    logClicked = true;
+                    await App.Current.MainPage.Navigation.PushAsync(new LogPage(logger));
+                }
             }
         }
         [RelayCommand]
