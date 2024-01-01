@@ -26,7 +26,7 @@
 ## Giao diện ứng dụng
 <ol>
 <li style="text-align: center;">
-  <span style="display: block;">Splash Screen</span>
+  <span style="display: block;">Splash Screen<br></span>
   <img src="https://github.com/Tohew/ASDict/assets/127734828/ec7add14-d9c3-43ec-aeab-446e37729802" width="300" height="200" style="display: inline-block;"/>
 </li>
 
