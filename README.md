@@ -27,12 +27,37 @@
 <ol>
 <li style="text-align: center;">
   <span style="display: block;">Splash Screen<br></span>
-  <img src="https://github.com/Tohew/ASDict/assets/127734828/ec7add14-d9c3-43ec-aeab-446e37729802" width="200" height="400" style="display: inline-block;"/>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/ec7add14-d9c3-43ec-aeab-446e37729802" width="200" height="450" style="display: inline-block;"/>
 </li>
-
-
-   <li></li>
-   <li></li>
-   <li></li>
-   <li></li>
+  <li style="text-align: center;">
+  <span style="display: block;">Home Screen<br></span>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/9bfab05f-ac9b-42d1-8286-42b6307506c1" width="200" height="450" style="display: inline-block;"/>
+</li>
+  <li style="text-align: center;">
+  <span style="display: block;">Menu Screen<br></span>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/13145639-0eca-435d-9168-cdb19ff57bb3" width="200" height="450" style="display: inline-block;"/>
+</li>
+  <li style="text-align: center;">
+  <span style="display: block;">Suggest Screen<br></span>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/a5196b16-0bf9-409a-9797-cca652f7414a" width="200" height="450" style="display: inline-block;"/>
+</li>
+  <li style="text-align: center;">
+  <span style="display: block;">Synonym Screen<br></span>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/f76eaff0-4d49-476d-86d8-c21523b56e3d" width="200" height="450" style="display: inline-block;"/>
+</li>
+  </li>
+  <li style="text-align: center;">
+  <span style="display: block;">Antonym Screen<br></span>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/d3c9f840-2dfa-4913-8759-3ca5a6e1d659" width="200" height="450" style="display: inline-block;"/>
+</li>
+  </li>
+  <li style="text-align: center;">
+  <span style="display: block;">Bookmark Screen<br></span>
+  <img src="https://github.com/Tohew/ASDict/assets/127734828/f76eaff0-4d49-476d-86d8-c21523b56e3d" width="200" height="450" style="display: inline-block;"/>
+</li>
 </ol>
+## Hướng phát triển
+* Chỉnh sửa giao diện người dùng ở bảng kết quả.
+* Gọi nhiều API: hình ảnh minh họa, dịch Anh ↔ Việt, giọng nói, …
+* Có khả năng viết lại đoạn văn mới bằng cách sử dụng các từ đồng nghĩa / trái nghĩa.
+* Tạo bong bóng để hiển thị trên các ứng dụng khác, giúp thuận tiện cho việc tra cứu.Kết hợp máy ảnh để dịch Anh ↔ Việt hoặc viết lại đoạn văn.
