@@ -912,7 +912,7 @@
                                             <VerticalStackLayout Grid.Column="0">
                                                 <CollectionView ItemsSource="{Binding TempSynonymsCol1}"
                                                                 HeightRequest="275"
-                                                                WidthRequest="100">
+                                                                WidthRequest="125">
                                                     <CollectionView.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border
@@ -955,7 +955,7 @@
                                             <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
                                                 <CollectionView ItemsSource="{Binding TempSynonymsCol2}"
                                                                 HeightRequest="275"
-                                                                WidthRequest="100">
+                                                                WidthRequest="112">
                                                     <CollectionView.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border
