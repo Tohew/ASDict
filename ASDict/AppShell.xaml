@@ -12,7 +12,7 @@
     </Page.Behaviors>
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:LogPage}"
+        ContentTemplate="{DataTemplate local:HomeScreenView}"
         Route="HomeScreenView" />
 
 </Shell>

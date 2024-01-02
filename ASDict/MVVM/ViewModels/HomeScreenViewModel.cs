@@ -2,6 +2,8 @@
 using ASDict.MVVM.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MetroLog;
+using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Platform;
 using System.Collections.ObjectModel;
 using System.Text.Json;
@@ -235,20 +237,35 @@ namespace ASDict.MVVM.ViewModels
         public ObservableCollection<string> RandomWords = new ObservableCollection<string>();
         public void LoadRandomWords()
         {
-            string[] predefinedWords = {
-        "map", "health", "system", "meat", "year", "thanks", "person", "data", "food", "theory",
-        "law", "knowledge", "power", "ability", "love", "television", "nature", "fact", "product",
-        "investment", "area", "activity", "story", "industry", "media", "community", "definition",
-        "safety", "development", "language", "player", "variety", "video", "security", "country",
-        "exam", "movie", "physics", "series", "thought", "basis", "direction", "strategy", "technology",
-        "army", "freedom", "environment"
-    };
+            //string line;
+            //try
+            //{
+            //    using Stream fileStream1 = await FileSystem.Current.OpenAppPackageFileAsync("randomwords.txt");
+            //    using StreamReader reader1 = new StreamReader(fileStream1);
+            //    while ((line = reader1.ReadLine()) != null)
+            //    {
+            //        RandomWords.Add(line);
+            //    }
+            //}
+            //catch
+            //{
+            //    Console.WriteLine($"Request failed. Error");
+            //}
+            
+                string[] predefinedWords = {
+      "map", "health", "system", "meat", "year", "thanks", "person", "data", "food", "theory",
+      "law", "knowledge", "power", "ability", "love", "television", "nature", "fact", "product",
+      "investment", "area", "activity", "story", "industry", "media", "community", "definition",
+      "safety", "development", "language", "player", "variety", "video", "security", "country",
+      "exam", "movie", "physics", "series", "thought", "basis", "direction", "strategy", "technology",
+      "army", "freedom", "environment"
+  };
 
-            foreach (var word in predefinedWords)
-            {
-                RandomWords.Add(word);
+                foreach (var word in predefinedWords)
+                {
+                    RandomWords.Add(word);
+                }
             }
-        }
         string GetRandomWord(ObservableCollection<string> collection)
         {
             if (collection.Count == 0)
@@ -297,17 +314,32 @@ namespace ASDict.MVVM.ViewModels
                 Console.WriteLine($"Request failed. Error: {ex.Message}");
             }
         }
-
+        ILogger<HomeScreenView> logger;
         [RelayCommand]
         async void InfoClick()
         {
-            //App.Current.MainPage.DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices.\n\nIf you have any questions, suggestions, or feedback about ASDict, please feel free to contact us via email:\n\n22520357@gm.uit.edu.com\n22521205@gm.uit.edu.com\n22520577@gm.uit.edu.com", "OK");
-            bool isUpdateChecked = await App.Current.MainPage.DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices.\n\nIf you have any questions, please feel free to contact us via email:\n\n22520357@gm.uit.edu.com\n22521205@gm.uit.edu.com\n22520577@gm.uit.edu.com\n\nTo check for update, visit our website", "Update", "OK");
+            bool isUpdateChecked = await App.Current.MainPage.DisplayAlert("About us", "Welcome to our ASDict app! At GHQ, we're dedicated to crafting this tool to help you expand your vocabulary and use language more precisely. We offer an intuitive search for synonyms and antonyms, allowing you to gain a deeper understanding of word meanings and their contextual usage. With cross-platform support, our app is ready to accompany you across various devices.\n\nIf you have any questions, please feel free to contact us via email:\n\n22520357@gm.uit.edu.com\n22521205@gm.uit.edu.com\n22520577@gm.uit.edu.com", "Update or Log", "OK");
 
             if (isUpdateChecked)
             {
-                string url = "https://nghgi.github.io/ASDict-Download/";
-                _ = Launcher.OpenAsync(new Uri(url));
+                bool updateClicked = false;
+                bool logClicked = false;
+
+                var result = await App.Current.MainPage.DisplayAlert("Actions",
+                    "Check for update or view Log:",
+                    "Check for Update", "Log");
+
+                if (result)
+                {
+                    updateClicked = true;
+                    string url = "https://nghgi.github.io/ASDict-Download/";
+                    _ = Launcher.OpenAsync(new Uri(url));
+                }
+                else
+                {
+                    logClicked = true;
+                    await App.Current.MainPage.Navigation.PushAsync(new LogPage(logger));
+                }
             }
         }
         [RelayCommand]
