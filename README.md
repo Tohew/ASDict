@@ -86,3 +86,6 @@
 * Gọi nhiều API: hình ảnh minh họa, dịch Anh ↔ Việt, giọng nói, …
 * Có khả năng viết lại đoạn văn mới bằng cách sử dụng các từ đồng nghĩa / trái nghĩa.
 * Tạo bong bóng để hiển thị trên các ứng dụng khác, giúp thuận tiện cho việc tra cứu.Kết hợp máy ảnh để dịch Anh ↔ Việt hoặc viết lại đoạn văn.
+
+## Link tải ứng dụng:
+https://nghgi.github.io/ASDict-Download/
