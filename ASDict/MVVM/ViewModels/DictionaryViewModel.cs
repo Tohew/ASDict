@@ -151,8 +151,6 @@ namespace ASDict.MVVM.ViewModels
 
             starClicked = new Command(favoriteCommand);
             starWinClicked = new Command(favoriteWinCommand);
-
-
         }
 
         public void ConvertToAnt()

@@ -381,14 +381,15 @@
                                     <Grid Grid.Row="1">
                                         <ScrollView Grid.Row="1"
                                         VerticalOptions="FillAndExpand"
-                                        BackgroundColor="White">
+                                        BackgroundColor="White"
+                                                    >
                                             <VerticalStackLayout Padding="12"
                                                      Spacing="6">
                                                 <CollectionView ItemsSource="{Binding FavoriteWords}">
                                                     <CollectionView.ItemTemplate>
                                                         <DataTemplate>
                                                             <Border Padding="18, 0"
-                                                        HeightRequest="60"
+                                                        HeightRequest="40"
                                                         Stroke="#333A57"
                                                         StrokeThickness="3"
                                                         StrokeShape="RoundRectangle 20"
